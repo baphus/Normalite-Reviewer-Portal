@@ -47,10 +47,38 @@
 <span class="truncate">Student Login</span>
 </button>
 </div>
-<button class="md:hidden text-[#1d0c0c] dark:text-white">
+<button class="md:hidden text-[#1d0c0c] dark:text-white" id="mobile-menu-button">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </header>
+
+<!-- Mobile Menu -->
+<div class="fixed inset-0 z-[100] hidden" id="mobile-menu">
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-overlay"></div>
+<div class="fixed right-0 top-0 h-full w-64 bg-background-light dark:bg-background-dark p-6 shadow-xl transition-transform duration-300 translate-x-full" id="mobile-menu-content">
+<div class="flex flex-col gap-6">
+<div class="flex justify-between items-center mb-4 border-b dark:border-gray-800 pb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">school</span>
+<span class="font-bold text-[#1d0c0c] dark:text-white">Menu</span>
+</div>
+<button class="text-[#1d0c0c] dark:text-white" id="close-menu">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-4">
+<a class="text-[#1d0c0c] dark:text-white text-lg font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="text-[#1d0c0c] dark:text-white text-lg font-medium hover:text-primary transition-colors" href="#features">Features</a>
+<a class="text-[#1d0c0c] dark:text-white text-lg font-medium hover:text-primary transition-colors" href="#testimonials">Success Stories</a>
+<hr class="border-gray-200 dark:border-gray-800 my-2"/>
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-sm font-bold shadow-md" onclick="window.location.href='login.html'">
+<span class="truncate">Student Login</span>
+</button>
+</nav>
+</div>
+</div>
+</div>
+
 <div class="relative w-full">
 <div class="absolute inset-0 z-0">
 <div class="h-full w-full bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBRR9ik7du_NN8BbhtzHgmEFdhEHHeTgNy3cjFn5wc_jkOz-DyKEK0AIWtwt7eZ94ewuUkYZnauRden46dcPtskCS-idsL1gtyT_pDO5L7nfb4loDomydtkseoggtMqYofqbSaaO2mbAX55oC73yjWODFtUhFvGxez8zYKcp84AkYgzV9N7Val59FVsTgdLanh7_8mQOQBSJ-CpRNhapJAQ3uDP_hvUddV78bfd9MbjLFzUssku_cO_N-TUvosJrdLyAeNPAKFjpIhs");'>
@@ -254,4 +282,36 @@
 </footer>
 </div>
 
+<script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuContent = document.getElementById('mobile-menu-content');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const closeMenuButton = document.getElementById('close-menu');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenuContent.classList.remove('translate-x-full');
+                }, 10);
+            } else {
+                mobileMenuContent.classList.add('translate-x-full');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMenu);
+        closeMenuButton.addEventListener('click', toggleMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
 </body></html>

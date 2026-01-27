@@ -78,6 +78,10 @@
 <span class="material-symbols-outlined text-[20px]">settings</span>
 <p class="text-sm font-medium">Settings</p>
 </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="admin-pages/dashboard.html">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+<p class="text-sm font-medium">Admin Portal</p>
+</a>
 </nav>
 </div>
 <div class="flex flex-col gap-4 border-t border-gray-100 pt-4 dark:border-white/10">
@@ -96,7 +100,10 @@
 </div>
 </div>
 </aside>
-<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark">
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark relative">
+<!-- Sidebar Backdrop -->
+<div class="fixed inset-0 bg-black/50 z-40 hidden md:hidden" id="sidebar-backdrop"></div>
+
 <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-8">
 <div class="md:hidden flex items-center justify-between pb-4">
 <div class="flex items-center gap-2">
@@ -105,7 +112,7 @@
 </div>
 <span class="font-bold text-lg text-primary">Normalite</span>
 </div>
-<button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/10">
+<button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/10" id="mobile-menu-button">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </div>
@@ -442,4 +449,25 @@
 </div>
 </div>
 </div>
+<script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeSidebarButton = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+
+        function toggleSidebar() {
+            const isHidden = sidebar.classList.contains('-translate-x-full');
+            if (isHidden) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebarBackdrop.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebarBackdrop.classList.add('hidden');
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', toggleSidebar);
+        closeSidebarButton.addEventListener('click', toggleSidebar);
+        sidebarBackdrop.addEventListener('click', toggleSidebar);
+    </script>
 </body></html>

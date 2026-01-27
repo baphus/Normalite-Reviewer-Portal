@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Subjects - Normalite Reviewer</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#800000",
+                        "accent": "#F59E0B",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#230f0f",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
+<div class="flex h-screen w-full">
+<aside class="flex w-64 flex-col border-r border-[#e5e7eb] bg-white dark:bg-[#1a0a0a] dark:border-[#3a1a1a] transition-all duration-300 hidden md:flex">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 px-2 py-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-10 w-10 shadow-sm border border-primary/20" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRPPNAtErCq7KnUYhj2JsmJNhkhexjuGMyftx05EykHw3q1BlzO-71-JUqsyQSFSiag1qAKfi6bcA9G4HUgLH1lLaFzKMl9DKsXWwXV0LdNJ02QNwnvh0WdIdFpy2zVJg73wjkd-PXjqbBElMEF5bOGlukZ5tUK9GGdjXWh5MWEDuPjDjM55USlSs5AGGZgVZmG8pOwiXYtj1yKgNzA-AvvZAO9x3_VXoFCpwqbuUsTJFM7b4mNxI7kjy_2gqMFqaI0pkK4DcIYkVd");'></div>
+<div class="flex flex-col">
+<h1 class="text-primary text-lg font-bold leading-tight tracking-tight">Normalite</h1>
+<p class="text-gray-500 text-xs font-normal">Admin Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="dashboard.html">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-colors" href="subjects.html">
+<span class="material-symbols-outlined text-[20px] font-variation-settings-'FILL'1">library_books</span>
+<p class="text-sm font-medium">Subjects</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="exams.html">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+<p class="text-sm font-medium">Exams</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="questions.html">
+<span class="material-symbols-outlined text-[20px]">quiz</span>
+<p class="text-sm font-medium">Questions Bank</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="flashcards.html">
+<span class="material-symbols-outlined text-[20px]">style</span>
+<p class="text-sm font-medium">Flashcards</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="users.html">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<p class="text-sm font-medium">Users</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="reports.html">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<p class="text-sm font-medium">Reports</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="import-export.html">
+<span class="material-symbols-outlined text-[20px]">import_export</span>
+<p class="text-sm font-medium">Import / Export</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4 border-t border-gray-100 pt-4 dark:border-white/10">
+<div class="flex items-center gap-3 px-2">
+<div class="h-9 w-9 rounded-full bg-gray-200 bg-cover bg-center border border-gray-300" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlj7X3FeByZgwcrzsXQJwePv-4yl8HA3bmTcnNF5lOgngG9vpjm_kyYznzAPZgPVIZ-iMHlmeLbCxxpq7CR0YM-1BmepRG_eeyil5lqU2SlUhs9CHW8_FrpUtQdHmoXzl8DTzoy5_otYgexhRADm4-hnUyPM1rjk5okTceIRQral4XdpNixjnPxWisoyjD-rAs9h-1yU_deBaVQXXGAgGafWOKjyID8Bj0sZqv-7JuPA06AKS6bvqdQNAoiXA1T1tArTvVkGymOOhr");'></div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-sm font-medium text-gray-900 dark:text-white truncate">System Admin</p>
+<p class="text-xs text-gray-500 truncate">Administrator</p>
+</div>
+</div>
+<button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10" onclick="window.location.href='../dashboard.html'">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Back to Portal</span>
+</button>
+<button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span>Log Out</span>
+</button>
+</div>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark">
+<div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-8">
+<div class="md:hidden flex items-center justify-between pb-4">
+<div class="flex items-center gap-2">
+<div class="bg-primary/10 p-1.5 rounded-md">
+<span class="material-symbols-outlined text-primary">library_books</span>
+</div>
+<span class="font-bold text-lg text-primary">Normalite Admin</span>
+</div>
+<button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/10">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<header class="flex flex-col gap-2">
+<div class="flex flex-wrap items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Subjects Content Hub</h1>
+<p class="text-gray-500 dark:text-gray-400 mt-2 text-base">Manage core subjects, questions, and curriculum organization.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl">search</span>
+<input class="pl-10 pr-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary w-64 transition-all" placeholder="Search subjects..." type="text"/>
+</div>
+<button class="flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-white hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="text-sm font-bold">New Subject</span>
+</button>
+</div>
+</div>
+</header>
+<div class="flex items-center gap-6 border-b border-gray-200 dark:border-white/10 overflow-x-auto pb-0.5 scrollbar-hide">
+<button class="pb-3 px-1 text-sm font-bold text-primary border-b-2 border-primary whitespace-nowrap">All Subjects</button>
+<button class="pb-3 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap">General Education</button>
+<button class="pb-3 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap">Professional Education</button>
+<button class="pb-3 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap">Majorships</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-32 bg-primary/5 flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-6xl text-primary/20 group-hover:scale-110 transition-transform">school</span>
+<div class="absolute top-3 right-3">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Gen Ed</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div>
+<h3 class="font-bold text-lg text-gray-900 dark:text-white line-clamp-1">English Proficiency</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Grammar, Literature, and Vocabulary</p>
+</div>
+<div class="grid grid-cols-2 gap-4 py-3 border-y border-gray-50 dark:border-white/5">
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Total Questions</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">842</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Active Exams</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">12</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-auto">
+<button class="flex-1 text-xs font-bold py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors" onclick="window.location.href='subject-details.html'">View Details</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" title="Add Content">
+<span class="material-symbols-outlined text-xl">post_add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-32 bg-accent/5 flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-6xl text-accent/20 group-hover:scale-110 transition-transform">psychology</span>
+<div class="absolute top-3 right-3">
+<span class="bg-accent/10 text-accent text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Prof Ed</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div>
+<h3 class="font-bold text-lg text-gray-900 dark:text-white line-clamp-1">Teaching Profession</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Ethics, Foundations &amp; Social Dimensions</p>
+</div>
+<div class="grid grid-cols-2 gap-4 py-3 border-y border-gray-50 dark:border-white/5">
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Total Questions</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">1,205</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Active Exams</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">18</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-auto">
+<button class="flex-1 text-xs font-bold py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors" onclick="window.location.href='subject-details.html'">View Details</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" title="Add Content">
+<span class="material-symbols-outlined text-xl">post_add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-32 bg-blue-500/5 flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-6xl text-blue-500/20 group-hover:scale-110 transition-transform">calculate</span>
+<div class="absolute top-3 right-3">
+<span class="bg-blue-100 text-blue-600 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Gen Ed</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div>
+<h3 class="font-bold text-lg text-gray-900 dark:text-white line-clamp-1">Mathematics</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Algebra, Geometry &amp; Statistics</p>
+</div>
+<div class="grid grid-cols-2 gap-4 py-3 border-y border-gray-50 dark:border-white/5">
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Total Questions</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">612</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Active Exams</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">8</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-auto">
+<button class="flex-1 text-xs font-bold py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors" onclick="window.location.href='subject-details.html'">View Details</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" title="Add Content">
+<span class="material-symbols-outlined text-xl">post_add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-32 bg-green-500/5 flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-6xl text-green-500/20 group-hover:scale-110 transition-transform">science</span>
+<div class="absolute top-3 right-3">
+<span class="bg-green-100 text-green-600 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Gen Ed</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div>
+<h3 class="font-bold text-lg text-gray-900 dark:text-white line-clamp-1">Natural Sciences</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Biology, Chemistry &amp; Physical Science</p>
+</div>
+<div class="grid grid-cols-2 gap-4 py-3 border-y border-gray-50 dark:border-white/5">
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Total Questions</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">520</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Active Exams</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">5</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-auto">
+<button class="flex-1 text-xs font-bold py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors" onclick="window.location.href='subject-details.html'">View Details</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" title="Add Content">
+<span class="material-symbols-outlined text-xl">post_add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-32 bg-purple-500/5 flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-6xl text-purple-500/20 group-hover:scale-110 transition-transform">history_edu</span>
+<div class="absolute top-3 right-3">
+<span class="bg-purple-100 text-purple-600 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Major</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div>
+<h3 class="font-bold text-lg text-gray-900 dark:text-white line-clamp-1">Major: English</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Linguistics and Literature Mastery</p>
+</div>
+<div class="grid grid-cols-2 gap-4 py-3 border-y border-gray-50 dark:border-white/5">
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Total Questions</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">410</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Active Exams</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">4</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-auto">
+<button class="flex-1 text-xs font-bold py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors" onclick="window.location.href='subject-details.html'">View Details</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" title="Add Content">
+<span class="material-symbols-outlined text-xl">post_add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-32 bg-orange-500/5 flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-6xl text-orange-500/20 group-hover:scale-110 transition-transform">function</span>
+<div class="absolute top-3 right-3">
+<span class="bg-orange-100 text-orange-600 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Major</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div>
+<h3 class="font-bold text-lg text-gray-900 dark:text-white line-clamp-1">Major: Mathematics</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Advanced Calculus and Analysis</p>
+</div>
+<div class="grid grid-cols-2 gap-4 py-3 border-y border-gray-50 dark:border-white/5">
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Total Questions</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">385</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Active Exams</span>
+<span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">3</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-auto">
+<button class="flex-1 text-xs font-bold py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors" onclick="window.location.href='subject-details.html'">View Details</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" title="Add Content">
+<span class="material-symbols-outlined text-xl">post_add</span>
+</button>
+</div>
+</div>
+</div>
+<button class="rounded-2xl border-2 border-dashed border-gray-200 dark:border-white/10 flex flex-col items-center justify-center p-8 text-gray-400 hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined text-4xl mb-3">add_circle</span>
+<span class="font-bold text-sm">Add New Subject</span>
+</button>
+</div>
+<section class="mt-4">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white">Recent Content Updates</h2>
+<a class="text-primary text-sm font-semibold hover:text-primary/80" href="questions.html">Manage Questions Bank</a>
+</div>
+<div class="bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="bg-gray-50 dark:bg-white/5 text-gray-500 uppercase font-medium text-xs">
+<tr>
+<th class="px-6 py-3">Subject</th>
+<th class="px-6 py-3">Activity</th>
+<th class="px-6 py-3">By</th>
+<th class="px-6 py-3">Timestamp</th>
+<th class="px-6 py-3 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 dark:divide-white/5">
+<tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-medium text-gray-900 dark:text-white">English Proficiency</span>
+</div>
+</td>
+<td class="px-6 py-4 text-gray-500">Bulk upload (50 questions)</td>
+<td class="px-6 py-4 text-gray-500">Admin_User</td>
+<td class="px-6 py-4 text-gray-500">2 hours ago</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:underline text-xs font-bold" onclick="window.location.href='questions.html'">Review</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-accent"></div>
+<span class="font-medium text-gray-900 dark:text-white">Teaching Profession</span>
+</div>
+</td>
+<td class="px-6 py-4 text-gray-500">Updated exam metadata</td>
+<td class="px-6 py-4 text-gray-500">Mod_Sayson</td>
+<td class="px-6 py-4 text-gray-500">5 hours ago</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:underline text-xs font-bold" onclick="window.location.href='questions.html'">Review</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+
+</body></html>

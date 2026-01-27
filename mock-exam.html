@@ -55,15 +55,20 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
 <div class="flex h-screen w-full">
-<aside class="flex w-64 flex-col border-r border-[#e5e7eb] bg-white dark:bg-[#1a0a0a] dark:border-[#3a1a1a] transition-all duration-300 hidden md:flex shrink-0 z-20">
+<aside class="flex w-64 flex-col border-r border-[#e5e7eb] bg-white dark:bg-[#1a0a0a] dark:border-[#3a1a1a] transition-all duration-300 fixed inset-y-0 left-0 z-50 transform -translate-x-full md:relative md:translate-x-0 md:flex shrink-0" id="sidebar">
 <div class="flex h-full flex-col justify-between p-4">
 <div class="flex flex-col gap-6">
-<div class="flex items-center gap-3 px-2 py-2">
+<div class="flex items-center justify-between md:justify-start gap-3 px-2 py-2">
+<div class="flex items-center gap-3">
 <div class="bg-center bg-no-repeat bg-cover rounded-lg h-10 w-10 shadow-sm border border-primary/10" style='background-image: url("https://img.icons8.com/color/512/university.png");'></div>
 <div class="flex flex-col">
 <h1 class="text-primary text-lg font-bold leading-tight tracking-tight">Normalite</h1>
 <p class="text-gray-500 text-xs font-normal">Reviewer Portal</p>
 </div>
+</div>
+<button class="md:hidden text-gray-500" id="close-sidebar">
+<span class="material-symbols-outlined">close</span>
+</button>
 </div>
 <nav class="flex flex-col gap-1">
 <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="dashboard.html">
@@ -85,6 +90,10 @@
 <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
 <span class="material-symbols-outlined text-[20px]">settings</span>
 <p class="text-sm font-medium">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="admin-pages/dashboard.html">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+<p class="text-sm font-medium">Admin Portal</p>
 </a>
 </nav>
 </div>
@@ -108,7 +117,10 @@
 </div>
 </div>
 </aside>
-<main class="flex-1 flex flex-col h-screen overflow-hidden bg-background-light dark:bg-background-dark">
+<main class="flex-1 flex flex-col h-screen overflow-hidden bg-background-light dark:bg-background-dark relative">
+<!-- Sidebar Backdrop -->
+<div class="fixed inset-0 bg-black/50 z-40 hidden md:hidden" id="sidebar-backdrop"></div>
+
 <div class="md:hidden flex shrink-0 items-center justify-between p-4 bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10">
 <div class="flex items-center gap-2">
 <div class="bg-primary/10 p-1.5 rounded-md">
@@ -116,7 +128,7 @@
 </div>
 <span class="font-bold text-lg text-primary">Normalite</span>
 </div>
-<button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/10">
+<button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/10" id="mobile-menu-button">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </div>
@@ -262,4 +274,25 @@
 </div>
 </main>
 </div>
+<script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeSidebarButton = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+
+        function toggleSidebar() {
+            const isHidden = sidebar.classList.contains('-translate-x-full');
+            if (isHidden) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebarBackdrop.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebarBackdrop.classList.add('hidden');
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', toggleSidebar);
+        closeSidebarButton.addEventListener('click', toggleSidebar);
+        sidebarBackdrop.addEventListener('click', toggleSidebar);
+    </script>
 </body></html>
