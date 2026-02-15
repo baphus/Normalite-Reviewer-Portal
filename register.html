@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Normalite Reviewer Portal - Registration</title>
+<title>Normalite EDGE - Registration</title>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -59,7 +59,7 @@
                     Create your account
                 </h1>
 <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base">
-                    Join the Normalite Reviewer Portal for LET preparation.
+                    Join Normalite EDGE for LET preparation.
                 </p>
 </div>
 <!-- Form Section -->
@@ -87,6 +87,46 @@
 </div>
 <input class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" inputmode="numeric" placeholder="12345678" type="text"/>
 </div>
+</div>
+<!-- Account Type -->
+<div class="space-y-1.5">
+<label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
+                        Register As
+                    </label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<label class="flex items-center gap-2 cursor-pointer rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] px-4 py-3">
+<input checked class="text-primary focus:ring-primary border-gray-300" name="accountRole" type="radio" value="reviewee"/>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-gray-900 dark:text-white">Reviewee</span>
+<span class="text-xs text-gray-500">Access materials and join sessions</span>
+</div>
+</label>
+<label class="flex items-center gap-2 cursor-pointer rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] px-4 py-3">
+<input class="text-primary focus:ring-primary border-gray-300" name="accountRole" type="radio" value="reviewer"/>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-gray-900 dark:text-white">Reviewer</span>
+<span class="text-xs text-gray-500">Create and schedule assessments</span>
+</div>
+</label>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-1">
+                        Reviewer access requires approval.
+                    </p>
+</div>
+<!-- Access Code -->
+<div class="space-y-1.5">
+<label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
+                        Access Code
+                    </label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined text-[20px]">key</span>
+</div>
+<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Provided by your department" type="text"/>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-1">
+                        Sign-up is restricted to authorized users.
+                    </p>
 </div>
 <!-- School Email -->
 <div class="space-y-1.5">
@@ -129,7 +169,7 @@
 </div>
 <!-- Submit Button -->
 <div class="pt-2">
-<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3.5 px-4 rounded-lg shadow-md transition-transform active:scale-[0.99] focus:ring-4 focus:ring-primary/30" type="submit" onclick="window.location.href='dashboard.html'">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3.5 px-4 rounded-lg shadow-md transition-transform active:scale-[0.99] focus:ring-4 focus:ring-primary/30" type="submit" id="register-submit">
 <span>Sign Up</span>
 <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
 </button>
@@ -148,8 +188,19 @@
 <!-- Bottom copyright -->
 <div class="absolute bottom-4 text-center w-full z-20 pointer-events-none">
 <p class="text-xs text-gray-500 dark:text-gray-400 opacity-80">
-                © 2024 Normalite Reviewer Portal. Cebu Normal University.
+                © 2024 Normalite EDGE. Cebu Normal University.
             </p>
 </div>
 </div>
+<script>
+    const registerButton = document.getElementById('register-submit');
+    registerButton.addEventListener('click', () => {
+        const selectedRole = document.querySelector('input[name="accountRole"]:checked');
+        if (selectedRole && selectedRole.value === 'reviewer') {
+            window.location.href = 'reviewer-dashboard.html';
+        } else {
+            window.location.href = 'dashboard.html';
+        }
+    });
+</script>
 </body></html>

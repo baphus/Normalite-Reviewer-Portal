@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mock Exam Interface - Normalite Reviewer</title>
+<title>Mock Exam Interface - Normalite EDGE</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
@@ -62,7 +62,7 @@
 <div class="flex items-center gap-3">
 <div class="bg-center bg-no-repeat bg-cover rounded-lg h-10 w-10 shadow-sm border border-primary/10" style='background-image: url("https://img.icons8.com/color/512/university.png");'></div>
 <div class="flex flex-col">
-<h1 class="text-primary text-lg font-bold leading-tight tracking-tight">Normalite</h1>
+<h1 class="text-primary text-lg font-bold leading-tight tracking-tight">Normalite EDGE</h1>
 <p class="text-gray-500 text-xs font-normal">Reviewer Portal</p>
 </div>
 </div>
@@ -86,6 +86,14 @@
 <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="leaderboard.html">
 <span class="material-symbols-outlined text-[20px]">leaderboard</span>
 <p class="text-sm font-medium">Leaderboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="video-conference.html">
+<span class="material-symbols-outlined text-[20px]">video_call</span>
+<p class="text-sm font-medium">Live Sessions</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="forums.html">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+<p class="text-sm font-medium">Forums</p>
 </a>
 <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
 <span class="material-symbols-outlined text-[20px]">settings</span>
@@ -126,7 +134,7 @@
 <div class="bg-primary/10 p-1.5 rounded-md">
 <span class="material-symbols-outlined text-primary">school</span>
 </div>
-<span class="font-bold text-lg text-primary">Normalite</span>
+<span class="font-bold text-lg text-primary">Normalite EDGE</span>
 </div>
 <button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/10" id="mobile-menu-button">
 <span class="material-symbols-outlined">menu</span>
@@ -139,7 +147,7 @@
 <div class="flex items-center gap-4 sm:gap-6 w-full sm:w-auto justify-between sm:justify-end">
 <div class="flex items-center gap-2 bg-gray-50 dark:bg-white/5 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-white/10">
 <span class="material-symbols-outlined text-gray-500 text-[20px]">timer</span>
-<span class="font-mono font-bold text-primary text-lg">01:29:45</span>
+<span class="font-mono font-bold text-primary text-lg" id="exam-timer">01:29:45</span>
 </div>
 <button onclick="window.location.href='mock-exam-result.html'" class="bg-primary hover:bg-primary/90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors shadow-sm">
                         Submit Exam
@@ -164,33 +172,46 @@
                                     </h3>
 <div class="flex flex-col gap-3">
 <label class="cursor-pointer group">
-<input class="peer sr-only option-radio" name="question_24" type="radio"/>
-<div class="flex items-center gap-4 p-4 rounded-xl border-2 border-gray-100 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group-hover:border-primary/30">
+<input class="peer sr-only option-radio" name="question_24" type="radio" data-correct="false"/>
+<div class="option-card flex items-center gap-4 p-4 rounded-xl border-2 border-gray-100 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group-hover:border-primary/30" data-option="A">
 <span class="option-indicator h-8 w-8 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors">A</span>
 <span class="text-base text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white">Law of Readiness</span>
 </div>
 </label>
 <label class="cursor-pointer group">
-<input class="peer sr-only option-radio" name="question_24" type="radio"/>
-<div class="flex items-center gap-4 p-4 rounded-xl border-2 border-gray-100 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group-hover:border-primary/30">
+<input class="peer sr-only option-radio" name="question_24" type="radio" data-correct="false"/>
+<div class="option-card flex items-center gap-4 p-4 rounded-xl border-2 border-gray-100 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group-hover:border-primary/30" data-option="B">
 <span class="option-indicator h-8 w-8 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors">B</span>
 <span class="text-base text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white">Law of Exercise</span>
 </div>
 </label>
 <label class="cursor-pointer group">
-<input class="peer sr-only option-radio" name="question_24" type="radio"/>
-<div class="flex items-center gap-4 p-4 rounded-xl border-2 border-gray-100 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group-hover:border-primary/30">
+<input class="peer sr-only option-radio" name="question_24" type="radio" data-correct="true"/>
+<div class="option-card flex items-center gap-4 p-4 rounded-xl border-2 border-gray-100 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group-hover:border-primary/30" data-option="C">
 <span class="option-indicator h-8 w-8 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors">C</span>
 <span class="text-base text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white">Law of Effect</span>
 </div>
 </label>
 <label class="cursor-pointer group">
-<input class="peer sr-only option-radio" name="question_24" type="radio"/>
-<div class="flex items-center gap-4 p-4 rounded-xl border-2 border-gray-100 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group-hover:border-primary/30">
+<input class="peer sr-only option-radio" name="question_24" type="radio" data-correct="false"/>
+<div class="option-card flex items-center gap-4 p-4 rounded-xl border-2 border-gray-100 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group-hover:border-primary/30" data-option="D">
 <span class="option-indicator h-8 w-8 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors">D</span>
 <span class="text-base text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white">Law of Primacy</span>
 </div>
 </label>
+</div>
+<div class="mt-6 hidden" id="answer-feedback">
+    <div class="flex items-start gap-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-4">
+        <span class="material-symbols-outlined text-[20px]" id="feedback-icon">info</span>
+        <div>
+            <p class="text-sm font-semibold" id="feedback-title">Answer feedback</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300" id="feedback-text">Select an option to see immediate feedback.</p>
+        </div>
+    </div>
+</div>
+<div class="mt-4 hidden" id="rationale-panel">
+    <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-2">Rationalization</label>
+    <textarea class="w-full rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 text-sm p-4 focus:ring-primary focus:border-primary" rows="3" placeholder="Explain why you chose your answer..."></textarea>
 </div>
 </div>
 <div class="flex items-center justify-between pt-4">
@@ -294,5 +315,60 @@
         mobileMenuButton.addEventListener('click', toggleSidebar);
         closeSidebarButton.addEventListener('click', toggleSidebar);
         sidebarBackdrop.addEventListener('click', toggleSidebar);
+
+        // Countdown timer
+        const timerEl = document.getElementById('exam-timer');
+        let remainingSeconds = 1 * 3600 + 29 * 60 + 45;
+        function formatTime(seconds) {
+            const hrs = Math.floor(seconds / 3600);
+            const mins = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            return `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+        setInterval(() => {
+            if (remainingSeconds > 0) {
+                remainingSeconds -= 1;
+                timerEl.textContent = formatTime(remainingSeconds);
+            }
+        }, 1000);
+
+        // Real-time feedback and rationale prompt
+        const optionInputs = document.querySelectorAll('input[name="question_24"]');
+        const feedbackPanel = document.getElementById('answer-feedback');
+        const feedbackIcon = document.getElementById('feedback-icon');
+        const feedbackTitle = document.getElementById('feedback-title');
+        const feedbackText = document.getElementById('feedback-text');
+        const rationalePanel = document.getElementById('rationale-panel');
+
+        optionInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                const cards = document.querySelectorAll('.option-card');
+                cards.forEach(card => {
+                    card.classList.remove('border-green-400', 'bg-green-50', 'border-red-400', 'bg-red-50');
+                });
+
+                const selectedCard = input.closest('label').querySelector('.option-card');
+                const isCorrect = input.dataset.correct === 'true';
+
+                if (isCorrect) {
+                    selectedCard.classList.add('border-green-400', 'bg-green-50');
+                    feedbackIcon.textContent = 'check_circle';
+                    feedbackIcon.className = 'material-symbols-outlined text-green-600 text-[20px]';
+                    feedbackTitle.textContent = 'Correct answer';
+                    feedbackTitle.className = 'text-sm font-semibold text-green-700';
+                    feedbackText.textContent = 'Great job! Your choice aligns with the Law of Effect.';
+                } else {
+                    selectedCard.classList.add('border-red-400', 'bg-red-50');
+                    feedbackIcon.textContent = 'error';
+                    feedbackIcon.className = 'material-symbols-outlined text-red-600 text-[20px]';
+                    feedbackTitle.textContent = 'Needs review';
+                    feedbackTitle.className = 'text-sm font-semibold text-red-700';
+                    feedbackText.textContent = 'Review the principles of learning and try to reason why.';
+                }
+
+                feedbackPanel.classList.remove('hidden');
+                rationalePanel.classList.remove('hidden');
+            });
+        });
     </script>
 </body></html>
