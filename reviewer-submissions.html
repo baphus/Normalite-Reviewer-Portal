@@ -134,5 +134,13 @@
         </div>
     </main>
 </div>
+<script>
+    // Access control - Only reviewers can access this page
+    const userRole = localStorage.getItem('userRole') || 'reviewee';
+    if (userRole !== 'reviewer') {
+        alert('Access Denied: This page is only accessible to reviewers.');
+        window.location.href = 'dashboard.html';
+    }
+</script>
 </body>
 </html>

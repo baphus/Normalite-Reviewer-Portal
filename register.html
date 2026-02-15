@@ -196,10 +196,16 @@
     const registerButton = document.getElementById('register-submit');
     registerButton.addEventListener('click', () => {
         const selectedRole = document.querySelector('input[name="accountRole"]:checked');
-        if (selectedRole && selectedRole.value === 'reviewer') {
-            window.location.href = 'reviewer-dashboard.html';
-        } else {
-            window.location.href = 'dashboard.html';
+        if (selectedRole) {
+            const role = selectedRole.value;
+            // Store user role for access control
+            localStorage.setItem('userRole', role);
+            
+            if (role === 'reviewer') {
+                window.location.href = 'reviewer-dashboard.html';
+            } else {
+                window.location.href = 'dashboard.html';
+            }
         }
     });
 </script>

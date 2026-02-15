@@ -126,7 +126,7 @@
                         <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Join scheduled sessions or host new conferences.</p>
                     </div>
                     <div class="flex items-center gap-3">
-                        <button class="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-sm font-medium transition-colors shadow-sm">Host Session</button>
+                        <button id="hostSessionBtn" class="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-sm font-medium transition-colors shadow-sm" style="display: none;">Host Session</button>
                     </div>
                 </div>
             </div>
@@ -180,6 +180,14 @@
     const closeSidebarButton = document.getElementById('close-sidebar');
     const sidebar = document.getElementById('sidebar');
     const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+
+    // Role-based access control
+    const userRole = localStorage.getItem('userRole') || 'reviewee';
+    
+    // Show host session button only for reviewers
+    if (userRole === 'reviewer') {
+        document.getElementById('hostSessionBtn').style.display = 'block';
+    }
 
     function toggleSidebar() {
         const isHidden = sidebar.classList.contains('-translate-x-full');

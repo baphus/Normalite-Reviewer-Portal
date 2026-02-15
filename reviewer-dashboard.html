@@ -153,6 +153,13 @@
     </main>
 </div>
 <script>
+    // Access control - Only reviewers can access this page
+    const userRole = localStorage.getItem('userRole') || 'reviewee';
+    if (userRole !== 'reviewer') {
+        alert('Access Denied: This page is only accessible to reviewers.');
+        window.location.href = 'dashboard.html';
+    }
+    
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const closeSidebarButton = document.getElementById('close-sidebar');
     const sidebar = document.getElementById('sidebar');

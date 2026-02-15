@@ -134,20 +134,26 @@
         <div class="flex-1 overflow-y-auto">
             <div class="container mx-auto max-w-6xl px-6 py-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div class="lg:col-span-2 space-y-4">
-                    <div class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-200 dark:border-white/10 p-6">
+                    <a href="forum-post.html" class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-200 dark:border-white/10 p-6 hover:border-primary/30 transition-colors block">
                         <div class="flex items-start justify-between">
-                            <div>
+                            <div class="flex-1">
                                 <p class="text-sm font-bold text-gray-900 dark:text-white">Tips for mastering Prof Ed: Child Development</p>
                                 <p class="text-xs text-gray-500 mt-1">Started by Reviewee_Jane • 2 hours ago</p>
                             </div>
-                            <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">Prof Ed</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">Prof Ed</span>
+                                <button class="reviewer-only text-gray-400 hover:text-primary p-1" style="display: none;" onclick="event.preventDefault(); alert('Moderation panel (Reviewer only)')">
+                                    <span class="material-symbols-outlined text-[18px]">more_vert</span>
+                                </button>
+                            </div>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-300 mt-4">Share your strategies, mnemonics, and must-read references.</p>
                         <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
                             <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">chat_bubble</span> 18 replies</span>
                             <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">visibility</span> 214 views</span>
+                            <span class="flex items-center gap-1">👍 18</span>
                         </div>
-                    </div>
+                    </a>
                     <div class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-200 dark:border-white/10 p-6">
                         <div class="flex items-start justify-between">
                             <div>
@@ -160,6 +166,7 @@
                         <div class="flex items-center gap-4 mt-4 text-xs text-gray-500">
                             <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">chat_bubble</span> 9 replies</span>
                             <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">visibility</span> 102 views</span>
+                            <span class="flex items-center gap-1">👍 12</span>
                         </div>
                     </div>
                 </div>

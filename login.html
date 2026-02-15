@@ -104,5 +104,19 @@
             </p>
 </div>
 </div>
-
+<script>
+    document.getElementById('login-submit').addEventListener('click', (e) => {
+        e.preventDefault();
+        // In a real application, validate credentials and get role from server
+        // For demo: Check email to determine role
+        const email = document.querySelector('input[type="email"]').value;
+        if (email.includes('reviewer') || email.includes('admin')) {
+            localStorage.setItem('userRole', 'reviewer');
+            window.location.href = 'reviewer-dashboard.html';
+        } else {
+            localStorage.setItem('userRole', 'reviewee');
+            window.location.href = 'dashboard.html';
+        }
+    });
+</script>
 </body></html>
