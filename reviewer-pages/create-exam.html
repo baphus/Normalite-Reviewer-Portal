@@ -200,20 +200,6 @@
 <input class="w-full rounded-lg border-gray-300 dark:border-white/10 dark:bg-white/5 focus:border-primary focus:ring-primary text-sm shadow-sm" placeholder="e.g., LET 2024 Comprehensive Mock: Professional Education" type="text"/>
 </div>
 <div>
-<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Category</label>
-<select id="exam-category" class="w-full rounded-lg border-gray-300 dark:border-white/10 dark:bg-white/5 focus:border-primary focus:ring-primary text-sm shadow-sm" onchange="toggleSpecialization(this.value)">
-<option value="">Select a category...</option>
-<option value="none">None</option>
-<option value="prof-ed">Professional Education</option>
-<option value="gen-ed">General Education</option>
-<option value="specialization">Specialization (Major)</option>
-</select>
-</div>
-<div id="specialization-container" class="hidden">
-<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Specialization</label>
-<input type="text" placeholder="e.g., Biological Science, Mathematics" class="w-full rounded-lg border-gray-300 dark:border-white/10 dark:bg-white/5 focus:border-primary focus:ring-primary text-sm shadow-sm">
-</div>
-<div>
 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Subject</label>
 <select id="subject-select" class="w-full rounded-lg border-gray-300 dark:border-white/10 dark:bg-white/5 focus:border-primary focus:ring-primary text-sm shadow-sm">
 <option value="">Select a subject...</option>
@@ -563,15 +549,6 @@
         function markCorrect(qIndex, optIndex) {
             questionsData[activeSection][qIndex].correctOption = optIndex;
             renderQuestions();
-        }
-
-        function toggleSpecialization(value) {
-            const container = document.getElementById('specialization-container');
-            if (value === 'specialization') {
-                container.classList.remove('hidden');
-            } else {
-                container.classList.add('hidden');
-            }
         }
 
         function handlePublish() {

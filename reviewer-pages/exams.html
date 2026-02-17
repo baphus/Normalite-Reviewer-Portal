@@ -174,17 +174,24 @@
                                 <input type="text" placeholder="Search exams..." class="pl-10 pr-4 py-2 border border-gray-200 dark:border-white/10 dark:bg-white/5 rounded-lg text-sm focus:ring-primary focus:border-primary w-64">
                             </div>
                             <div class="flex items-center gap-2">
-                                <select class="px-3 py-2 border border-gray-200 dark:border-white/10 dark:bg-white/5 rounded-lg text-sm focus:ring-primary focus:border-primary text-gray-600 dark:text-gray-300">
-                                    <option value="">All Categories</option>
-                                    <option value="prof-ed">Professional Education</option>
-                                    <option value="gen-ed">General Education</option>
-                                    <option value="specialization">Specialization</option>
+                                <select id="programFilter" class="px-3 py-2 border border-gray-200 dark:border-white/10 dark:bg-white/5 rounded-lg text-sm focus:ring-primary focus:border-primary text-gray-600 dark:text-gray-300">
+                                    <option value="all">All Programs / Majorships</option>
+                                    <option value="BSEd">BSEd - All Majorships</option>
+                                    <option value="BSEd-Science">BSEd - Science</option>
+                                    <option value="BSEd-English">BSEd - English</option>
+                                    <option value="BSEd-Mathematics">BSEd - Mathematics</option>
+                                    <option value="BSEd-Filipino">BSEd - Filipino</option>
+                                    <option value="BSEd-Social Studies">BSEd - Social Studies</option>
+                                    <option value="BSEd-Values Education">BSEd - Values Education</option>
+                                    <option value="BTLEd-Home Economics">BTLEd - Home Economics</option>
+                                    <option value="BPEd">Bachelor of Physical Education</option>
+                                    <option value="BCAEd">Bachelor of Culture &amp; Arts Education</option>
+                                    <option value="BEEd">Bachelor of Elementary Education</option>
+                                    <option value="BECEd">Bachelor of Early Childhood Education</option>
+                                    <option value="BSNEd">Bachelor of Special Needs Education</option>
+                                    <option value="DPE">Diploma in Professional Education</option>
                                 </select>
                             </div>
-                            <button onclick="window.location.href='create-exam.html'" class="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-sm font-medium transition-colors shadow-sm shadow-primary/20 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-[18px]">add</span>
-                                Create New Exam
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -229,7 +236,7 @@
                 <div class="container mx-auto max-w-6xl px-6 py-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="examGrid">
                         <!-- Exam Card: Live -->
-                        <div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group" data-status="live">
+                        <div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group" data-status="live" data-programs="all">
                             <div class="p-5 flex flex-col h-full">
                                 <div class="flex items-start justify-between mb-4">
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
@@ -257,8 +264,8 @@
                                 <div class="mb-4">
                                     <h3 class="text-base font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">LET 2024 Comprehensive: Professional Education</h3>
                                     <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400 uppercase tracking-tighter">Gen Ed</span>
                                         <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-50 text-gray-500 dark:bg-white/5 dark:text-gray-400 uppercase tracking-tighter">English Proficiency</span>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-primary/10 text-primary uppercase tracking-tight">Shown to: All Programs</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-4 text-xs text-gray-500 mb-6 pb-6 border-b border-gray-100 dark:border-white/5">
@@ -272,11 +279,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-auto grid grid-cols-2 gap-2">
-                                    <button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1" onclick="window.location.href='create-exam.html'">
-                                        <span class="material-symbols-outlined text-[16px]">edit</span>
-                                        Edit
-                                    </button>
-                                    <button class="px-3 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-xs font-bold transition-all flex items-center justify-center gap-1" onclick="window.location.href='exam-performance.html'">
+                                    <button class="px-3 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-xs font-bold transition-all flex items-center justify-center gap-1 w-full col-span-2" onclick="window.location.href='exam-performance.html'">
                                         <span class="material-symbols-outlined text-[16px]">visibility</span>
                                         View
                                     </button>
@@ -285,7 +288,7 @@
                         </div>
 
                         <!-- Exam Card: Draft -->
-                        <div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group" data-status="draft">
+                        <div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group" data-status="draft" data-programs="BSEd-Science">
                             <div class="p-5 flex flex-col h-full">
                                 <div class="flex items-start justify-between mb-4">
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
@@ -310,8 +313,8 @@
                                 <div class="mb-4">
                                     <h3 class="text-base font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">Specialization: Biological Science Mock 1</h3>
                                     <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400 uppercase tracking-tighter">Specialization</span>
                                         <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 uppercase tracking-tighter">Biological Science</span>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-primary/10 text-primary uppercase tracking-tight">Shown to: BSEd - Science</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-4 text-xs text-gray-500 mb-6 pb-6 border-b border-gray-100 dark:border-white/5">
@@ -325,20 +328,16 @@
                                     </div>
                                 </div>
                                 <div class="mt-auto grid grid-cols-2 gap-2">
-                                    <button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1" onclick="window.location.href='create-exam.html'">
-                                        <span class="material-symbols-outlined text-[16px]">edit</span>
-                                        Resume
-                                    </button>
-                                    <button class="px-3 py-2 rounded-lg bg-gray-50 border border-gray-200 text-gray-600 hover:text-primary text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-400 flex items-center justify-center gap-1">
+                                    <button class="px-3 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-xs font-bold transition-all flex items-center justify-center gap-1 w-full col-span-2">
                                         <span class="material-symbols-outlined text-[16px]">visibility</span>
-                                        Preview
+                                        View
                                     </button>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Exam Card: Live 2 -->
-                        <div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group border-l-4 border-l-primary/20" data-status="live">
+                        <div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group border-l-4 border-l-primary/20" data-status="live" data-programs="all">
                             <div class="p-5 flex flex-col h-full">
                                 <div class="flex items-start justify-between mb-4">
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
@@ -366,8 +365,8 @@
                                 <div class="mb-4">
                                     <h3 class="text-base font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">LET Foundation: Child and Adolescent Development</h3>
                                     <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-primary/10 text-primary uppercase tracking-tighter">Prof Ed</span>
                                         <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-50 text-gray-500 dark:bg-white/5 dark:text-gray-400 uppercase tracking-tighter">Teaching Profession</span>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-primary/10 text-primary uppercase tracking-tight">Shown to: All Programs</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-4 text-xs text-gray-500 mb-6 pb-6 border-b border-gray-100 dark:border-white/5">
@@ -381,11 +380,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-auto grid grid-cols-2 gap-2">
-                                    <button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1" onclick="window.location.href='create-exam.html'">
-                                        <span class="material-symbols-outlined text-[16px]">edit</span>
-                                        Edit
-                                    </button>
-                                    <button class="px-3 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-xs font-bold transition-all flex items-center justify-center gap-1" onclick="window.location.href='exam-performance.html'">
+                                    <button class="px-3 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-xs font-bold transition-all flex items-center justify-center gap-1 w-full col-span-2" onclick="window.location.href='exam-performance.html'">
                                         <span class="material-symbols-outlined text-[16px]">visibility</span>
                                         View
                                     </button>
@@ -394,7 +389,7 @@
                         </div>
 
                         <!-- Exam Card: Archived -->
-                        <div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm opacity-75 hover:opacity-100 transition-all group" data-status="archived">
+                        <div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm opacity-75 hover:opacity-100 transition-all group" data-status="archived" data-programs="BEEd,BSEd-Social Studies,BSEd-English">
                             <div class="p-5 flex flex-col h-full">
                                 <div class="flex items-start justify-between mb-4">
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-100 text-gray-700 dark:bg-white/10 dark:text-gray-400">
@@ -419,8 +414,8 @@
                                 <div class="mb-4">
                                     <h3 class="text-base font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">Old Curriculum Mock: LET 2022</h3>
                                     <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-500 dark:bg-white/10 dark:text-gray-400 uppercase tracking-tighter">Gen Ed</span>
                                         <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-50 text-gray-400 dark:bg-white/5 dark:text-gray-500 uppercase tracking-tighter">Social Science</span>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-primary/10 text-primary uppercase tracking-tight">Shown to: BEEd / BSEd (Soc Stud, English)</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-4 text-xs text-gray-500 mb-6 pb-6 border-b border-gray-100 dark:border-white/5">
@@ -446,14 +441,7 @@
                             </div>
                         </div>
 
-                        <!-- Add New Button -->
-                        <button class="bg-gray-50/50 dark:bg-white/[0.02] rounded-xl border-2 border-dashed border-gray-300 dark:border-white/10 p-5 flex flex-col items-center justify-center text-gray-500 hover:text-primary hover:border-primary/50 hover:bg-primary/[0.02] transition-all min-h-[300px] group" onclick="window.location.href='create-exam.html'">
-                            <div class="bg-white dark:bg-[#1a0a0a] p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform">
-                                <span class="material-symbols-outlined text-primary text-[32px]">add</span>
-                            </div>
-                            <p class="font-bold text-sm">Create New Mock Exam</p>
-                            <p class="text-xs text-gray-400 mt-1 px-8 text-center">Start from scratch or use a predefined template</p>
-                        </button>
+                        <!-- Add New Button Placeholder (Removed) -->
                     </div>
                 </div>
             </div>
@@ -500,11 +488,26 @@
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.filter-tab');
             const cards = document.querySelectorAll('.exam-card');
+            const programFilter = document.getElementById('programFilter');
+
+            let statusFilter = 'all';
+
+            const applyFilters = () => {
+                const programValue = programFilter?.value || 'all';
+
+                cards.forEach(card => {
+                    const statusMatch = statusFilter === 'all' || card.getAttribute('data-status') === statusFilter;
+                    const programs = (card.getAttribute('data-programs') || '').split(',').map(p => p.trim());
+                    const programMatch = programValue === 'all' || programs.includes(programValue) || programs.includes('all') || (programValue === 'BSEd' && programs.some(p => p.startsWith('BSEd')));
+
+                    card.style.display = statusMatch && programMatch ? 'block' : 'none';
+                });
+            };
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    const filter = tab.getAttribute('data-filter');
-                    
+                    statusFilter = tab.getAttribute('data-filter');
+
                     // Update tab styles
                     tabs.forEach(t => {
                         t.classList.remove('border-primary', 'font-bold', 'text-primary');
@@ -513,16 +516,12 @@
                     tab.classList.add('border-primary', 'font-bold', 'text-primary');
                     tab.classList.remove('border-transparent', 'font-medium', 'text-gray-500');
 
-                    // Filter cards
-                    cards.forEach(card => {
-                        if (filter === 'all' || card.getAttribute('data-status') === filter) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
+                    applyFilters();
                 });
             });
+
+            programFilter?.addEventListener('change', applyFilters);
+            applyFilters();
 
             // Close dropdowns on outside click
             window.addEventListener('click', (e) => {

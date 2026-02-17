@@ -192,22 +192,7 @@
                             <input class="w-full pl-10 pr-4 py-2.5 rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary text-sm" id="exam-search" placeholder="Search exams, categories, or topics..." type="text"/>
                         </div>
                     </div>
-                    <div class="flex items-center gap-2 mt-8 overflow-x-auto pb-1 no-scrollbar">
-<button class="filter-tab active px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium transition-all whitespace-nowrap" data-category="all">All Exams</button>
-<button class="filter-tab px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 text-sm font-medium transition-all whitespace-nowrap" data-category="Professional Education">Professional Ed</button>
-<button class="filter-tab px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 text-sm font-medium transition-all whitespace-nowrap" data-category="General Education">General Ed</button>
-<button class="filter-tab px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 text-sm font-medium transition-all whitespace-nowrap" data-category="Specialization" id="specialization-tab">Specialization (Major)</button>
-<button class="filter-tab px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 text-sm font-medium transition-all whitespace-nowrap" data-category="Full LET Simulation">Full LET Simulation</button>
-<div class="flex-1"></div>
-<div class="flex items-center gap-2 text-sm text-gray-500">
-<span class="material-symbols-outlined text-sm">sort</span>
-<select class="bg-transparent border-none focus:ring-0 text-sm font-medium cursor-pointer">
-<option>Newest First</option>
-<option>Oldest First</option>
-<option>Difficulty: High to Low</option>
-</select>
-</div>
-</div>
+                    
 </div>
 </header>
 <div class="flex-1 overflow-y-auto">
@@ -417,43 +402,25 @@
                 }
             }
 
-            // Category Filtering Logic
-            const filterTabs = document.querySelectorAll('.filter-tab');
             const examCards = document.querySelectorAll('.exam-card');
             const searchInput = document.getElementById('exam-search');
 
             function filterExams() {
-                const activeTab = document.querySelector('.filter-tab.active');
-                const activeCategory = activeTab ? activeTab.dataset.category : 'all';
                 const searchQuery = searchInput ? searchInput.value.toLowerCase() : '';
 
                 examCards.forEach(card => {
-                    const category = card.dataset.category;
                     const title = card.querySelector('h3').textContent.toLowerCase();
                     const desc = card.querySelector('p').textContent.toLowerCase();
-                    
-                    const matchesCategory = activeCategory === 'all' || category === activeCategory;
                     const matchesSearch = title.includes(searchQuery) || desc.includes(searchQuery);
 
-                    if (matchesCategory && matchesSearch) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    card.style.display = matchesSearch ? 'flex' : 'none';
                 });
             }
-
-            filterTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    filterTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    filterExams();
-                });
-            });
 
             if (searchInput) {
                 searchInput.addEventListener('input', filterExams);
             }
+            filterExams();
         });
     </script>
     <script>

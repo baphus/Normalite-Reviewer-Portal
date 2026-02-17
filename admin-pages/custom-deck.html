@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Create Study Material - Normalite EDGE Admin</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans:wght@100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#800000",
+                        "accent": "#F59E0B",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#230f0f",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
+<div class="flex h-screen w-full relative">
+    <!-- Sidebar Backdrop -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
+
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col border-r border-[#e5e7eb] bg-white dark:bg-[#1a0a0a] dark:border-[#3a1a1a] transition-transform duration-300 -translate-x-full md:translate-x-0 md:static">
+        <div class="flex h-full flex-col justify-between p-4">
+            <div class="flex flex-col gap-6">
+                <div class="flex items-center justify-between px-2 py-2">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-center bg-no-repeat bg-cover rounded-full h-10 w-10 shadow-sm border border-primary/20" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRPPNAtErCq7KnUYhj2JsmJNhkhexjuGMyftx05EykHw3q1BlzO-71-JUqsyQSFSiag1qAKfi6bcA9G4HUgLH1lLaFzKMl9DKsXWwXV0LdNJ02QNwnvh0WdIdFpy2zVJg73wjkd-PXjqbBElMEF5bOGlukZ5tUK9GGdjXWh5MWEDuPjDjM55USlSs5AGGZgVZmG8pOwiXYtj1yKgNzA-AvvZAO9x3_VXoFCpwqbuUsTJFM7b4mNxI7kjy_2gqMFqaI0pkK4DcIYkVd");'></div>
+                        <div class="flex flex-col">
+                            <h1 class="text-primary text-lg font-bold leading-tight tracking-tight">Normalite EDGE</h1>
+                            <p class="text-gray-500 text-xs font-normal">Admin Portal</p>
+                        </div>
+                    </div>
+                    <button id="close-sidebar" class="p-1 text-gray-400 hover:text-gray-600 md:hidden">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-1">
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="dashboard.html">
+                        <span class="material-symbols-outlined text-[20px]">dashboard</span>
+                        <p class="text-sm font-medium">Dashboard</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="exams.html">
+                        <span class="material-symbols-outlined text-[20px]">assignment</span>
+                        <p class="text-sm font-medium">Exams</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-colors shadow-sm shadow-primary/10" href="study.html">
+                        <span class="material-symbols-outlined text-[20px] font-variation-settings-'FILL'1">style</span>
+                        <p class="text-sm font-medium">Study</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="users.html">
+                        <span class="material-symbols-outlined text-[20px]">group</span>
+                        <p class="text-sm font-medium">Users</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="video-conferences.html">
+                        <span class="material-symbols-outlined text-[20px]">video_call</span>
+                        <p class="text-sm font-medium">Video Conferences</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="logs.html">
+                        <span class="material-symbols-outlined text-[20px]">event_note</span>
+                        <p class="text-sm font-medium">Logs</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
+                        <span class="material-symbols-outlined text-[20px]">settings</span>
+                        <p class="text-sm font-medium">Settings</p>
+                    </a>
+                </nav>
+            </div>
+            <div class="flex flex-col gap-4 border-t border-gray-100 pt-4 dark:border-white/10">
+                <div class="flex items-center gap-3 px-2">
+                    <div class="h-9 w-9 rounded-full bg-gray-200 bg-cover bg-center border border-gray-300" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlj7X3FeByZgwcrzsXQJwePv-4yl8HA3bmTcnNF5lOgngG9vpjm_kyYznzAPZgPVIZ-iMHlmeLbCxxpq7CR0YM-1BmepRG_eeyil5lqU2SlUhs9CHW8_FrpUtQdHmoXzl8DTzoy5_otYgexhRADm4-hnUyPM1rjk5okTceIRQral4XdpNixjnPxWisoyjD-rAs9h-1yU_deBaVQXXGAgGafWOKjyID8Bj0sZqv-7JuPA06AKS6bvqdQNAoiXA1T1tArTvVkGymOOhr");'></div>
+                    <div class="flex flex-col overflow-hidden">
+                        <p class="text-sm font-medium text-gray-900 dark:text-white truncate">System Admin</p>
+                        <p class="text-xs text-gray-500 truncate">Administrator</p>
+                    </div>
+                </div>
+                <button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10" onclick="window.location.href='../login.html'">
+                    <span class="material-symbols-outlined text-[18px]">logout</span>
+                    <span>Log Out</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-background-light dark:bg-background-dark relative">
+        <header class="bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10 px-6 py-6 shrink-0 z-10 transition-colors">
+            <div class="container mx-auto max-w-6xl">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <button id="open-sidebar" class="p-2 -ml-2 text-gray-400 hover:text-gray-600 md:hidden transition-colors">
+                            <span class="material-symbols-outlined">menu</span>
+                        </button>
+                        <div>
+                            <nav class="flex items-center text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
+                                <a class="hover:text-primary transition-colors" href="study.html">Study Support</a>
+                                <span class="mx-2 text-gray-300">/</span>
+                                <span class="text-primary">Material Builder</span>
+                            </nav>
+                            <h2 class="text-2xl font-black text-gray-900 dark:text-white tracking-tight">Create Study Material</h2>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="window.location.href='study.html'" class="px-5 py-2.5 rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold uppercase tracking-wider transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300">Discard</button>
+                        <button id="save-deck-btn" onclick="saveDeck()" class="px-5 py-2.5 rounded-xl bg-primary text-white hover:bg-primary/90 text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-primary/20">Save Material</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto custom-scrollbar">
+            <div class="container mx-auto max-w-6xl px-6 py-8 space-y-6">
+                <!-- Info Section -->
+                <section class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-200 dark:border-white/10 p-8 shadow-sm transition-all overflow-hidden relative group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-500"></div>
+                    <h3 class="text-sm font-black text-primary uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span class="w-8 h-[2px] bg-primary"></span>
+                        Basic Information
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+                        <div class="md:col-span-2">
+                            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Material Title</label>
+                            <input id="deck-title" class="w-full h-12 px-4 rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm font-medium focus:border-primary focus:ring-primary transition-all" type="text" placeholder="e.g., LET Review - English Terminology" />
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Subject Category</label>
+                            <select id="deck-category" class="w-full h-12 px-4 rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm font-medium focus:border-primary focus:ring-primary transition-all">
+                                <option>General Education</option>
+                                <option>Professional Education</option>
+                                <option>Specialization</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Publish Status</label>
+                            <select id="deck-visibility" class="w-full h-12 px-4 rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm font-medium focus:border-primary focus:ring-primary transition-all">
+                                <option>Public (Visible to All)</option>
+                                <option>Draft / Private</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Brief Description</label>
+                            <textarea id="deck-desc" class="w-full p-4 rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm font-medium focus:border-primary focus:ring-primary transition-all" rows="2" placeholder="Describe what this material covers..."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Builder Section -->
+                <section class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-200 dark:border-white/10 p-8 shadow-sm transition-all overflow-hidden">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-gray-100 dark:border-white/5 pb-6">
+                        <div class="flex flex-col gap-2">
+                            <h3 class="text-sm font-black text-primary uppercase tracking-widest flex items-center gap-2">
+                                <span class="w-8 h-[2px] bg-primary"></span>
+                                Question Builder
+                            </h3>
+                            <div class="flex items-center gap-4">
+                                <div class="flex items-center gap-2">
+                                    <label for="import-json" class="cursor-pointer px-3 py-1.5 rounded-lg border border-primary/20 bg-primary/5 text-primary hover:bg-primary/10 text-[10px] font-bold uppercase transition-all flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-[16px]">upload_file</span>
+                                        Batch Import
+                                    </label>
+                                    <input type="file" id="import-json" accept=".json,.csv" class="hidden" onchange="handleFileImport(event)" />
+                                </div>
+                                <div class="h-4 w-[1px] bg-gray-200 dark:bg-white/10"></div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] font-bold text-gray-400 uppercase">Templates:</span>
+                                    <button onclick="downloadTemplate('csv')" class="text-xs font-bold text-primary/60 hover:text-primary transition-colors flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[14px]">download</span> CSV
+                                    </button>
+                                    <button onclick="downloadTemplate('json')" class="text-xs font-bold text-primary/60 hover:text-primary transition-colors flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[14px]">download</span> JSON
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="addCard()" class="h-10 px-5 rounded-xl border-2 border-primary/20 text-primary hover:bg-primary hover:border-primary hover:text-white text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-2" type="button">
+                            <span class="material-symbols-outlined text-[18px]">add_circle</span>
+                            Add Question
+                        </button>
+                    </div>
+
+                    <div id="cards-container" class="space-y-8">
+                        <!-- Advanced Cards will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    let editMode = false;
+    let editId = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Sidebar controls
+        const sidebar = document.getElementById('sidebar');
+        const backdrop = document.getElementById('sidebar-backdrop');
+        const openBtn = document.getElementById('open-sidebar');
+        const closeBtn = document.getElementById('close-sidebar');
+
+        if (openBtn) openBtn.onclick = () => { sidebar.classList.remove('-translate-x-full'); backdrop.classList.remove('hidden'); };
+        if (closeBtn) closeBtn.onclick = () => { sidebar.classList.add('-translate-x-full'); backdrop.classList.add('hidden'); };
+        if (backdrop) backdrop.onclick = () => { sidebar.classList.add('-translate-x-full'); backdrop.classList.add('hidden'); };
+
+        // Check for edit mode
+        const urlParams = new URLSearchParams(window.location.search);
+        const editParam = urlParams.get('edit');
+        if (editParam) {
+            loadDeckForEdit(editParam);
+        } else {
+            addCard(); // Initial empty card
+        }
+    });
+
+    function loadDeckForEdit(id) {
+        const customDecks = JSON.parse(localStorage.getItem('customDecks') || '[]');
+        const deck = customDecks.find(d => d.id == id);
+        
+        if (deck) {
+            editMode = true;
+            editId = id;
+            document.querySelector('h2').innerText = 'Edit Study Material';
+            document.getElementById('save-deck-btn').innerText = 'Update Material';
+            document.title = 'Edit Study Material - Normalite EDGE Admin';
+
+            document.getElementById('deck-title').value = deck.title;
+            document.getElementById('deck-category').value = deck.category;
+            document.getElementById('deck-desc').value = deck.description;
+            if (deck.status === 'Draft') document.getElementById('deck-visibility').value = 'Draft / Private';
+
+            const container = document.getElementById('cards-container');
+            container.innerHTML = '';
+            deck.cards.forEach(card => addCard(card));
+        }
+    }
+
+    function addCard(data = {}) {
+        const container = document.getElementById('cards-container');
+        const cardId = Date.now() + Math.random();
+        
+        const questionText = data.front || data.question || '';
+        const rationalizationText = data.rationalization || data.explanation || '';
+        const options = data.options || (data.back ? [data.back, '', '', ''] : ['', '', '', '']);
+        
+        let correctAnswerIndex = 0;
+        if (data.correct_answer_index !== undefined) correctAnswerIndex = parseInt(data.correct_answer_index);
+        else if (data.answer !== undefined) correctAnswerIndex = parseInt(data.answer);
+
+        const cardHtml = `
+            <div class="card-item relative p-8 rounded-3xl bg-gray-50/50 dark:bg-white/[0.02] border border-gray-100 dark:border-white/5 hover:border-primary/20 hover:bg-white dark:hover:bg-white/[0.04] transition-all duration-300 group">
+                <div class="absolute -left-3 top-8 w-1 h-12 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                
+                <button onclick="this.closest('.card-item').remove()" class="absolute top-6 right-6 w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-red-500 hover:bg-red-50 transition-all opacity-0 group-hover:opacity-100">
+                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                </button>
+
+                <div class="space-y-8">
+                    <div>
+                        <label class="block text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-3">Question Content</label>
+                        <textarea class="card-front w-full p-4 rounded-2xl border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm font-medium focus:ring-primary focus:border-primary transition-all" rows="2" placeholder="e.g., Which teaching approach focuses on the learner's active participation?">${questionText}</textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4">Options & Correct Answer</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            ${['A', 'B', 'C', 'D'].map((letter, i) => `
+                            <div class="relative group/option">
+                                <div class="flex items-center justify-between mb-2 px-1">
+                                    <span class="text-[10px] font-bold text-gray-400 capitalize">Option ${letter}</span>
+                                    <label class="flex items-center gap-2 cursor-pointer">
+                                        <input type="radio" name="correct-${cardId}" value="${i}" ${i === correctAnswerIndex ? 'checked' : ''} class="card-correct-radio w-3.5 h-3.5 text-primary focus:ring-primary border-gray-300 transition-all">
+                                        <span class="text-[9px] font-black text-gray-500 uppercase tracking-wider group-has-[:checked]/option:text-primary transition-colors">SET CORRECT</span>
+                                    </label>
+                                </div>
+                                <input type="text" class="card-option-${i} w-full h-11 px-4 rounded-xl border-gray-200 dark:border-white/10 bg-white dark:bg-white/[0.03] text-sm font-medium focus:ring-primary focus:border-primary group-has-[:checked]/option:border-primary/40 group-has-[:checked]/option:bg-primary/[0.02] transition-all" 
+                                    placeholder="${i === 0 ? 'Enter option text...' : 'Enter distractor...'}" value="${options[i] || ''}">
+                            </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-100 dark:border-white/5">
+                        <label class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-3">Rationalization (Visible during review)</label>
+                        <textarea class="card-rationalization w-full p-4 rounded-2xl border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm font-medium italic focus:ring-primary focus:border-primary transition-all" rows="2" placeholder="Explain the logic behind the correct answer...">${rationalizationText}</textarea>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', cardHtml);
+    }
+
+    function collectCards() {
+        const cards = [];
+        document.querySelectorAll('.card-item').forEach(item => {
+            const front = item.querySelector('.card-front').value;
+            const options = [
+                item.querySelector('.card-option-0').value,
+                item.querySelector('.card-option-1').value,
+                item.querySelector('.card-option-2').value,
+                item.querySelector('.card-option-3').value
+            ];
+            
+            const radioChecked = item.querySelector('input[type="radio"]:checked');
+            const answer = radioChecked ? parseInt(radioChecked.value) : 0;
+            const rationalization = item.querySelector('.card-rationalization').value;
+            
+            if (front.trim() && options.some(opt => opt.trim() !== '')) {
+                cards.push({ front, options, answer, rationalization });
+            }
+        });
+        return cards;
+    }
+
+    function handleFileImport(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        const fileName = file.name.toLowerCase();
+
+        reader.onload = function(e) {
+            const content = e.target.result;
+            try {
+                let cards = [];
+                if (fileName.endsWith('.json')) {
+                    const data = JSON.parse(content);
+                    cards = Array.isArray(data) ? data : (data.cards || []);
+                } else if (fileName.endsWith('.csv')) {
+                    const lines = content.split('\n');
+                    if (lines.length < 2) return;
+                    const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/["']/g, ''));
+                    for (let i = 1; i < lines.length; i++) {
+                        const line = lines[i].trim();
+                        if (!line) continue;
+                        const values = line.split(',').map(v => v.trim().replace(/^"(.*)"$/, '$1'));
+                        const cardData = { options: [] };
+                        headers.forEach((header, index) => {
+                            if (header === 'question' || header === 'front') cardData.front = values[index];
+                            else if (header === 'option1') cardData.options[0] = values[index];
+                            else if (header === 'option2') cardData.options[1] = values[index];
+                            else if (header === 'option3') cardData.options[2] = values[index];
+                            else if (header === 'option4') cardData.options[3] = values[index];
+                            else if (header === 'answer') cardData.answer = parseInt(values[index]) || 0;
+                            else if (header === 'rationalization') cardData.rationalization = values[index];
+                        });
+                        if (cardData.front) cards.push(cardData);
+                    }
+                }
+
+                if (cards.length > 0) {
+                    const container = document.getElementById('cards-container');
+                    if (container.children.length === 1 && !container.querySelector('.card-front').value) {
+                        container.innerHTML = '';
+                    }
+                    cards.forEach(card => addCard(card));
+                    alert(`Import Success: Added ${cards.length} items.`);
+                }
+            } catch (err) {
+                alert('Import Failed: Check file structure.');
+            }
+        };
+        reader.readAsText(file);
+        event.target.value = '';
+    }
+
+    function downloadTemplate(type) {
+        let content = ''; let filename = ''; let mimeType = '';
+        if (type === 'json') {
+            content = JSON.stringify([{ "question": "The capital of France?", "options": ["Paris", "London", "Berlin", "Madrid"], "correct_answer_index": 0, "explanation": "Paris is the historical capital." }], null, 2);
+            filename = 'Normalite_Study_Template.json'; mimeType = 'application/json';
+        } else {
+            content = 'question,option1,option2,option3,option4,answer,rationalization\n"Which planet is known as the Red Planet?","Mars","Venus","Jupiter","Saturn",0,"Mars is red due to iron oxide."';
+            filename = 'Normalite_Study_Template.csv'; mimeType = 'text/csv';
+        }
+        const blob = new Blob([content], { type: mimeType });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href = url; a.download = filename;
+        document.body.appendChild(a); a.click();
+        window.URL.revokeObjectURL(url); document.body.removeChild(a);
+    }
+
+    function saveDeck() {
+        const title = document.getElementById('deck-title').value;
+        const category = document.getElementById('deck-category').value;
+        const visibility = document.getElementById('deck-visibility').value;
+        const description = document.getElementById('deck-desc').value;
+        
+        if (!title.trim()) { alert('Title is required.'); return; }
+        const cards = collectCards();
+        if (cards.length === 0) { alert('Add at least one question.'); return; }
+
+        const customDecks = JSON.parse(localStorage.getItem('customDecks') || '[]');
+        
+        if (editMode) {
+            const index = customDecks.findIndex(d => d.id == editId);
+            if (index !== -1) {
+                customDecks[index] = {
+                    ...customDecks[index],
+                    title, category, description,
+                    cardCount: cards.length,
+                    cards: cards,
+                    status: visibility.includes('Draft') ? 'Draft' : 'Published'
+                };
+            }
+        } else {
+            customDecks.push({
+                id: Date.now(), title, category, description,
+                cardCount: cards.length, cards: cards, mastery: 0,
+                dateCreated: new Date().toISOString(),
+                isSystemMaterial: true,
+                status: visibility.includes('Draft') ? 'Draft' : 'Published'
+            });
+        }
+        
+        localStorage.setItem('customDecks', JSON.stringify(customDecks));
+        alert(editMode ? 'Material updated!' : 'Material published!');
+        window.location.href = 'study.html';
+    }
+</script>
+</body>
+</html>

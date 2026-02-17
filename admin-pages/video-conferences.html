@@ -57,10 +57,6 @@
                         <span class="material-symbols-outlined text-[20px]">assignment</span>
                         <p class="text-sm font-medium">Exams</p>
                     </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="questions.html">
-                        <span class="material-symbols-outlined text-[20px]">quiz</span>
-                        <p class="text-sm font-medium">Questions Bank</p>
-                    </a>
                     <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="study.html">
                         <span class="material-symbols-outlined text-[20px]">style</span>
                         <p class="text-sm font-medium">Study</p>
@@ -74,14 +70,10 @@
                         <span class="material-symbols-outlined text-[20px] font-variation-settings-'FILL'1">video_call</span>
                         <p class="text-sm font-medium">Video Conferences</p>
                     </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="reports.html">
-                        <span class="material-symbols-outlined text-[20px]">bar_chart</span>
-                        <p class="text-sm font-medium">Reports</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="import-export.html">
-                        <span class="material-symbols-outlined text-[20px]">import_export</span>
-                        <p class="text-sm font-medium">Import / Export</p>
-                    </a>
+                        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="logs.html">
+                            <span class="material-symbols-outlined text-[20px]">event_note</span>
+                            <p class="text-sm font-medium">Logs</p>
+                        </a>
                     <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
                         <span class="material-symbols-outlined text-[20px]">settings</span>
                         <p class="text-sm font-medium">Settings</p>
@@ -96,9 +88,9 @@
                         <p class="text-xs text-gray-500 truncate">Administrator</p>
                     </div>
                 </div>
-                <button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10" onclick="window.location.href='../dashboard.html'">
-                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                    <span>Reviewee Portal</span>
+                <button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10" onclick="window.location.href='../login.html'">
+                    <span class="material-symbols-outlined text-[18px]">logout</span>
+                    <span>Log Out</span>
                 </button>
             </div>
         </div>
@@ -146,7 +138,6 @@
                     <nav class="flex gap-1 p-2">
                         <button class="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium">Scheduled</button>
                         <button class="px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-white/5 text-sm font-medium">Completed</button>
-                        <button class="px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-white/5 text-sm font-medium">Recordings</button>
                     </nav>
                 </div>
 
@@ -189,7 +180,7 @@
                                 <td class="px-6 py-4 text-gray-700 dark:text-gray-300">34 / 50</td>
                                 <td class="px-6 py-4"><span class="px-2 py-1 text-xs font-bold bg-green-100 text-green-700 rounded-full">● Live Now</span></td>
                                 <td class="px-6 py-4 text-right">
-                                    <button class="px-3 py-1 text-xs font-medium text-white bg-green-600 rounded hover:bg-green-700">Join Session</button>
+                                    <button onclick="window.location.href='../zoom-mock.html'" class="px-3 py-1 text-xs font-medium text-white bg-green-600 rounded hover:bg-green-700">Join Meeting</button>
                                 </td>
                             </tr>
                             <tr class="hover:bg-gray-50 dark:hover:bg-white/5">
@@ -309,12 +300,6 @@
                     <option>Reviewer B</option>
                     <option>System Admin</option>
                 </select>
-            </div>
-            <div>
-                <label class="flex items-center gap-2">
-                    <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
-                    <span class="text-sm text-gray-700 dark:text-gray-300">Record this session</span>
-                </label>
             </div>
             <div>
                 <label class="flex items-center gap-2">

@@ -74,14 +74,14 @@
 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
 <span class="material-symbols-outlined text-[20px]">badge</span>
 </div>
-<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Juan" type="text" required=""/>
+                        <input id="first-name" class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Juan" type="text" required=""/>
 </div>
 </div>
 <div class="space-y-1.5">
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
                         Middle I.
                     </label>
-<input class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Q" maxlength="2" type="text"/>
+                    <input id="middle-initial" class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Q" maxlength="2" type="text"/>
 </div>
 <div class="space-y-1.5">
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
@@ -91,14 +91,14 @@
 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
 <span class="material-symbols-outlined text-[20px]">badge</span>
 </div>
-<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Dela Cruz" type="text" required=""/>
+                        <input id="last-name" class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Dela Cruz" type="text" required=""/>
 </div>
 </div>
 <div class="space-y-1.5">
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
                         Suffix
                     </label>
-<input class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Jr." type="text"/>
+                    <input id="suffix" class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Jr." type="text"/>
 </div>
 </div>
 <!-- Student Details Row -->
@@ -107,65 +107,50 @@
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
                         Year
                     </label>
-<input class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="4" type="text" required=""/>
+                    <input id="year-level" class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="4" type="text" required=""/>
 </div>
 <div class="space-y-1.5">
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
-                        Program/Course
+                        Program
                     </label>
-<input class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="BSSE" type="text" required=""/>
+                    <div class="relative">
+                        <select id="program" class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none" required="">
+                            <option disabled="" selected="" value="">Select a program</option>
+                            <option value="Bachelor of Physical Education">Bachelor of Physical Education</option>
+                            <option value="Bachelor of Culture &amp; Arts Education">Bachelor of Culture &amp; Arts Education</option>
+                            <option value="Bachelor of Technology and Livelihood Education">Bachelor of Technology and Livelihood Education</option>
+                            <option value="Bachelor of Elementary Education">Bachelor of Elementary Education</option>
+                            <option value="Bachelor of Early Childhood Education">Bachelor of Early Childhood Education</option>
+                            <option value="Bachelor of Special Needs Education">Bachelor of Special Needs Education</option>
+                            <option value="Bachelor of Secondary Education">Bachelor of Secondary Education</option>
+                            <option value="Diploma in Professional Education">Diploma in Professional Education</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </div>
+                    </div>
 </div>
 <div class="space-y-1.5">
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
                         Section
                     </label>
-<input class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="A" type="text" required=""/>
+                    <input id="section" class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="A" type="text" required=""/>
 </div>
 </div>
-<!-- Specialization Dropdown -->
-<div class="space-y-1.5">
-<label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
-                    Specialization
+            <!-- Majorship Dropdown -->
+            <div class="space-y-1.5">
+                <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
+                    Majorship (if applicable)
                 </label>
-<div class="relative">
-<select class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none" required="">
-<option disabled="" selected="" value="">Select Degree Program</option>
-<option value="BECEd">Bachelor of Early Childhood Education (BECEd)</option>
-<option value="BSNEd">Bachelor of Special Needs Education (BSNEd)</option>
-<option value="BEEd">Bachelor of Elementary Education (BEEd)</option>
-<option value="BSEd">Bachelor of Secondary Education (BSEd)</option>
-<option value="BPEd">Bachelor of Physical Education (BPEd)</option>
-<option value="BCAEd">Bachelor of Culture and Arts Education (BCAEd)</option>
-<option value="BTLEd">Bachelor of Technology and Livelihood Education (BTLEd)</option>
-<option value="BA-Eng">BA English Language (Intern)</option>
-<option value="BA-Lit">BA Literature (Intern)</option>
-<option value="BS-Fil">BS Filipino (Intern)</option>
-</select>
-<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400">
-<span class="material-symbols-outlined">expand_more</span>
-</div>
-</div>
-</div>
-<!-- Major Dropdown -->
-<div class="space-y-1.5">
-<label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
-                    Major in
-                </label>
-<div class="relative">
-<select class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none">
-<option selected="" value="General">General / Not Applicable</option>
-<option value="English">English</option>
-<option value="Filipino">Filipino</option>
-<option value="Mathematics">Mathematics</option>
-<option value="Science">Science</option>
-<option value="Social Studies">Social Studies</option>
-<option value="Values Education">Values Education</option>
-</select>
-<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400">
-<span class="material-symbols-outlined">expand_more</span>
-</div>
-</div>
-</div>
+                <div class="relative">
+                    <select id="majorship" class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none" aria-label="Majorship selection">
+                        <option disabled="" selected="" value="">Select a program first</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400">
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </div>
+                </div>
+            </div>
 <!-- School Email -->
 <div class="space-y-1.5">
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
@@ -175,7 +160,7 @@
 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
 <span class="material-symbols-outlined text-[20px]">mail</span>
 </div>
-<input class="w-full pl-11 pr-10 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="juan@cnu.edu.ph" type="email" required=""/>
+                    <input id="school-email" class="w-full pl-11 pr-10 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="juan@cnu.edu.ph" type="email" required=""/>
 </div>
 </div>
 <!-- Password -->
@@ -216,35 +201,90 @@
 </div>
 </div>
 <script>
+    // Mapping of programs to their available majorships
+    const majorsByProgram = {
+        "Bachelor of Secondary Education": [
+            "Mathematics",
+            "Science",
+            "English",
+            "Filipino",
+            "Social Studies",
+            "Values Education",
+        ],
+        "Bachelor of Technology and Livelihood Education": [
+            "Home Economics",
+        ],
+    };
+
+    const programSelect = document.getElementById('program');
+    const majorshipSelect = document.getElementById('majorship');
+
+    const updateMajorshipOptions = () => {
+        const selectedProgram = programSelect.value;
+        const availableMajors = majorsByProgram[selectedProgram] || [];
+
+        majorshipSelect.innerHTML = '';
+
+        if (availableMajors.length === 0) {
+            const option = document.createElement('option');
+            option.value = 'Not Applicable';
+            option.textContent = 'Not Applicable';
+            majorshipSelect.appendChild(option);
+            majorshipSelect.disabled = true;
+            majorshipSelect.required = false;
+        } else {
+            const placeholder = document.createElement('option');
+            placeholder.value = '';
+            placeholder.textContent = 'Select a majorship';
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            majorshipSelect.appendChild(placeholder);
+
+            availableMajors.forEach((major) => {
+                const option = document.createElement('option');
+                option.value = major;
+                option.textContent = major;
+                majorshipSelect.appendChild(option);
+            });
+
+            majorshipSelect.disabled = false;
+            majorshipSelect.required = true;
+        }
+    };
+
+    updateMajorshipOptions();
+    programSelect.addEventListener('change', updateMajorshipOptions);
+
     // Handle registration
     document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        // Get form values
-        const firstName = document.querySelector('input[placeholder="Juan"]').value;
-        const middleI = document.querySelector('input[placeholder="Q"]').value;
-        const lastName = document.querySelector('input[placeholder="Dela Cruz"]').value;
-        const specialization = document.querySelector('select[required]').value;
-        const major = document.querySelector('select:not([required])').value;
-        const email = document.querySelector('input[type="email"]').value;
 
-        // Create user object
+        const firstName = document.getElementById('first-name').value.trim();
+        const middleI = document.getElementById('middle-initial').value.trim();
+        const lastName = document.getElementById('last-name').value.trim();
+        const suffix = document.getElementById('suffix').value.trim();
+        const year = document.getElementById('year-level').value.trim();
+        const section = document.getElementById('section').value.trim();
+        const program = programSelect.value;
+        const majorship = majorshipSelect.disabled ? 'Not Applicable' : (majorshipSelect.value || 'Not Applicable');
+        const email = document.getElementById('school-email').value.trim();
+
         const userData = {
             firstName,
             middleI,
             lastName,
-            specialization,
-            major,
+            suffix,
+            year,
+            section,
+            program,
+            majorship,
             email,
-            role: 'reviewee'
+            role: 'reviewee',
         };
 
-        // Save to localStorage
         localStorage.setItem('userRole', 'reviewee');
         localStorage.setItem('userData', JSON.stringify(userData));
-        
-        // Also save a specialized flag for content filtering
-        localStorage.setItem('userSpecialization', specialization + (major !== 'General' ? ' - ' + major : ''));
+        localStorage.setItem('userSpecialization', program + (majorship !== 'Not Applicable' ? ' - ' + majorship : ''));
 
         window.location.href = 'dashboard.html';
     });

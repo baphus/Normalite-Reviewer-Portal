@@ -67,10 +67,6 @@
 <span class="material-symbols-outlined text-[20px]">assignment</span>
 <p class="text-sm font-medium">Exams</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="questions.html">
-<span class="material-symbols-outlined text-[20px]">quiz</span>
-<p class="text-sm font-medium">Questions Bank</p>
-</a>
 <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="study.html">
 <span class="material-symbols-outlined text-[20px]">style</span>
 <p class="text-sm font-medium">Study</p>
@@ -83,13 +79,9 @@
 <span class="material-symbols-outlined text-[20px]">video_call</span>
 <p class="text-sm font-medium">Video Conferences</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="reports.html">
-<span class="material-symbols-outlined text-[20px]">bar_chart</span>
-<p class="text-sm font-medium">Reports</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="import-export.html">
-<span class="material-symbols-outlined text-[20px]">import_export</span>
-<p class="text-sm font-medium">Import / Export</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="logs.html">
+<span class="material-symbols-outlined text-[20px]">event_note</span>
+<p class="text-sm font-medium">Logs</p>
 </a>
 <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
 <span class="material-symbols-outlined text-[20px]">settings</span>
@@ -101,20 +93,20 @@
 <div class="flex items-center gap-3 px-2">
 <div class="h-9 w-9 rounded-full bg-gray-200 bg-cover bg-center border border-gray-300" data-alt="Admin profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlj7X3FeByZgwcrzsXQJwePv-4yl8HA3bmTcnNF5lOgngG9vpjm_kyYznzAPZgPVIZ-iMHlmeLbCxxpq7CR0YM-1BmepRG_eeyil5lqU2SlUhs9CHW8_FrpUtQdHmoXzl8DTzoy5_otYgexhRADm4-hnUyPM1rjk5okTceIRQral4XdpNixjnPxWisoyjD-rAs9h-1yU_deBaVQXXGAgGafWOKjyID8Bj0sZqv-7JuPA06AKS6bvqdQNAoiXA1T1tArTvVkGymOOhr");'>
 </div>
-<div class="flex flex-col overflow-hidden">
-<p class="text-sm font-medium text-gray-900 dark:text-white truncate">System Admin</p>
-<p class="text-xs text-gray-500 truncate">Administrator</p>
-</div>
-</div>
-<button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10" onclick="window.location.href='../dashboard.html'">
-<span class="material-symbols-outlined text-[18px]">arrow_back</span>
-<span>Back to Portal</span>
-</button>
-<button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10">
-<span class="material-symbols-outlined text-[18px]">logout</span>
-<span>Log Out</span>
-</button>
-</div>
+            <div class="flex flex-col overflow-hidden">
+                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">System Admin</p>
+                <p class="text-xs text-gray-500 truncate">Administrator</p>
+            </div>
+            <button class="ml-auto h-9 w-9 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 hover:text-primary transition-colors relative" aria-label="Notifications">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-red-500 border border-white dark:border-[#1a0a0a]"></span>
+            </button>
+        </div>
+        <button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10" onclick="window.location.href='../login.html'">
+            <span class="material-symbols-outlined text-[18px]">logout</span>
+            <span>Log Out</span>
+        </button>
+    </div>
 </div>
 </aside>
 <main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark">
@@ -134,34 +126,18 @@
 <div class="flex flex-wrap items-end justify-between gap-4">
 <div>
 <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Admin Dashboard</h1>
-<p class="text-gray-500 dark:text-gray-400 mt-2 text-base">Overview of user statistics and question management.</p>
+<p class="text-gray-500 dark:text-gray-400 mt-2 text-base">Overview of user statistics and system performance.</p>
 </div>
 <div class="flex items-center gap-3">
-<button class="h-10 w-10 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 hover:text-primary transition-colors relative">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 border border-white"></span>
-</button>
-<button class="hidden sm:flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-white hover:bg-primary/90 transition-colors shadow-sm">
+<button class="hidden sm:flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-white hover:bg-primary/90 transition-colors shadow-sm" onclick="window.location.href='create-exam.html'">
 <span class="material-symbols-outlined text-[20px]">add_circle</span>
-<span class="text-sm font-bold">New Question</span>
+<span class="text-sm font-bold">Create Mock Exam</span>
 </button>
 </div>
 </div>
 </header>
-<div class="bg-blue-50 border border-blue-200 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm dark:bg-blue-900/20 dark:border-blue-700/50">
-<div class="flex items-start sm:items-center gap-4">
-<div class="bg-blue-100 p-2 rounded-full text-blue-700 dark:bg-blue-800 dark:text-blue-200 mt-1 sm:mt-0">
-<span class="material-symbols-outlined">dns</span>
-</div>
-<div>
-<p class="font-bold text-blue-900 dark:text-blue-100 text-sm">System Notice</p>
-<p class="text-blue-800 dark:text-blue-200/80 text-sm mt-0.5">Scheduled database maintenance on Sunday at 2:00 AM.</p>
-</div>
-</div>
-<button class="text-xs font-bold text-blue-800 hover:text-blue-900 underline decoration-blue-800/30 hover:decoration-blue-900 dark:text-blue-200 dark:hover:text-blue-100 whitespace-nowrap">Dismiss</button>
-</div>
 <section aria-label="Admin Stats">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="bg-white dark:bg-[#1a0a0a] rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-white/5 flex flex-col gap-2">
 <div class="flex items-center justify-between">
 <div class="p-2 bg-primary/10 rounded-lg text-primary">
@@ -176,74 +152,11 @@
 <p class="text-sm text-gray-500 dark:text-gray-400">Total Registered Students</p>
 </div>
 </div>
-<div class="bg-white dark:bg-[#1a0a0a] rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-white/5 flex flex-col gap-2">
-<div class="flex items-center justify-between">
-<div class="p-2 bg-accent/10 rounded-lg text-accent">
-<span class="material-symbols-outlined">library_books</span>
-</div>
-<span class="flex items-center text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded dark:bg-green-900/20 dark:text-green-400">
-<span class="material-symbols-outlined text-[14px] mr-1">add</span> 54 new
-                                </span>
-</div>
-<div class="mt-2">
-<h3 class="text-3xl font-bold text-gray-900 dark:text-white">5,430</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400">Total Questions in Bank</p>
-</div>
-</div>
-<div class="bg-white dark:bg-[#1a0a0a] rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-white/5 flex flex-col gap-2">
-<div class="flex items-center justify-between">
-<div class="p-2 bg-orange-100 rounded-lg text-orange-600 dark:bg-orange-900/20 dark:text-orange-400">
-<span class="material-symbols-outlined">pending_actions</span>
-</div>
-<span class="flex items-center text-xs font-medium text-orange-600 bg-orange-50 px-2 py-1 rounded dark:bg-orange-900/20 dark:text-orange-400">
-                                    Needs Attention
-                                </span>
-</div>
-<div class="mt-2">
-<h3 class="text-3xl font-bold text-gray-900 dark:text-white">18</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400">Reported Questions</p>
-</div>
-</div>
 </div>
 </section>
 
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-<div class="lg:col-span-2 flex flex-col gap-8">
-<section class="bg-white dark:bg-[#1a0a0a] rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-white/5">
-<div class="flex items-center justify-between mb-6">
-<h2 class="text-xl font-bold text-gray-900 dark:text-white">Question Bank Distribution</h2>
-<button class="text-primary text-sm font-semibold hover:text-primary/80">Manage Questions</button>
-</div>
-<div class="flex flex-col gap-5">
-<div class="flex flex-col gap-1.5">
-<div class="flex justify-between text-sm">
-<span class="font-medium text-gray-700 dark:text-gray-300">General Education</span>
-<span class="font-bold text-gray-900 dark:text-white">40% (2,172)</span>
-</div>
-<div class="h-3 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-<div class="h-full bg-primary rounded-full" style="width: 40%"></div>
-</div>
-</div>
-<div class="flex flex-col gap-1.5">
-<div class="flex justify-between text-sm">
-<span class="font-medium text-gray-700 dark:text-gray-300">Professional Education</span>
-<span class="font-bold text-gray-900 dark:text-white">35% (1,900)</span>
-</div>
-<div class="h-3 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-<div class="h-full bg-accent rounded-full" style="width: 35%"></div>
-</div>
-</div>
-<div class="flex flex-col gap-1.5">
-<div class="flex justify-between text-sm">
-<span class="font-medium text-gray-700 dark:text-gray-300">Majorships</span>
-<span class="font-bold text-gray-900 dark:text-white">25% (1,358)</span>
-</div>
-<div class="h-3 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-<div class="h-full bg-indigo-500 rounded-full" style="width: 25%"></div>
-</div>
-</div>
-</div>
-</section>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="lg:col-span-1 flex flex-col gap-8">
 <section>
 <div class="flex items-center justify-between mb-4">
 <h2 class="text-xl font-bold text-gray-900 dark:text-white">Recent Registrations</h2>
@@ -292,23 +205,6 @@
 </section>
 </div>
 <div class="lg:col-span-1 flex flex-col gap-6">
-<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#5a0000] p-6 text-white shadow-lg">
-<div class="relative z-10 flex flex-col gap-4">
-<div class="flex items-center gap-2 text-white/80">
-<span class="material-symbols-outlined">gavel</span>
-<span class="text-sm font-bold uppercase tracking-wider">Action Required</span>
-</div>
-<div>
-<h3 class="text-2xl font-bold leading-tight">18 Reported Questions</h3>
-<p class="text-white/80 mt-1 text-sm">Users have flagged these items for errors.</p>
-</div>
-<button class="mt-2 w-full rounded-lg bg-white py-3 text-center text-sm font-bold text-primary hover:bg-gray-50 transition-colors">
-                                    Review Now
-                                </button>
-</div>
-<div class="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-white/10 blur-2xl"></div>
-<div class="absolute -bottom-10 -left-6 h-40 w-40 rounded-full bg-accent/20 blur-3xl"></div>
-</div>
 <div class="bg-white dark:bg-[#1a0a0a] rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-white/5">
 <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">System Audit Log</h3>
 <div class="flex flex-col gap-4">
@@ -337,20 +233,6 @@
 <button class="w-full mt-4 py-2 text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 font-medium border border-dashed border-gray-300 rounded-lg">
                                 View Full Logs
                             </button>
-</div>
-<div class="bg-accent/10 rounded-2xl p-6 border border-accent/20">
-<h3 class="text-base font-bold text-gray-900 dark:text-white mb-3">Quick Actions</h3>
-<div class="flex flex-col gap-2">
-<button class="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">
-<span class="material-symbols-outlined text-[18px]">person_add</span> Invite Faculty
-                                </button>
-<button class="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">
-<span class="material-symbols-outlined text-[18px]">download</span> Export User Data
-                                </button>
-<button class="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">
-<span class="material-symbols-outlined text-[18px]">settings_backup_restore</span> System Backup
-                                </button>
-</div>
 </div>
 </div>
 </div>
