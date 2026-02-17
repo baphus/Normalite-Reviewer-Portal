@@ -63,10 +63,6 @@
 <span class="material-symbols-outlined text-[20px]">dashboard</span>
 <p class="text-sm font-medium">Dashboard</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="subjects.html">
-<span class="material-symbols-outlined text-[20px]">library_books</span>
-<p class="text-sm font-medium">Subjects</p>
-</a>
 <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="exams.html">
 <span class="material-symbols-outlined text-[20px]">assignment</span>
 <p class="text-sm font-medium">Exams</p>
@@ -75,9 +71,9 @@
 <span class="material-symbols-outlined text-[20px]">quiz</span>
 <p class="text-sm font-medium">Questions Bank</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="flashcards.html">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="study.html">
 <span class="material-symbols-outlined text-[20px]">style</span>
-<p class="text-sm font-medium">Flashcards</p>
+<p class="text-sm font-medium">Study</p>
 </a>
 <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="users.html">
 <span class="material-symbols-outlined text-[20px]">group</span>
@@ -128,16 +124,34 @@
 <h3 class="text-xl font-bold text-gray-900 dark:text-white">Bulk Import</h3>
 <p class="text-sm text-gray-500 mt-2">Upload questions, users, or subjects using our standard templates.</p>
 </div>
-<div class="space-y-4 pt-4">
-<button class="w-full py-3 px-4 rounded-xl border-2 border-dashed border-gray-200 dark:border-white/10 text-gray-500 hover:border-primary hover:text-primary transition-all text-sm font-bold">
-                                Select File to Upload
-                            </button>
-<div class="flex items-center justify-between text-xs text-gray-400 font-medium">
-<span>Supported: .csv, .xlsx</span>
-<a class="text-primary hover:underline" href="#">Download Template</a>
-</div>
-</div>
-<button class="w-full bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-colors shadow-sm">
+                        <div class="space-y-4 pt-4">
+                            <div class="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10">
+                                <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Import Type</label>
+                                <select id="import-type" class="w-full bg-white dark:bg-black/20 border-gray-200 dark:border-white/10 rounded-lg text-sm">
+                                    <option value="study">Study Material / Quiz</option>
+                                    <option value="exam">Official Exam Bank</option>
+                                    <option value="users">User Database</option>
+                                </select>
+                            </div>
+                            <label class="block w-full py-6 px-4 rounded-xl border-2 border-dashed border-gray-200 dark:border-white/10 text-gray-500 hover:border-primary hover:text-primary transition-all text-sm font-bold text-center cursor-pointer">
+                                <span class="material-symbols-outlined block text-3xl mb-2">cloud_upload</span>
+                                Click to select or Drag & Drop File
+                                <input type="file" id="bulk-import-file" class="hidden" accept=".csv,.json" onchange="updateFileName(this)">
+                            </label>
+                            <div id="file-name-display" class="hidden text-xs text-center font-bold text-primary bg-primary/5 py-2 rounded-lg"></div>
+                            <div class="flex items-center justify-between text-xs text-gray-400 font-medium pt-2">
+                                <span>Supported: .csv, .json</span>
+                                <div class="flex gap-3">
+                                    <button onclick="downloadAdminTemplate('csv')" class="text-primary hover:underline flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[14px]">download</span> CSV Template
+                                    </button>
+                                    <button onclick="downloadAdminTemplate('json')" class="text-primary hover:underline flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[14px]">download</span> JSON Template
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="processBulkImport()" class="w-full bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-colors shadow-sm">
                             Process Import
                         </button>
 </div>
@@ -173,4 +187,138 @@
 </div>
 </main>
 </div>
+<script>
+    function updateFileName(input) {
+        const display = document.getElementById('file-name-display');
+        if (input.files && input.files[0]) {
+            display.textContent = `Selected: ${input.files[0].name}`;
+            display.classList.remove('hidden');
+        } else {
+            display.classList.add('hidden');
+        }
+    }
+
+    function downloadAdminTemplate(type) {
+        let content = '';
+        let filename = '';
+        let mimeType = '';
+        const importType = document.getElementById('import-type').value;
+
+        if (importType === 'study') {
+            if (type === 'json') {
+                const template = [{
+                    "question": "What is the capital of France?",
+                    "options": ["London", "Berlin", "Paris", "Madrid"],
+                    "correct_answer_index": 2,
+                    "explanation": "Paris is the capital of France."
+                }];
+                content = JSON.stringify(template, null, 2);
+                filename = 'study_template.json';
+                mimeType = 'application/json';
+            } else {
+                content = 'question,option1,option2,option3,option4,correct_answer_index,explanation\n' +
+                          '"What is the capital of France?","London","Berlin","Paris","Madrid",2,"Paris is the capital."';
+                filename = 'study_template.csv';
+                mimeType = 'text/csv';
+            }
+        } else if (importType === 'exam') {
+            if (type === 'json') {
+                const template = [{
+                    "id": "Q1",
+                    "text": "Sample Exam Question?",
+                    "options": ["A", "B", "C", "D"],
+                    "answer": 0,
+                    "category": "Prof Ed",
+                    "difficulty": "Easy"
+                }];
+                content = JSON.stringify(template, null, 2);
+                filename = 'exam_bank_template.json';
+                mimeType = 'application/json';
+            } else {
+                content = 'id,text,option1,option2,option3,option4,answer,category,difficulty\n' +
+                          '"Q1","Sample?","A","B","C","D",0,"Gen Ed","Medium"';
+                filename = 'exam_bank_template.csv';
+                mimeType = 'text/csv';
+            }
+        } else {
+            alert('Template for this type is coming soon.');
+            return;
+        }
+
+        const blob = new Blob([content], { type: mimeType });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    }
+
+    function processBulkImport() {
+        const fileInput = document.getElementById('bulk-import-file');
+        const importType = document.getElementById('import-type').value;
+
+        if (!fileInput.files || !fileInput.files[0]) {
+            alert('Please select a file first.');
+            return;
+        }
+
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            try {
+                const rawData = e.target.result;
+                let parsedData = [];
+
+                if (file.name.endsWith('.json')) {
+                    parsedData = JSON.parse(rawData);
+                } else {
+                    const lines = rawData.split('\n');
+                    const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+                    for (let i = 1; i < lines.length; i++) {
+                        if (!lines[i].trim()) continue;
+                        const values = lines[i].split(',').map(v => v.trim().replace(/^"(.*)"$/, '$1'));
+                        const obj = {};
+                        headers.forEach((h, idx) => obj[h] = values[idx]);
+                        parsedData.push(obj);
+                    }
+                }
+
+                // Handle storage based on type
+                if (importType === 'study') {
+                    const customDecks = JSON.parse(localStorage.getItem('customDecks') || '[]');
+                    const newDeck = {
+                        id: Date.now(),
+                        title: `Imported Study - ${new Date().toLocaleDateString()}`,
+                        category: "Imported",
+                        description: `Bulk imported from ${file.name}`,
+                        cardCount: parsedData.length,
+                        cards: parsedData.map(d => ({
+                            front: d.question || d.front,
+                            options: [d.option1, d.option2, d.option3, d.option4].filter(o => o),
+                            answer: parseInt(d.correct_answer_index || d.answer || 0),
+                            rationalization: d.explanation || d.rationalization || ""
+                        })),
+                        mastery: 0,
+                        dateCreated: new Date().toISOString()
+                    };
+                    customDecks.push(newDeck);
+                    localStorage.setItem('customDecks', JSON.stringify(customDecks));
+                }
+
+                alert(`Successfully processed ${parsedData.length} records!`);
+                fileInput.value = '';
+                document.getElementById('file-name-display').classList.add('hidden');
+            } catch (err) {
+                console.error(err);
+                alert('Failed to process file. Check format.');
+            }
+        };
+
+        reader.readAsText(file);
+    }
+</script>
 </body></html>

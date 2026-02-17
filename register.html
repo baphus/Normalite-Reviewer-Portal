@@ -37,7 +37,7 @@
         }
     </script>
 </head>
-<body class="font-display text-[#1d0c0c] antialiased bg-background-light dark:bg-background-dark min-h-screen flex flex-col relative overflow-hidden">
+<body class="font-display text-[#1d0c0c] antialiased bg-background-light dark:bg-background-dark min-h-screen flex flex-col relative overflow-y-auto">
 <!-- Background Pattern/Image with Overlay -->
 <div class="absolute inset-0 z-0 w-full h-full">
 <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 dark:from-black/80 dark:to-black/90 z-10"></div>
@@ -63,70 +63,108 @@
                 </p>
 </div>
 <!-- Form Section -->
-<form class="p-8 pt-6 space-y-5" onsubmit="event.preventDefault();">
-<!-- Full Name -->
+<form class="p-8 pt-6 space-y-4">
+<!-- Name Row -->
+<div class="grid grid-cols-2 gap-4">
 <div class="space-y-1.5">
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
-                        Full Name
+                        First Name
                     </label>
 <div class="relative">
 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
 <span class="material-symbols-outlined text-[20px]">badge</span>
 </div>
-<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Juan Dela Cruz" type="text"/>
+<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Juan" type="text" required=""/>
 </div>
 </div>
-<!-- Student ID -->
 <div class="space-y-1.5">
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
-                        Student ID Number
+                        Middle I.
+                    </label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Q" maxlength="2" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
+                        Last Name
                     </label>
 <div class="relative">
 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
-<span class="material-symbols-outlined text-[20px]">id_card</span>
+<span class="material-symbols-outlined text-[20px]">badge</span>
 </div>
-<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" inputmode="numeric" placeholder="12345678" type="text"/>
+<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Dela Cruz" type="text" required=""/>
 </div>
 </div>
-<!-- Account Type -->
 <div class="space-y-1.5">
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
-                        Register As
+                        Suffix
                     </label>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-<label class="flex items-center gap-2 cursor-pointer rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] px-4 py-3">
-<input checked class="text-primary focus:ring-primary border-gray-300" name="accountRole" type="radio" value="reviewee"/>
-<div class="flex flex-col">
-<span class="text-sm font-semibold text-gray-900 dark:text-white">Reviewee</span>
-<span class="text-xs text-gray-500">Access materials and join sessions</span>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Jr." type="text"/>
 </div>
-</label>
-<label class="flex items-center gap-2 cursor-pointer rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] px-4 py-3">
-<input class="text-primary focus:ring-primary border-gray-300" name="accountRole" type="radio" value="reviewer"/>
-<div class="flex flex-col">
-<span class="text-sm font-semibold text-gray-900 dark:text-white">Reviewer</span>
-<span class="text-xs text-gray-500">Create and schedule assessments</span>
 </div>
-</label>
-</div>
-<p class="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-1">
-                        Reviewer access requires approval.
-                    </p>
-</div>
-<!-- Access Code -->
+<!-- Student Details Row -->
+<div class="grid grid-cols-3 gap-4">
 <div class="space-y-1.5">
 <label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
-                        Access Code
+                        Year
                     </label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="4" type="text" required=""/>
+</div>
+<div class="space-y-1.5">
+<label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
+                        Program/Course
+                    </label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="BSSE" type="text" required=""/>
+</div>
+<div class="space-y-1.5">
+<label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
+                        Section
+                    </label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="A" type="text" required=""/>
+</div>
+</div>
+<!-- Specialization Dropdown -->
+<div class="space-y-1.5">
+<label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
+                    Specialization
+                </label>
 <div class="relative">
-<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
-<span class="material-symbols-outlined text-[20px]">key</span>
+<select class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none" required="">
+<option disabled="" selected="" value="">Select Degree Program</option>
+<option value="BECEd">Bachelor of Early Childhood Education (BECEd)</option>
+<option value="BSNEd">Bachelor of Special Needs Education (BSNEd)</option>
+<option value="BEEd">Bachelor of Elementary Education (BEEd)</option>
+<option value="BSEd">Bachelor of Secondary Education (BSEd)</option>
+<option value="BPEd">Bachelor of Physical Education (BPEd)</option>
+<option value="BCAEd">Bachelor of Culture and Arts Education (BCAEd)</option>
+<option value="BTLEd">Bachelor of Technology and Livelihood Education (BTLEd)</option>
+<option value="BA-Eng">BA English Language (Intern)</option>
+<option value="BA-Lit">BA Literature (Intern)</option>
+<option value="BS-Fil">BS Filipino (Intern)</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
 </div>
-<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Provided by your department" type="text"/>
 </div>
-<p class="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-1">
-                        Sign-up is restricted to authorized users.
-                    </p>
+</div>
+<!-- Major Dropdown -->
+<div class="space-y-1.5">
+<label class="block text-sm font-medium text-[#1d0c0c] dark:text-gray-200">
+                    Major in
+                </label>
+<div class="relative">
+<select class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none">
+<option selected="" value="General">General / Not Applicable</option>
+<option value="English">English</option>
+<option value="Filipino">Filipino</option>
+<option value="Mathematics">Mathematics</option>
+<option value="Science">Science</option>
+<option value="Social Studies">Social Studies</option>
+<option value="Values Education">Values Education</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
 </div>
 <!-- School Email -->
 <div class="space-y-1.5">
@@ -137,17 +175,8 @@
 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
 <span class="material-symbols-outlined text-[20px]">mail</span>
 </div>
-<input class="w-full pl-11 pr-10 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="juan@cnu.edu.ph" type="email"/>
-<!-- Validation Icon (Simulated) -->
-<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-<!-- This could toggle between 'check_circle' (green) and 'error' (red) based on JS validation -->
-<span class="material-symbols-outlined text-gray-300 dark:text-gray-600 text-[20px]">check_circle</span>
+<input class="w-full pl-11 pr-10 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="juan@cnu.edu.ph" type="email" required=""/>
 </div>
-</div>
-<p class="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1 mt-1 ml-1">
-<span class="material-symbols-outlined text-[14px] align-middle">info</span>
-                        Must use @cnu.edu.ph address
-                    </p>
 </div>
 <!-- Password -->
 <div class="space-y-1.5">
@@ -158,18 +187,12 @@
 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
 <span class="material-symbols-outlined text-[20px]">lock</span>
 </div>
-<input class="w-full pl-11 pr-10 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="••••••••" type="password"/>
-<button class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 cursor-pointer" type="button">
-<span class="material-symbols-outlined text-[20px]">visibility</span>
-</button>
+<input class="w-full pl-11 pr-10 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="••••••••" type="password" required=""/>
 </div>
-<p class="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-1">
-                        Minimum 8 characters
-                    </p>
 </div>
 <!-- Submit Button -->
 <div class="pt-2">
-<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3.5 px-4 rounded-lg shadow-md transition-transform active:scale-[0.99] focus:ring-4 focus:ring-primary/30" type="submit" id="register-submit">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3.5 px-4 rounded-lg shadow-md transition-transform active:scale-[0.99] focus:ring-4 focus:ring-primary/30" type="submit">
 <span>Sign Up</span>
 <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
 </button>
@@ -193,20 +216,37 @@
 </div>
 </div>
 <script>
-    const registerButton = document.getElementById('register-submit');
-    registerButton.addEventListener('click', () => {
-        const selectedRole = document.querySelector('input[name="accountRole"]:checked');
-        if (selectedRole) {
-            const role = selectedRole.value;
-            // Store user role for access control
-            localStorage.setItem('userRole', role);
-            
-            if (role === 'reviewer') {
-                window.location.href = 'reviewer-dashboard.html';
-            } else {
-                window.location.href = 'dashboard.html';
-            }
-        }
+    // Handle registration
+    document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const firstName = document.querySelector('input[placeholder="Juan"]').value;
+        const middleI = document.querySelector('input[placeholder="Q"]').value;
+        const lastName = document.querySelector('input[placeholder="Dela Cruz"]').value;
+        const specialization = document.querySelector('select[required]').value;
+        const major = document.querySelector('select:not([required])').value;
+        const email = document.querySelector('input[type="email"]').value;
+
+        // Create user object
+        const userData = {
+            firstName,
+            middleI,
+            lastName,
+            specialization,
+            major,
+            email,
+            role: 'reviewee'
+        };
+
+        // Save to localStorage
+        localStorage.setItem('userRole', 'reviewee');
+        localStorage.setItem('userData', JSON.stringify(userData));
+        
+        // Also save a specialized flag for content filtering
+        localStorage.setItem('userSpecialization', specialization + (major !== 'General' ? ' - ' + major : ''));
+
+        window.location.href = 'dashboard.html';
     });
 </script>
 </body></html>

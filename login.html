@@ -31,7 +31,7 @@
         }
     </script>
 </head>
-<body class="font-display text-[#1d0c0c] antialiased bg-background-light dark:bg-background-dark min-h-screen flex flex-col relative overflow-hidden">
+<body class="font-display text-[#1d0c0c] antialiased bg-background-light dark:bg-background-dark min-h-screen flex flex-col relative overflow-y-auto">
 <div class="absolute inset-0 z-0 w-full h-full">
 <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 dark:from-black/80 dark:to-black/90 z-10"></div>
 <div class="w-full h-full bg-cover bg-center opacity-40 dark:opacity-20 blur-sm" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuArzNvjpM81ghaYuiyQxM5qpbcgLPEq0jo8N-mkUsqhp24cgYqCleIywecsORTOG8yNrwi5WSxuvAcxTBUXSdXI-qwtnNBKZ6jXC2cPxHRnfGhWX9Ek1iZFqkUkixfJAOK6Cbd2300a9h0fgWx4Vm41iEKXkdk5InX7ez7OOmacb2mWhSSfIzcHggdwKPpuwdkhar-Pnt5HRb_NuLsQ6sy2ESZ51mk7upMt0FcDZCtLjECee98BD7_ALEkLTSLB-kY4Qc_TFKZ5gsny');">
@@ -79,17 +79,40 @@
 <input class="w-full pl-11 pr-10 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="••••••••" type="password"/>
 <button class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 cursor-pointer" type="button">
 <span class="material-symbols-outlined text-[20px]">visibility</span>
-</button>
-</div>
-</div>
-<div class="pt-2">
-<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3.5 px-4 rounded-lg shadow-md transition-transform active:scale-[0.99] focus:ring-4 focus:ring-primary/30" type="submit" onclick="window.location.href='dashboard.html'">
-<span>Login</span>
-<span class="material-symbols-outlined text-[20px]">login</span>
-</button>
-</div>
-</form>
-<div class="bg-gray-50 dark:bg-[#251212] py-4 text-center border-t border-gray-100 dark:border-[#3d1818]">
+                        </button>
+                    </div>
+                </div>
+                <div class="pt-2">
+                        <button id="login-submit" class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3.5 px-4 rounded-lg shadow-md transition-transform active:scale-[0.99] focus:ring-4 focus:ring-primary/30" type="submit">
+                            <span>Login</span>
+                            <span class="material-symbols-outlined text-[20px]">login</span>
+                        </button>
+                    </div>
+                </form>
+
+            <!-- Test Access Section -->
+                <div class="px-8 pb-6 space-y-3">
+                    <div class="relative flex items-center justify-center">
+                        <div class="w-full border-t border-gray-100 dark:border-[#3d1818]"></div>
+                        <span class="absolute px-3 bg-white dark:bg-[#1a0b0b] text-[10px] font-bold text-gray-400 uppercase tracking-widest">Test Access</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="testLogin('admin')" class="flex items-center justify-center gap-2 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-gray-100 transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>
+                            Admin
+                        </button>
+                        <button onclick="testLogin('reviewer')" class="flex items-center justify-center gap-2 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-gray-100 transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">supervisor_account</span>
+                            Reviewer
+                        </button>
+                        <button onclick="testLogin('reviewee')" class="flex items-center justify-center gap-2 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1414] text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-gray-100 transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">person</span>
+                            Reviewee
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-[#251212] py-4 text-center border-t border-gray-100 dark:border-[#3d1818]">
 <p class="text-sm text-gray-600 dark:text-gray-400">
                     Don't have an account? 
                     <a class="font-bold text-gold-accent hover:text-gold-hover hover:underline transition-colors" href="register.html">
@@ -105,16 +128,54 @@
 </div>
 </div>
 <script>
+    function testLogin(role) {
+        if (role === 'admin') {
+            localStorage.setItem('userRole', 'admin');
+            window.location.href = 'admin-pages/dashboard.html';
+        } else if (role === 'reviewer') {
+            localStorage.setItem('userRole', 'reviewer');
+            window.location.href = 'reviewer-pages/dashboard.html';
+        } else {
+            localStorage.setItem('userRole', 'reviewee');
+            const defaultUserData = {
+                firstName: 'Test',
+                lastName: 'User',
+                fullname: 'Test User',
+                specialization: 'BSEd - English',
+                email: 'test@cnu.edu.ph',
+                role: 'reviewee'
+            };
+            localStorage.setItem('userData', JSON.stringify(defaultUserData));
+            localStorage.setItem('userSpecialization', 'BSEd - English');
+            window.location.href = 'dashboard.html';
+        }
+    }
+
     document.getElementById('login-submit').addEventListener('click', (e) => {
         e.preventDefault();
         // In a real application, validate credentials and get role from server
         // For demo: Check email to determine role
         const email = document.querySelector('input[type="email"]').value;
-        if (email.includes('reviewer') || email.includes('admin')) {
-            localStorage.setItem('userRole', 'reviewer');
-            window.location.href = 'reviewer-dashboard.html';
+        if (email.includes('admin') || email.includes('reviewer')) {
+            localStorage.setItem('userRole', 'admin');
+            window.location.href = 'admin-pages/dashboard.html';
         } else {
             localStorage.setItem('userRole', 'reviewee');
+            
+            // Set default user data if it doesn't exist (for demo purposes)
+            if (!localStorage.getItem('userData')) {
+                const defaultUserData = {
+                    firstName: 'Maria',
+                    lastName: 'Clara',
+                    specialization: 'BSEd',
+                    major: 'English',
+                    email: email || 'maria@cnu.edu.ph',
+                    role: 'reviewee'
+                };
+                localStorage.setItem('userData', JSON.stringify(defaultUserData));
+                localStorage.setItem('userSpecialization', 'BSEd - English');
+            }
+            
             window.location.href = 'dashboard.html';
         }
     });
