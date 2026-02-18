@@ -75,13 +75,6 @@
 <span class="material-symbols-outlined text-[20px]">video_call</span>
 <p class="text-sm font-medium">Video Conferences</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="notifications.html">
-<span class="material-symbols-outlined text-[20px]">notifications</span>
-<p class="text-sm font-medium">Notifications</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="security.html">
-<span class="material-symbols-outlined text-[20px]">security</span>
-<p class="text-sm font-medium">Security</p>
 </a>
 <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
 <span class="material-symbols-outlined text-[20px]">settings</span>
@@ -560,6 +553,69 @@
             }
         }
 
-        window.addEventListener('DOMContentLoaded', initSections);
+        // Load exam data for editing
+        function loadExamForEdit() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const examId = urlParams.get('edit');
+            
+            if (examId) {
+                // Load exam from localStorage
+                const exams = JSON.parse(localStorage.getItem('reviewerMockExams') || '[]');
+                const exam = exams.find(e => e.id === examId);
+                
+                if (exam) {
+                    // Update page title
+                    const pageTitle = document.querySelector('h2.text-xl');
+                    if (pageTitle) {
+                        pageTitle.textContent = 'Edit Mock Exam';
+                    }
+                    
+                    // Populate form fields
+                    const titleInput = document.querySelector('input[placeholder*="Exam Title"]');
+                    if (titleInput && exam.title) {
+                        titleInput.value = exam.title;
+                    }
+                    
+                    const descInput = document.querySelector('textarea[placeholder*="Description"]');
+                    if (descInput && exam.description) {
+                        descInput.value = exam.description;
+                    }
+                    
+                    const durationInput = document.querySelector('input[placeholder*="Duration"]');
+                    if (durationInput && exam.duration) {
+                        durationInput.value = exam.duration;
+                    }
+                    
+                    const totalQuestionsInput = document.querySelector('input[placeholder*="Total Questions"]');
+                    if (totalQuestionsInput && exam.totalQuestions) {
+                        totalQuestionsInput.value = exam.totalQuestions;
+                    }
+                    
+                    // Update visible programs checkboxes if available
+                    if (exam.visibleTo && Array.isArray(exam.visibleTo)) {
+                        exam.visibleTo.forEach(program => {
+                            const checkbox = document.querySelector(`input[type="checkbox"][value="${program}"]`);
+                            if (checkbox) {
+                                checkbox.checked = true;
+                            }
+                        });
+                    }
+                    
+                    // Load sections and questions if available
+                    if (exam.sections) {
+                        sections = Object.keys(exam.sections).filter(s => s !== 'No Section');
+                        questionsData = exam.sections;
+                        renderSections();
+                    }
+                    
+                    console.log('Loaded exam for editing:', exam.title);
+                }
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            initSections();
+            loadExamForEdit();
+        });
     </script>
 </body></html>

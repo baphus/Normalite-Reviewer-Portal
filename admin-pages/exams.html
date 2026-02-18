@@ -196,11 +196,6 @@
 <span class="w-1.5 h-1.5 rounded-full bg-green-600 mr-1.5"></span>
                                     Live
                                 </span>
-<div class="relative group/menu">
-<button class="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</div>
 </div>
 <div class="mb-4">
 <h3 class="text-base font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">LET 2024 Comprehensive: Professional Education</h3>
@@ -240,19 +235,32 @@ Deadline:
 </div>
 </div>
 </div>
-<div class="mt-auto grid grid-cols-2 gap-2">
-<button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[16px]">edit</span>
-                                    Edit
-                                </button>
-<button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
+<div class="mt-auto grid grid-cols-3 gap-2">
+<button onclick="window.location.href='exam-performance.html?examId=admin-prof-edu-live'" class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
 <span class="material-symbols-outlined text-[16px]">visibility</span>
-                                    View
-                                </button>
-<button class="col-span-2 px-3 py-2 rounded-lg bg-gray-50 border border-gray-200 text-gray-600 hover:text-primary hover:border-primary/20 hover:bg-primary/5 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-400 flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[16px]">content_copy</span>
-                                    Duplicate Exam
-                                </button>
+View
+</button>
+<button onclick="window.location.href='create-exam.html?edit=admin-prof-edu-live'" class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+Edit
+</button>
+<div class="relative">
+<button onclick="toggleDropdown(this)" class="w-full px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+<div class="hidden absolute right-0 bottom-full mb-1 w-40 bg-white dark:bg-[#2a1a1a] rounded-lg shadow-xl border border-gray-100 dark:border-white/10 py-1 z-30">
+<button class="w-full text-left px-4 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> Duplicate
+</button>
+<button class="w-full text-left px-4 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">archive</span> Archive
+</button>
+<div class="h-px bg-gray-100 dark:bg-white/10 my-1"></div>
+<button class="w-full text-left px-4 py-2 text-xs text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">delete</span> Delete
+</button>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -305,19 +313,32 @@ Deadline:
 </div>
 </div>
 </div>
-<div class="mt-auto grid grid-cols-2 gap-2">
-<button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[16px]">edit</span>
-                                    Resume
-                                </button>
-<button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
+<div class="mt-auto grid grid-cols-3 gap-2">
+<button onclick="window.location.href='exam-performance.html?examId=admin-bio-draft'" class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
 <span class="material-symbols-outlined text-[16px]">visibility</span>
-                                    Preview
-                                </button>
-<button class="col-span-2 px-3 py-2 rounded-lg bg-gray-50 border border-gray-200 text-gray-600 hover:text-primary hover:border-primary/20 hover:bg-primary/5 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-400 flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[16px]">content_copy</span>
-                                    Duplicate Exam
-                                </button>
+View
+</button>
+<button onclick="window.location.href='create-exam.html?edit=admin-bio-draft'" class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+Edit
+</button>
+<div class="relative">
+<button onclick="toggleDropdown(this)" class="w-full px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+<div class="hidden absolute right-0 bottom-full mb-1 w-40 bg-white dark:bg-[#2a1a1a] rounded-lg shadow-xl border border-gray-100 dark:border-white/10 py-1 z-30">
+<button class="w-full text-left px-4 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> Duplicate
+</button>
+<button class="w-full text-left px-4 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">archive</span> Archive
+</button>
+<div class="h-px bg-gray-100 dark:bg-white/10 my-1"></div>
+<button class="w-full text-left px-4 py-2 text-xs text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">delete</span> Delete
+</button>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -328,9 +349,6 @@ Deadline:
 <span class="w-1.5 h-1.5 rounded-full bg-green-600 mr-1.5"></span>
                                     Live
                                 </span>
-<button class="p-1 text-gray-400 hover:text-gray-600">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
 </div>
 <div class="mb-4">
 <h3 class="text-base font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">LET Foundation: Child and Adolescent Development</h3>
@@ -348,19 +366,32 @@ Deadline:
 <span>120 min</span>
 </div>
 </div>
-<div class="mt-auto grid grid-cols-2 gap-2">
-<button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[16px]">edit</span>
-                                    Edit
-                                </button>
-<button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
+<div class="mt-auto grid grid-cols-3 gap-2">
+<button onclick="window.location.href='exam-performance.html?examId=admin-child-dev-live'" class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
 <span class="material-symbols-outlined text-[16px]">visibility</span>
-                                    View
-                                </button>
-<button class="col-span-2 px-3 py-2 rounded-lg bg-gray-50 border border-gray-200 text-gray-600 hover:text-primary hover:border-primary/20 hover:bg-primary/5 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-400 flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[16px]">content_copy</span>
-                                    Duplicate Exam
-                                </button>
+View
+</button>
+<button onclick="window.location.href='create-exam.html?edit=admin-child-dev-live'" class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+Edit
+</button>
+<div class="relative">
+<button onclick="toggleDropdown(this)" class="w-full px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+<div class="hidden absolute right-0 bottom-full mb-1 w-40 bg-white dark:bg-[#2a1a1a] rounded-lg shadow-xl border border-gray-100 dark:border-white/10 py-1 z-30">
+<button class="w-full text-left px-4 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> Duplicate
+</button>
+<button class="w-full text-left px-4 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">archive</span> Archive
+</button>
+<div class="h-px bg-gray-100 dark:bg-white/10 my-1"></div>
+<button class="w-full text-left px-4 py-2 text-xs text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">delete</span> Delete
+</button>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -391,19 +422,32 @@ Deadline:
 <span>240 min</span>
 </div>
 </div>
-<div class="mt-auto grid grid-cols-2 gap-2">
+<div class="mt-auto grid grid-cols-3 gap-2">
+<button onclick="window.location.href='exam-performance.html?examId=admin-let2022-archived'" class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+View
+</button>
 <button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
 <span class="material-symbols-outlined text-[16px]">restore</span>
-                                    Restore
-                                </button>
-<button class="px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[16px]">visibility</span>
-                                    View
-                                </button>
-<button class="col-span-2 px-3 py-2 rounded-lg bg-red-50 border border-red-100 text-red-600 hover:bg-red-100 text-xs font-bold transition-all flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[16px]">delete</span>
-                                    Delete Permanently
-                                </button>
+Restore
+</button>
+<div class="relative">
+<button onclick="toggleDropdown(this)" class="w-full px-3 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+<div class="hidden absolute right-0 bottom-full mb-1 w-40 bg-white dark:bg-[#2a1a1a] rounded-lg shadow-xl border border-gray-100 dark:border-white/10 py-1 z-30">
+<button class="w-full text-left px-4 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> Duplicate
+</button>
+<button class="w-full text-left px-4 py-2 text-xs text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">unarchive</span> Unarchive
+</button>
+<div class="h-px bg-gray-100 dark:bg-white/10 my-1"></div>
+<button class="w-full text-left px-4 py-2 text-xs text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">delete</span> Delete
+</button>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -467,6 +511,31 @@ Deadline:
 </div>
 
 <script>
+    // Dropdown toggle function
+    function toggleDropdown(button) {
+        const dropdown = button.nextElementSibling;
+        const allDropdowns = document.querySelectorAll('.relative > div.absolute');
+        
+        // Close all other dropdowns
+        allDropdowns.forEach(d => {
+            if (d !== dropdown) d.classList.add('hidden');
+        });
+        
+        // Toggle current dropdown
+        dropdown.classList.toggle('hidden');
+        
+        // Prevent event bubbling
+        event.stopPropagation();
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.relative')) {
+            const allDropdowns = document.querySelectorAll('.relative > div.absolute');
+            allDropdowns.forEach(d => d.classList.add('hidden'));
+        }
+    });
+
     // Modal management for attempts and deadline
     let currentExamId = null;
 
