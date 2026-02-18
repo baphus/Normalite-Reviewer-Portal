@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mock Exam Library - Normalite EDGE Reviewer</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols_Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#800000",
+                        "accent": "#F59E0B",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#230f0f",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
+<div class="flex h-screen w-full">
+<aside class="flex w-64 flex-col border-r border-[#e5e7eb] bg-white dark:bg-[#1a0a0a] dark:border-[#3a1a1a] transition-all duration-300 hidden md:flex shrink-0 z-20">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 px-2 py-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-10 w-10 shadow-sm border border-primary/20" style=''background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRPPNAtErCq7KnUYhj2JsmJNhkhexjuGMyftx05EykHw3q1BlzO-71-JUqsyQSFSiag1qAKfi6bcA9G4HUgLH1lLaFzKMl9DKsXWwXV0LdNJ02QNwnvh0WdIdFpy2zVJg73wjkd-PXjqbBElMEF5bOGlukZ5tUK9GGdjXWh5MWEDuPjDjM55USlSs5AGGZgVZmG8pOwiXYtj1yKgNzA-AvvZAO9x3_VXoFCpwqbuUsTJFM7b4mNxI7kjy_2gqMFqaI0pkK4DcIYkVd");''></div>
+<div class="flex flex-col">
+<h1 class="text-primary text-lg font-bold leading-tight tracking-tight">Normalite EDGE</h1>
+<p class="text-gray-500 text-xs font-normal">Reviewer Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="dashboard.html">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-colors" href="exams.html">
+<span class="material-symbols-outlined text-[20px] font-variation-settings-''FILL''1">assignment</span>
+<p class="text-sm font-bold">Exams</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="study.html">
+<span class="material-symbols-outlined text-[20px]">style</span>
+<p class="text-sm font-medium">Study</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="video-conferences.html">
+<span class="material-symbols-outlined text-[20px]">video_call</span>
+<p class="text-sm font-medium">Video Conferences</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="notifications.html">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<p class="text-sm font-medium">Notifications</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="security.html">
+<span class="material-symbols-outlined text-[20px]">security</span>
+<p class="text-sm font-medium">Security</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</nav>
+</div>
