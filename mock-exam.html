@@ -153,10 +153,6 @@
 <div class="lg:col-span-8 flex flex-col gap-6">
 <div class="flex items-center justify-between text-sm font-medium text-gray-500 mb-2">
 <span>Question 24 of 150</span>
-<button class="text-primary hover:underline flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]">flag</span>
-                                        Flag for review
-                                    </button>
 </div>
 <div class="bg-white dark:bg-[#1a0a0a] rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200 dark:border-white/5">
 <h3 class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white leading-relaxed mb-8">
@@ -192,15 +188,7 @@
 </div>
 </label>
 </div>
-<div class="mt-6 hidden" id="answer-feedback">
-    <div class="flex items-start gap-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-4">
-        <span class="material-symbols-outlined text-[20px]" id="feedback-icon">info</span>
-        <div>
-            <p class="text-sm font-semibold" id="feedback-title">Answer feedback</p>
-            <p class="text-sm text-gray-600 dark:text-gray-300" id="feedback-text">Select an option to see immediate feedback.</p>
-        </div>
-    </div>
-</div>
+
 <div class="flex items-center justify-between pt-4">
 <button class="flex items-center gap-2 px-6 py-2.5 rounded-lg text-gray-600 hover:bg-white hover:shadow-sm hover:text-gray-900 font-medium transition-all dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5">
 <span class="material-symbols-outlined">arrow_back</span>
@@ -228,10 +216,6 @@
 <span>Answered</span>
 </div>
 <div class="flex items-center gap-1.5">
-<div class="w-3 h-3 rounded-full bg-orange-100 border border-orange-200"></div>
-<span>Flagged</span>
-</div>
-<div class="flex items-center gap-1.5">
 <div class="w-3 h-3 rounded-full border border-gray-200 bg-white"></div>
 <span>Unanswered</span>
 </div>
@@ -240,10 +224,7 @@
 <button class="h-9 w-9 rounded-full bg-green-100 text-green-700 font-medium text-xs border border-green-200 hover:bg-green-200 transition-colors">1</button>
 <button class="h-9 w-9 rounded-full bg-green-100 text-green-700 font-medium text-xs border border-green-200 hover:bg-green-200 transition-colors">2</button>
 <button class="h-9 w-9 rounded-full bg-green-100 text-green-700 font-medium text-xs border border-green-200 hover:bg-green-200 transition-colors">3</button>
-<button class="h-9 w-9 rounded-full bg-orange-100 text-orange-700 font-medium text-xs border border-orange-200 hover:bg-orange-200 transition-colors relative">
-                                            4
-                                            <div class="absolute -top-0.5 -right-0.5 w-2 h-2 bg-orange-500 rounded-full border border-white"></div>
-</button>
+<button class="h-9 w-9 rounded-full bg-green-100 text-green-700 font-medium text-xs border border-green-200 hover:bg-green-200 transition-colors">4</button>
 <button class="h-9 w-9 rounded-full bg-green-100 text-green-700 font-medium text-xs border border-green-200 hover:bg-green-200 transition-colors">5</button>
 <button class="h-9 w-9 rounded-full bg-green-100 text-green-700 font-medium text-xs border border-green-200 hover:bg-green-200 transition-colors">6</button>
 <button class="h-9 w-9 rounded-full bg-green-100 text-green-700 font-medium text-xs border border-green-200 hover:bg-green-200 transition-colors">7</button>
@@ -318,42 +299,5 @@
                 timerEl.textContent = formatTime(remainingSeconds);
             }
         }, 1000);
-
-        // Real-time feedback and rationale prompt
-        const optionInputs = document.querySelectorAll('input[name="question_24"]');
-        const feedbackPanel = document.getElementById('answer-feedback');
-        const feedbackIcon = document.getElementById('feedback-icon');
-        const feedbackTitle = document.getElementById('feedback-title');
-        const feedbackText = document.getElementById('feedback-text');
-
-        optionInputs.forEach(input => {
-            input.addEventListener('change', () => {
-                const cards = document.querySelectorAll('.option-card');
-                cards.forEach(card => {
-                    card.classList.remove('border-green-400', 'bg-green-50', 'border-red-400', 'bg-red-50');
-                });
-
-                const selectedCard = input.closest('label').querySelector('.option-card');
-                const isCorrect = input.dataset.correct === 'true';
-
-                if (isCorrect) {
-                    selectedCard.classList.add('border-green-400', 'bg-green-50');
-                    feedbackIcon.textContent = 'check_circle';
-                    feedbackIcon.className = 'material-symbols-outlined text-green-600 text-[20px]';
-                    feedbackTitle.textContent = 'Correct answer';
-                    feedbackTitle.className = 'text-sm font-semibold text-green-700';
-                    feedbackText.textContent = 'Great job! Your choice aligns with the Law of Effect.';
-                } else {
-                    selectedCard.classList.add('border-red-400', 'bg-red-50');
-                    feedbackIcon.textContent = 'error';
-                    feedbackIcon.className = 'material-symbols-outlined text-red-600 text-[20px]';
-                    feedbackTitle.textContent = 'Incorrect answer';
-                    feedbackTitle.className = 'text-sm font-semibold text-red-700';
-                    feedbackText.textContent = 'Review the principles of learning and try to reason why.';
-                }
-
-                feedbackPanel.classList.remove('hidden');
-            });
-        });
     </script>
 </body></html>

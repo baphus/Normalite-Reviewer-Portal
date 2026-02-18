@@ -34,6 +34,11 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+        .filter-tab.active {
+            background-color: #800000;
+            color: white;
+            border-color: #800000;
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
@@ -129,6 +134,12 @@
                                 <option value="BSEd-MAPEH">BSEd MAPEH</option>
                                 <option value="BSEd-TLE">BSEd TLE</option>
                             </select>
+                            <select id="category-filter" class="h-11 px-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary transition-all">
+                                <option value="all">All Categories</option>
+                                <option value="Prof Ed">Prof. Education</option>
+                                <option value="Gen Ed">Gen. Education</option>
+                                <option value="Specialization">Specialization</option>
+                            </select>
                             <div class="relative hidden sm:block">
                                 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl">search</span>
                                 <input id="deck-search" class="pl-10 pr-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary w-64 transition-all" placeholder="Search materials..." type="text"/>
@@ -140,6 +151,30 @@
                         </div>
                     </div>
                 </header>
+
+                <!-- Filter Bar -->
+                <div class="bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 px-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-0">
+                        <nav class="flex gap-0 overflow-x-auto" id="category-tabs">
+                            <button data-category="all" class="filter-tab active border-b-2 border-primary py-3.5 px-3 text-sm font-bold text-primary whitespace-nowrap transition-colors flex items-center gap-1.5">
+                                All Materials
+                                <span class="bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full" id="count-all"></span>
+                            </button>
+                            <button data-category="Prof Ed" class="filter-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                                Prof. Education
+                                <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-profedu"></span>
+                            </button>
+                            <button data-category="Gen Ed" class="filter-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                                Gen. Education
+                                <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-genedu"></span>
+                            </button>
+                            <button data-category="Specialization" class="filter-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                                Specialization
+                                <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-spec"></span>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
 
                 <!-- Global Notification Panel -->
                 <div id="notification-panel" class="fixed top-4 right-4 md:top-20 md:left-64 md:right-auto w-[calc(100%-2rem)] md:w-80 bg-white dark:bg-[#1a0a0a] rounded-2xl shadow-2xl border border-gray-100 dark:border-white/10 hidden z-[100] overflow-hidden transition-all duration-300">
@@ -262,6 +297,7 @@
                     const materialCard = document.createElement('div');
                     materialCard.className = 'bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group';
                     materialCard.setAttribute('data-programs', JSON.stringify(deck.visibleTo || ['all']));
+                    materialCard.setAttribute('data-category', deck.category || 'all');
                     materialCard.innerHTML = `
                         <div class="h-32 bg-primary/5 flex items-center justify-center relative overflow-hidden">
                             <span class="material-symbols-outlined text-6xl text-primary/20 group-hover:scale-110 transition-transform">menu_book</span>
@@ -318,40 +354,74 @@
             // Initial render
             renderMaterials(customDecks);
             
-            // Program filter
-            const programFilter = document.getElementById('program-filter');
-            if (programFilter) {
-                programFilter.addEventListener('change', (e) => {
-                    const selectedProgram = e.target.value;
-                    filterMaterials(selectedProgram);
+            // ── Unified filter ─────────────────────────────────────────────
+            let activeCategory = 'all';
+
+            function updateCounts() {
+                const cards = container.querySelectorAll('[data-category]');
+                const counts = { all: 0, 'Prof Ed': 0, 'Gen Ed': 0, 'Specialization': 0 };
+                cards.forEach(card => {
+                    if (card.tagName === 'A') return;
+                    const cat = card.getAttribute('data-category') || 'all';
+                    counts.all++;
+                    if (counts[cat] !== undefined) counts[cat]++;
                 });
+                const el = (id) => document.getElementById(id);
+                if (el('count-all'))    el('count-all').textContent    = counts.all;
+                if (el('count-profedu')) el('count-profedu').textContent = counts['Prof Ed'];
+                if (el('count-genedu'))  el('count-genedu').textContent  = counts['Gen Ed'];
+                if (el('count-spec'))   el('count-spec').textContent   = counts['Specialization'];
             }
-            
-            function filterMaterials(program) {
+
+            function filterDecks() {
+                const program  = document.getElementById('program-filter')?.value  || 'all';
+                const category = document.getElementById('category-filter')?.value || 'all';
+                const query    = (document.getElementById('deck-search')?.value || '').toLowerCase();
+
                 const cards = container.querySelectorAll('[data-programs]');
                 cards.forEach(card => {
-                    if (card.tagName === 'A') return; // Skip create button
+                    if (card.tagName === 'A') return;
                     const cardPrograms = JSON.parse(card.getAttribute('data-programs') || '["all"]');
-                    const shouldShow = program === 'all' || cardPrograms.includes('all') || cardPrograms.includes(program);
-                    card.style.display = shouldShow ? 'flex' : 'none';
+                    const cardCategory = card.getAttribute('data-category') || '';
+                    const title = (card.querySelector('h3')?.textContent || '').toLowerCase();
+
+                    const programMatch  = program  === 'all' || cardPrograms.includes('all') || cardPrograms.includes(program);
+                    const categoryMatch = category === 'all' || cardCategory === category;
+                    const tabMatch      = activeCategory === 'all' || cardCategory === activeCategory;
+                    const searchMatch   = !query || title.includes(query);
+
+                    card.style.display = (programMatch && categoryMatch && tabMatch && searchMatch) ? 'flex' : 'none';
+                    card.style.flexDirection = card.style.display === 'flex' ? 'column' : '';
                 });
             }
 
-            // Search functionality
-            const searchInput = document.getElementById('deck-search');
-            if (searchInput) {
-                searchInput.addEventListener('input', (e) => {
-                    const query = e.target.value.toLowerCase();
-                    const cards = container.querySelectorAll('.group');
-                    cards.forEach(card => {
-                        if (card.tagName === 'A') return; // Skip create button
-                        const titleElement = card.querySelector('h3');
-                        const title = titleElement ? titleElement.textContent.toLowerCase() : '';
-                        const isVisible = card.style.display !== 'none';
-                        card.style.display = (title.includes(query) && isVisible) ? 'flex' : 'none';
+            // Category tabs
+            const categoryTabsNav = document.getElementById('category-tabs');
+            if (categoryTabsNav) {
+                categoryTabsNav.addEventListener('click', (e) => {
+                    const btn = e.target.closest('[data-category]');
+                    if (!btn) return;
+                    activeCategory = btn.getAttribute('data-category');
+                    categoryTabsNav.querySelectorAll('[data-category]').forEach(b => {
+                        const isActive = b === btn;
+                        b.classList.toggle('active', isActive);
+                        b.classList.toggle('border-primary', isActive);
+                        b.classList.toggle('text-primary', isActive);
+                        b.classList.toggle('font-bold', isActive);
+                        b.classList.toggle('border-transparent', !isActive);
+                        b.classList.toggle('text-gray-500', !isActive);
+                        b.classList.toggle('font-medium', !isActive);
                     });
+                    filterDecks();
                 });
             }
+
+            // Program & category select + search
+            document.getElementById('program-filter')?.addEventListener('change', filterDecks);
+            document.getElementById('category-filter')?.addEventListener('change', filterDecks);
+            document.getElementById('deck-search')?.addEventListener('input', filterDecks);
+
+            updateCounts();
         });
 
         function deleteMaterial(id) {

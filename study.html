@@ -42,10 +42,10 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #9ca3af; 
-        }        .filter-tab.active {
-            background-color: #800000;
-            color: white;
-            border-color: #800000;
+        }        .status-tab.active {
+            border-bottom-color: #800000 !important;
+            color: #800000 !important;
+            font-weight: 700;
         }    </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
@@ -139,23 +139,41 @@
                             <input class="w-full pl-10 pr-4 py-2.5 rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary text-sm" id="deck-search" placeholder="Search decks, topics, or subjects..." type="text"/>
                         </div>
                     </div>
-                    <div class="flex items-center gap-2 mt-8 overflow-x-auto pb-1 no-scrollbar">
-                        <button class="filter-tab active px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium transition-all whitespace-nowrap" data-category="all">All Decks</button>
-                        <button class="filter-tab px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 text-sm font-medium transition-all whitespace-nowrap" data-category="Professional Education">Professional Ed</button>
-                        <button class="filter-tab px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 text-sm font-medium transition-all whitespace-nowrap" data-category="General Education">General Ed</button>
-                        <button class="filter-tab px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 text-sm font-medium transition-all whitespace-nowrap" data-category="Specialization" id="specialization-tab">Specialization (Major)</button>
-                        <div class="flex-1"></div>
-                        <div class="flex items-center gap-2 text-sm text-gray-500">
-                            <span class="material-symbols-outlined text-sm">sort</span>
-                            <select class="bg-transparent border-none focus:ring-0 text-sm font-medium cursor-pointer">
-                                <option>Newest First</option>
-                                <option>Popularity</option>
-                                <option>Mastery: Low to High</option>
-                            </select>
-                        </div>
-                    </div>
 </div>
 </header>
+
+<!-- Filter Bar -->
+<div class="bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10 px-6 shrink-0 z-10">
+    <div class="container mx-auto max-w-7xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-0">
+            <!-- Category Tabs -->
+            <nav class="flex gap-0 overflow-x-auto" id="category-tabs">
+                <button data-category="all" class="status-tab active border-b-2 border-primary py-3.5 px-3 text-sm font-bold text-primary whitespace-nowrap transition-colors flex items-center gap-1.5">
+                    All Decks
+                    <span class="bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full" id="count-all"></span>
+                </button>
+                <button data-category="Professional Education" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                    Prof. Education
+                    <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-profedu"></span>
+                </button>
+                <button data-category="General Education" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                    Gen. Education
+                    <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-genedu"></span>
+                </button>
+                <button data-category="Specialization" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5" id="specialization-tab">
+                    Specialization
+                    <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-spec"></span>
+                </button>
+                <button data-category="saved" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[16px]">bookmark</span>
+                    Saved
+                    <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-saved"></span>
+                </button>
+            </nav>
+
+        </div>
+    </div>
+</div>
 
 <div class="flex-1 overflow-y-auto">
 <div class="container mx-auto max-w-7xl px-6 py-8">
@@ -166,7 +184,7 @@
                                 <div class="flex items-center gap-3">
                                     <div class="flex items-center gap-1 text-xs font-bold text-gray-400">
                                     </div>
-                                    <button class="text-gray-400 hover:text-primary transition-colors">
+                                    <button class="bookmark-btn text-gray-400 hover:text-primary transition-colors" data-bookmark="false">
                                         <span class="material-symbols-outlined text-[20px]">bookmark</span>
                                     </button>
                                 </div>
@@ -174,13 +192,6 @@
                             <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-2">Child &amp; Adolescent Development</h3>
 <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-1 line-clamp-2">Theories of growth and development from conception to adolescence.</p>
 <div class="space-y-3 mt-auto">
-<div class="flex justify-between items-end text-sm">
-<span class="text-xs font-bold text-gray-400 uppercase tracking-tighter">Mastery</span>
-<span class="text-primary font-bold">24%</span>
-</div>
-<div class="h-2 w-full bg-gray-100 dark:bg-white/5 rounded-full overflow-hidden">
-<div class="h-full bg-primary rounded-full" style="width: 24%"></div>
-</div>
                         <div class="pt-4 flex items-center justify-between border-t border-gray-50 dark:border-white/5">
                             <span class="text-xs text-gray-500">50 Cards</span>
                             <div class="flex gap-2">
@@ -200,7 +211,7 @@
                             <div class="flex justify-between items-start mb-4">
                                 <span class="px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold uppercase tracking-widest border border-indigo-100 dark:border-indigo-900/30">Gen Ed</span>
                                 <div class="flex items-center gap-3">
-                                    <button class="text-primary hover:text-primary transition-colors">
+                                    <button class="bookmark-btn text-primary hover:text-primary transition-colors" data-bookmark="true">
                                         <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
                                     </button>
                                 </div>
@@ -208,13 +219,6 @@
                             <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-2">Historical Foundations</h3>
                         <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-1 line-clamp-2">Key philosophical and historical roots of the Philippine Education System.</p>
 <div class="space-y-3 mt-auto">
-<div class="flex justify-between items-end text-sm">
-<span class="text-xs font-bold text-gray-400 uppercase tracking-tighter">Mastery</span>
-<span class="text-gray-600 dark:text-gray-300 font-bold">8%</span>
-</div>
-<div class="h-2 w-full bg-gray-100 dark:bg-white/5 rounded-full overflow-hidden">
-<div class="h-full bg-gray-300 dark:bg-gray-600 rounded-full" style="width: 8%"></div>
-</div>
                         <div class="pt-4 flex items-center justify-between border-t border-gray-50 dark:border-white/5">
                             <span class="text-xs text-gray-500">45 Cards</span>
                             <div class="flex gap-2">
@@ -238,7 +242,7 @@
 <span class="material-symbols-outlined text-[14px]">new_releases</span>
 <span>New Material</span>
 </div>
-<button class="text-gray-400 hover:text-primary transition-colors">
+<button class="bookmark-btn text-gray-400 hover:text-primary transition-colors" data-bookmark="false">
 <span class="material-symbols-outlined text-[20px]">bookmark</span>
 </button>
 </div>
@@ -246,13 +250,6 @@
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-2" id="major-deck-title">Structure of English</h3>
                         <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-1 line-clamp-2" id="major-deck-desc">Linguistics, phonology, morphology, and syntax concepts for English majors.</p>
 <div class="space-y-3 mt-auto">
-<div class="flex justify-between items-end text-sm">
-<span class="text-xs font-bold text-gray-400 uppercase tracking-tighter">Mastery</span>
-<span class="text-gray-400 font-bold">Unstarted</span>
-</div>
-<div class="h-2 w-full bg-gray-100 dark:bg-white/5 rounded-full overflow-hidden">
-<div class="h-full bg-primary rounded-full" style="width: 0%"></div>
-</div>
                         <div class="pt-4 flex items-center justify-between border-t border-gray-50 dark:border-white/5">
                             <span class="text-xs text-gray-500">62 Cards</span>
                             <div class="flex gap-2">
@@ -274,7 +271,7 @@
 <div class="flex items-center gap-3">
 <div class="flex items-center gap-1 text-xs font-bold text-green-500">
 </div>
-<button class="text-primary hover:text-primary transition-colors">
+<button class="bookmark-btn text-primary hover:text-primary transition-colors" data-bookmark="true">
 <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
 </button>
 </div>
@@ -282,13 +279,6 @@
 <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-2">Theories of Learning</h3>
 <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-1 line-clamp-2">Behaviorism, Cognitivism, and Constructivism in education.</p>
 <div class="space-y-3 mt-auto">
-<div class="flex justify-between items-end text-sm">
-<span class="text-xs font-bold text-gray-400 uppercase tracking-tighter">Mastery</span>
-<span class="text-green-500 font-bold">100%</span>
-</div>
-<div class="h-2 w-full bg-green-100 dark:bg-green-900/20 rounded-full overflow-hidden">
-<div class="h-full bg-green-500 rounded-full" style="width: 100%"></div>
-</div>
                         <div class="pt-4 flex items-center justify-between border-t border-gray-50 dark:border-white/5">
                             <span class="text-xs text-gray-500">30 Cards</span>
                             <div class="flex gap-2">
@@ -312,7 +302,7 @@
 <span class="material-symbols-outlined text-[14px]">timer</span>
 <span>10m review</span>
 </div>
-<button class="text-gray-400 hover:text-primary transition-colors">
+<button class="bookmark-btn text-gray-400 hover:text-primary transition-colors" data-bookmark="false">
 <span class="material-symbols-outlined text-[20px]">bookmark</span>
 </button>
 </div>
@@ -320,13 +310,6 @@
 <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-2">Legal Bases of Education</h3>
 <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-1 line-clamp-2">Philippine Constitution, RA 7836, and other educational laws.</p>
 <div class="space-y-3 mt-auto">
-<div class="flex justify-between items-end text-sm">
-<span class="text-xs font-bold text-gray-400 uppercase tracking-tighter">Mastery</span>
-<span class="text-primary font-bold">42%</span>
-</div>
-<div class="h-2 w-full bg-gray-100 dark:bg-white/5 rounded-full overflow-hidden">
-<div class="h-full bg-primary rounded-full" style="width: 42%"></div>
-</div>
                         <div class="pt-4 flex items-center justify-between border-t border-gray-50 dark:border-white/5">
                             <span class="text-xs text-gray-500">25 Cards</span>
                             <div class="flex gap-2">
@@ -342,14 +325,31 @@
                         </div>
 </div>
 </div>
-<div class="group border-2 border-dashed border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-primary/50 hover:bg-white/50 dark:hover:bg-white/5 transition-all cursor-pointer min-h-[280px]">
-<div class="bg-gray-100 dark:bg-white/5 p-4 rounded-full mb-4">
-<span class="material-symbols-outlined text-gray-400 text-3xl">add_circle</span>
+<div class="group border-2 border-dashed border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-primary/50 hover:bg-white/50 dark:hover:bg-white/5 transition-all cursor-pointer min-h-[280px]" style="display:none"></div>
 </div>
-<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Custom Study Deck</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400">Create your own set of flashcards for personalized review.</p>
-<button class="mt-6 px-4 py-2 bg-white dark:bg-transparent border border-gray-200 dark:border-white/10 rounded-lg text-sm font-bold text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white hover:border-primary transition-all" onclick="window.location.href='custom-deck.html'">Create New</button>
-</div>
+
+<!-- Custom Decks Section -->
+<div class="mt-10" id="custom-decks-section">
+    <div class="flex items-center justify-between mb-4">
+        <div>
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">My Custom Decks</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Flashcard sets you've created for personalized review.</p>
+        </div>
+        <a href="custom-deck.html" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">add</span>
+            New Deck
+        </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="custom-deck-container">
+        <div class="group border-2 border-dashed border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-primary/50 hover:bg-white/50 dark:hover:bg-white/5 transition-all cursor-pointer min-h-[240px]" id="custom-empty-state">
+            <div class="bg-gray-100 dark:bg-white/5 p-4 rounded-full mb-4">
+                <span class="material-symbols-outlined text-gray-400 text-3xl">add_circle</span>
+            </div>
+            <h3 class="text-base font-bold text-gray-900 dark:text-white mb-1">No custom decks yet</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Create your own set of flashcards for personalized review.</p>
+            <button class="mt-4 px-4 py-2 bg-white dark:bg-transparent border border-gray-200 dark:border-white/10 rounded-lg text-sm font-bold text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white hover:border-primary transition-all" onclick="window.location.href='custom-deck.html'">Create New</button>
+        </div>
+    </div>
 </div>
 <div class="md:hidden fixed bottom-6 right-6">
 <button class="h-14 w-14 rounded-full bg-primary text-white shadow-xl flex items-center justify-center">
@@ -385,21 +385,22 @@
                 majorDesc.textContent = `Comprehensive review of ${major} core concepts, principles, and professional standards.`;
             }
 
-            // Update Specialization Tab Name
-            const specTab = document.getElementById('specialization-tab');
-            if (specTab && major !== 'Major') {
-                specTab.textContent = major;
-            }
-
             // Load Custom Decks from LocalStorage
             loadCustomDecks();
 
             function loadCustomDecks() {
-                const container = document.getElementById('deck-container');
+                const container = document.getElementById('custom-deck-container');
+                const emptyState = document.getElementById('custom-empty-state');
                 const customDecks = JSON.parse(localStorage.getItem('customDecks') || '[]');
                 
                 // Sort by newest first
                 customDecks.sort((a, b) => new Date(b.dateCreated) - new Date(a.dateCreated));
+
+                if (customDecks.length === 0) {
+                    emptyState.style.display = '';
+                    return;
+                }
+                emptyState.style.display = 'none';
                 
                 customDecks.forEach(deck => {
                     const deckCard = document.createElement('div');
@@ -410,6 +411,9 @@
                         <div class="flex justify-between items-start mb-4">
                             <span class="px-3 py-1 rounded-full bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest border border-primary/10">${deck.category}</span>
                             <div class="flex items-center gap-3">
+                                <button class="bookmark-btn text-gray-400 hover:text-primary transition-colors" data-bookmark="false">
+                                    <span class="material-symbols-outlined text-[18px]">bookmark</span>
+                                </button>
                                 <button onclick="deleteCustomDeck(${deck.id})" class="text-gray-400 hover:text-red-500 transition-colors">
                                     <span class="material-symbols-outlined text-[18px]">delete</span>
                                 </button>
@@ -418,13 +422,6 @@
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-2">${deck.title}</h3>
                         <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-1 line-clamp-2">${deck.description}</p>
                         <div class="space-y-3 mt-auto">
-                            <div class="flex justify-between items-end text-sm">
-                                <span class="text-xs font-bold text-gray-400 uppercase tracking-tighter">Mastery</span>
-                                <span class="text-gray-400 font-bold">${deck.mastery}%</span>
-                            </div>
-                            <div class="h-2 w-full bg-gray-100 dark:bg-white/5 rounded-full overflow-hidden">
-                                <div class="h-full bg-primary rounded-full" style="width: ${deck.mastery}%"></div>
-                            </div>
                             <div class="pt-4 flex items-center justify-between border-t border-gray-50 dark:border-white/5">
                                 <span class="text-xs text-gray-500">${deck.cardCount} Cards</span>
                                 <div class="flex gap-2">
@@ -441,47 +438,121 @@
                         </div>
                     `;
                     // Insert before the last item (the "Create New" card)
-                    container.insertBefore(deckCard, container.lastElementChild);
+                    container.appendChild(deckCard);
                 });
             }
 
             // Category Filtering Logic
-            const filterTabs = document.querySelectorAll('.filter-tab');
+            const categoryTabs = document.querySelectorAll('#category-tabs button');
             const searchInput = document.getElementById('deck-search');
 
-            function filterDecks() {
-                const activeTab = document.querySelector('.filter-tab.active');
-                const activeCategory = activeTab ? activeTab.dataset.category : 'all';
-                const searchQuery = searchInput ? searchInput.value.toLowerCase() : '';
-                const deckCards = document.querySelectorAll('.deck-card');
-
-                deckCards.forEach(card => {
-                    const category = card.dataset.category;
-                    const title = card.querySelector('h3').textContent.toLowerCase();
-                    const desc = card.querySelector('p').textContent.toLowerCase();
-                    
-                    const matchesCategory = activeCategory === 'all' || category === activeCategory;
-                    const matchesSearch = title.includes(searchQuery) || desc.includes(searchQuery);
-
-                    if (matchesCategory && matchesSearch) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+            function isCardSaved(card) {
+                const btn = card.querySelector('button[data-bookmark]');
+                return btn ? btn.dataset.bookmark === 'true' : false;
             }
 
-            filterTabs.forEach(tab => {
+            function updateCounts() {
+                const allCards = document.querySelectorAll('#deck-container .deck-card');
+                const counts = {};
+                let savedCount = 0;
+                allCards.forEach(card => {
+                    const cat = card.getAttribute('data-category') || '';
+                    counts[cat] = (counts[cat] || 0) + 1;
+                    if (isCardSaved(card)) savedCount++;
+                });
+                // Also count saved custom cards
+                document.querySelectorAll('#custom-deck-container .deck-card').forEach(card => {
+                    if (isCardSaved(card)) savedCount++;
+                });
+                document.getElementById('count-all').textContent = allCards.length;
+                document.getElementById('count-profedu').textContent = counts['Professional Education'] || 0;
+                document.getElementById('count-genedu').textContent = counts['General Education'] || 0;
+                document.getElementById('count-spec').textContent = counts['Specialization'] || 0;
+                document.getElementById('count-saved').textContent = savedCount;
+            }
+
+            function filterDecks() {
+                const activeTab = document.querySelector('#category-tabs button.active');
+                const activeCategory = activeTab ? activeTab.getAttribute('data-category') : 'all';
+                const searchQuery = searchInput ? searchInput.value.toLowerCase() : '';
+                const deckCards = document.querySelectorAll('#deck-container .deck-card');
+
+                deckCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const desc = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
+
+                    const matchesCategory = activeCategory === 'all' || category === activeCategory
+                        || (activeCategory === 'saved' && isCardSaved(card));
+                    const matchesSearch = !searchQuery || title.includes(searchQuery) || desc.includes(searchQuery);
+
+                    card.style.display = (matchesCategory && matchesSearch) ? 'flex' : 'none';
+                });
+
+                // Custom decks section: hide when a specific category tab is active (not 'all')
+                // but show when 'all' or 'saved' (filter custom too if saved)
+                const customSection = document.getElementById('custom-decks-section');
+                if (customSection) {
+                    if (activeCategory !== 'all' && activeCategory !== 'saved') {
+                        customSection.style.display = 'none';
+                    } else {
+                        customSection.style.display = '';
+                        if (activeCategory === 'saved') {
+                            document.querySelectorAll('#custom-deck-container .deck-card').forEach(card => {
+                                const title = card.querySelector('h3').textContent.toLowerCase();
+                                const matchesSaved = isCardSaved(card);
+                                const matchesSearch = !searchQuery || title.includes(searchQuery);
+                                card.style.display = (matchesSaved && matchesSearch) ? 'flex' : 'none';
+                            });
+                        } else {
+                            document.querySelectorAll('#custom-deck-container .deck-card').forEach(card => {
+                                const title = card.querySelector('h3').textContent.toLowerCase();
+                                const matchesSearch = !searchQuery || title.includes(searchQuery);
+                                card.style.display = matchesSearch ? 'flex' : 'none';
+                            });
+                        }
+                    }
+                }
+            }
+
+            categoryTabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    filterTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
+                    categoryTabs.forEach(t => {
+                        t.classList.remove('active', 'border-primary', 'text-primary', 'font-bold');
+                        t.classList.add('border-transparent', 'text-gray-500', 'font-medium');
+                    });
+                    tab.classList.add('active', 'border-primary', 'text-primary', 'font-bold');
+                    tab.classList.remove('border-transparent', 'text-gray-500', 'font-medium');
                     filterDecks();
                 });
             });
 
-            if (searchInput) {
-                searchInput.addEventListener('input', filterDecks);
+            if (searchInput) searchInput.addEventListener('input', filterDecks);
+
+            // Bookmark toggle (system + custom decks)
+            function setupBookmarkToggle(container) {
+                container.addEventListener('click', (e) => {
+                    const btn = e.target.closest('.bookmark-btn');
+                    if (!btn) return;
+                    const saved = btn.dataset.bookmark === 'true';
+                    btn.dataset.bookmark = saved ? 'false' : 'true';
+                    const icon = btn.querySelector('.material-symbols-outlined');
+                    if (saved) {
+                        btn.classList.replace('text-primary', 'text-gray-400');
+                        icon.style.fontVariationSettings = '';
+                    } else {
+                        btn.classList.replace('text-gray-400', 'text-primary');
+                        icon.style.fontVariationSettings = "'FILL' 1";
+                    }
+                    updateCounts();
+                    filterDecks();
+                });
             }
+            setupBookmarkToggle(document.getElementById('deck-container'));
+            setupBookmarkToggle(document.getElementById('custom-deck-container'));
+
+            updateCounts();
+            filterDecks();
         });
 
         function deleteCustomDeck(id) {

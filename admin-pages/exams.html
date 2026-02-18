@@ -43,6 +43,11 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #9ca3af; 
         }
+        .status-tab.active {
+            border-bottom-color: #800000 !important;
+            color: #800000 !important;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
@@ -128,22 +133,28 @@
 <input class="pl-10 pr-4 py-2 border border-gray-200 dark:border-white/10 dark:bg-white/5 rounded-lg text-sm focus:ring-primary focus:border-primary w-64" placeholder="Search exams..." type="text"/>
 </div>
                     <div class="flex items-center gap-2">
-                        <select class="px-3 py-2 border border-gray-200 dark:border-white/10 dark:bg-white/5 rounded-lg text-sm focus:ring-primary focus:border-primary text-gray-600 dark:text-gray-300">
+                        <select id="program-filter" class="px-3 py-2 border border-gray-200 dark:border-white/10 dark:bg-white/5 rounded-lg text-sm focus:ring-primary focus:border-primary text-gray-600 dark:text-gray-300">
                             <option value="">All Programs / Majorships</option>
-                            <option value="BSEd">BSEd - All Majorships</option>
-                            <option value="BSEd-Science">BSEd - Science</option>
-                            <option value="BSEd-English">BSEd - English</option>
-                            <option value="BSEd-Mathematics">BSEd - Mathematics</option>
-                            <option value="BSEd-Filipino">BSEd - Filipino</option>
-                            <option value="BSEd-Social Studies">BSEd - Social Studies</option>
-                            <option value="BSEd-Values Education">BSEd - Values Education</option>
-                            <option value="BTLEd-Home Economics">BTLEd - Home Economics</option>
+                            <option value="All Programs">All Programs</option>
+                            <option value="BSEd - Science">BSEd - Science</option>
+                            <option value="BSEd - English">BSEd - English</option>
+                            <option value="BSEd - Mathematics">BSEd - Mathematics</option>
+                            <option value="BSEd - Filipino">BSEd - Filipino</option>
+                            <option value="BSEd - Social Studies">BSEd - Social Studies</option>
+                            <option value="BSEd - Values Education">BSEd - Values Education</option>
+                            <option value="BTLEd - Home Economics">BTLEd - Home Economics</option>
                             <option value="BPEd">Bachelor of Physical Education</option>
                             <option value="BCAEd">Bachelor of Culture &amp; Arts Education</option>
                             <option value="BEEd">Bachelor of Elementary Education</option>
                             <option value="BECEd">Bachelor of Early Childhood Education</option>
                             <option value="BSNEd">Bachelor of Special Needs Education</option>
                             <option value="DPE">Diploma in Professional Education</option>
+                        </select>
+                        <select id="category-filter" class="px-3 py-2 border border-gray-200 dark:border-white/10 dark:bg-white/5 rounded-lg text-sm focus:ring-primary focus:border-primary text-gray-600 dark:text-gray-300">
+                            <option value="">All Categories</option>
+                            <option value="Professional Education">Prof. Education</option>
+                            <option value="General Education">Gen. Education</option>
+                            <option value="Specialization">Specialization</option>
                         </select>
                     </div>
 <button class="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-sm font-medium transition-colors shadow-sm shadow-primary/20 flex items-center gap-2" onclick="window.location.href='create-exam.html'">
@@ -157,20 +168,20 @@
 <div class="bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10 px-6 py-0 shrink-0 z-10">
 <div class="container mx-auto max-w-6xl">
 <div class="flex items-center justify-between">
-<nav class="flex gap-8">
-<button class="border-b-2 border-primary py-4 px-1 text-sm font-bold text-primary flex items-center gap-2">
+<nav class="flex gap-4 overflow-x-auto" id="status-tabs">
+<button data-status="" class="status-tab active border-b-2 border-primary py-4 px-1 text-sm font-bold text-primary flex items-center gap-2 whitespace-nowrap transition-colors">
                             All Exams
                             <span class="bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full">12</span>
 </button>
-<button class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors flex items-center gap-2">
+<button data-status="live" class="status-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors flex items-center gap-2 whitespace-nowrap">
                             Active / Live
                             <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full">8</span>
 </button>
-<button class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors flex items-center gap-2">
+<button data-status="draft" class="status-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors flex items-center gap-2 whitespace-nowrap">
                             Drafts
                             <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full">3</span>
 </button>
-<button class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors flex items-center gap-2">
+<button data-status="archived" class="status-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors flex items-center gap-2 whitespace-nowrap">
                             Archived
                             <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full">1</span>
 </button>
@@ -189,7 +200,7 @@
 <div class="flex-1 overflow-y-auto">
 <div class="container mx-auto max-w-6xl px-6 py-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group" data-status="live" data-category="Professional Education" data-program="All Programs">
 <div class="p-5 flex flex-col h-full">
 <div class="flex items-start justify-between mb-4">
 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
@@ -264,7 +275,7 @@ Edit
 </div>
 </div>
 </div>
-<div class="bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group" data-status="draft" data-category="Specialization" data-program="BSEd - Science">
 <div class="p-5 flex flex-col h-full">
 <div class="flex items-start justify-between mb-4">
 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
@@ -342,7 +353,7 @@ Edit
 </div>
 </div>
 </div>
-<div class="bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group border-l-4 border-l-primary/20">
+<div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow group border-l-4 border-l-primary/20" data-status="live" data-category="Professional Education" data-program="All Programs">
 <div class="p-5 flex flex-col h-full">
 <div class="flex items-start justify-between mb-4">
 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
@@ -395,7 +406,7 @@ Edit
 </div>
 </div>
 </div>
-<div class="bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm opacity-75 hover:opacity-100 transition-all group">
+<div class="exam-card bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm opacity-75 hover:opacity-100 transition-all group" data-status="archived" data-category="General Education" data-program="BEEd">
 <div class="p-5 flex flex-col h-full">
 <div class="flex items-start justify-between mb-4">
 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-100 text-gray-700 dark:bg-white/10 dark:text-gray-400">
@@ -611,6 +622,53 @@ Restore
     document.getElementById('deadlineModal').addEventListener('click', function(e) {
         if (e.target === this) closeDeadlineModal();
     });
+
+    // ── Filter Logic ──────────────────────────────────────────────
+    (function () {
+        const examCards = document.querySelectorAll('.exam-card');
+        const statusTabs = document.querySelectorAll('#status-tabs button');
+        const searchInput = document.querySelector('input[placeholder="Search exams..."]');
+        const programFilter = document.getElementById('program-filter');
+        const categoryFilter = document.getElementById('category-filter');
+        let activeStatus = '';
+
+        function filterExams() {
+            const query = searchInput ? searchInput.value.toLowerCase() : '';
+            const program = programFilter ? programFilter.value : '';
+            const category = categoryFilter ? categoryFilter.value : '';
+
+            examCards.forEach(card => {
+                const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
+                const cardStatus = card.getAttribute('data-status') || '';
+                const cardCategory = card.getAttribute('data-category') || '';
+                const cardProgram = card.getAttribute('data-program') || '';
+
+                const matchesSearch = !query || title.includes(query);
+                const matchesStatus = !activeStatus || cardStatus === activeStatus;
+                const matchesProgram = !program || cardProgram.toLowerCase().includes(program.toLowerCase()) || cardProgram === 'All Programs';
+                const matchesCategory = !category || cardCategory === category;
+
+                card.style.display = (matchesSearch && matchesStatus && matchesProgram && matchesCategory) ? '' : 'none';
+            });
+        }
+
+        statusTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                statusTabs.forEach(t => {
+                    t.classList.remove('active', 'border-primary', 'text-primary', 'font-bold');
+                    t.classList.add('border-transparent', 'text-gray-500', 'font-medium');
+                });
+                tab.classList.add('active', 'border-primary', 'text-primary', 'font-bold');
+                tab.classList.remove('border-transparent', 'text-gray-500', 'font-medium');
+                activeStatus = tab.getAttribute('data-status');
+                filterExams();
+            });
+        });
+
+        if (searchInput) searchInput.addEventListener('input', filterExams);
+        if (programFilter) programFilter.addEventListener('change', filterExams);
+        if (categoryFilter) categoryFilter.addEventListener('change', filterExams);
+    })();
 </script>
 
 </body></html>

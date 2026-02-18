@@ -49,6 +49,16 @@
             color: white;
             border-color: #800000;
         }
+        .status-tab.active {
+            border-bottom-color: #800000 !important;
+            color: #800000 !important;
+            font-weight: 700;
+        }
+        .status-tab.active {
+            border-bottom-color: #800000;
+            color: #800000;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
@@ -195,6 +205,44 @@
                     
 </div>
 </header>
+
+<!-- Filter Bar -->
+<div class="bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10 px-6 shrink-0 z-10">
+    <div class="container mx-auto max-w-7xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-0">
+            <!-- Category Tabs -->
+            <nav class="flex gap-0 overflow-x-auto" id="category-tabs">
+                <button data-category="" class="status-tab active border-b-2 border-primary py-3.5 px-3 text-sm font-bold text-primary whitespace-nowrap transition-colors flex items-center gap-1.5">
+                    All Exams
+                    <span class="bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full" id="count-all"></span>
+                </button>
+                <button data-category="Professional Education" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                    Prof. Education
+                    <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-profedu"></span>
+                </button>
+                <button data-category="General Education" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                    Gen. Education
+                    <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-genedu"></span>
+                </button>
+                <button data-category="Specialization" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                    Specialization
+                    <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-spec"></span>
+                </button>
+            </nav>
+            <!-- Status Filter -->
+            <div class="flex items-center gap-2 py-2.5 sm:py-0 shrink-0">
+                <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Status:</span>
+                <select id="status-filter" class="px-3 py-1.5 border border-gray-200 dark:border-white/10 dark:bg-white/5 rounded-lg text-xs focus:ring-primary focus:border-primary text-gray-600 dark:text-gray-300">
+                    <option value="">All</option>
+                    <option value="available">Available</option>
+                    <option value="completed">Completed</option>
+                    <option value="locked">Locked / No Attempts</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="flex-1 overflow-y-auto">
 <div class="container mx-auto max-w-7xl px-6 py-8">
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6" id="exam-cards-container">
@@ -452,22 +500,69 @@
 
             const examCards = document.querySelectorAll('.exam-card');
             const searchInput = document.getElementById('exam-search');
+            const statusFilter = document.getElementById('status-filter');
+            const categoryTabs = document.querySelectorAll('#category-tabs button');
+            let activeCategory = '';
+
+            // Count cards per category and update badges
+            function updateCounts() {
+                const counts = {};
+                examCards.forEach(card => {
+                    const cat = card.getAttribute('data-category') || '';
+                    counts[cat] = (counts[cat] || 0) + 1;
+                });
+                const total = examCards.length;
+                document.getElementById('count-all').textContent = total;
+                document.getElementById('count-profedu').textContent = counts['Professional Education'] || 0;
+                document.getElementById('count-genedu').textContent = counts['General Education'] || 0;
+                document.getElementById('count-spec').textContent = counts['Specialization'] || 0;
+            }
+
+            function getCardStatus(card) {
+                const badge = card.querySelector('.px-2.py-1, .inline-flex');
+                const badgeText = badge ? badge.textContent.trim().toLowerCase() : '';
+                const startBtn = card.querySelector('.exam-start-btn');
+                if (badgeText.includes('completed')) return 'completed';
+                if (startBtn && startBtn.disabled) return 'locked';
+                return 'available';
+            }
 
             function filterExams() {
                 const searchQuery = searchInput ? searchInput.value.toLowerCase() : '';
+                const statusValue = statusFilter ? statusFilter.value : '';
 
                 examCards.forEach(card => {
                     const title = card.querySelector('h3').textContent.toLowerCase();
                     const desc = card.querySelector('p').textContent.toLowerCase();
-                    const matchesSearch = title.includes(searchQuery) || desc.includes(searchQuery);
+                    const category = card.getAttribute('data-category') || '';
+                    const cardStatus = getCardStatus(card);
 
-                    card.style.display = matchesSearch ? 'flex' : 'none';
+                    const matchesSearch = !searchQuery || title.includes(searchQuery) || desc.includes(searchQuery);
+                    const matchesCategory = !activeCategory || category === activeCategory;
+                    const matchesStatus = !statusValue || cardStatus === statusValue;
+
+                    card.style.display = (matchesSearch && matchesCategory && matchesStatus) ? 'flex' : 'none';
                 });
             }
 
-            if (searchInput) {
-                searchInput.addEventListener('input', filterExams);
-            }
+            // Category tab click handlers
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    categoryTabs.forEach(t => {
+                        t.classList.remove('active', 'border-primary', 'text-primary', 'font-bold');
+                        t.classList.add('border-transparent', 'text-gray-500', 'font-medium');
+                    });
+                    tab.classList.add('active', 'border-primary', 'text-primary', 'font-bold');
+                    tab.classList.remove('border-transparent', 'text-gray-500', 'font-medium');
+                    activeCategory = tab.getAttribute('data-category');
+                    filterExams();
+                });
+            });
+
+            if (searchInput) searchInput.addEventListener('input', filterExams);
+            if (statusFilter) statusFilter.addEventListener('change', filterExams);
+
+            updateCounts();
             filterExams();
         });
     </script>
