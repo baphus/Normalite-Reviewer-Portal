@@ -405,12 +405,14 @@
                 customDecks.forEach(deck => {
                     const deckCard = document.createElement('div');
                     deckCard.className = 'deck-card group bg-white dark:bg-[#1f1212] border border-gray-100 dark:border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative flex flex-col h-full';
-                    deckCard.dataset.category = deck.category;
-                    
+                    const tagsHtml = (deck.tags && deck.tags.length)
+                        ? deck.tags.map(t => `<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/8 text-primary text-[10px] font-semibold border border-primary/20">${t}</span>`).join('')
+                        : '<span class="text-[10px] text-gray-400 italic">No tags</span>';
+
                     deckCard.innerHTML = `
                         <div class="flex justify-between items-start mb-4">
-                            <span class="px-3 py-1 rounded-full bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest border border-primary/10">${deck.category}</span>
-                            <div class="flex items-center gap-3">
+                            <div class="flex flex-wrap gap-1">${tagsHtml}</div>
+                            <div class="flex items-center gap-3 shrink-0 ml-2">
                                 <button class="bookmark-btn text-gray-400 hover:text-primary transition-colors" data-bookmark="false">
                                     <span class="material-symbols-outlined text-[18px]">bookmark</span>
                                 </button>

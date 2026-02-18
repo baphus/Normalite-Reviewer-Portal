@@ -321,9 +321,6 @@
         </div>
     </div>
 
-        </div>
-    </div>
-
     <!-- Results/Review Mode -->
     <div id="results-mode" class="w-full flex flex-col items-center hidden">
         <div class="w-full max-w-3xl bg-white dark:bg-[#1f1212] rounded-3xl shadow-xl border border-gray-100 dark:border-white/10 p-8 md:p-12">
@@ -332,6 +329,15 @@
                     <span class="material-symbols-outlined text-5xl">task_alt</span>
                 </div>
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Study Session Complete!</h2>
+                <div id="score-display" class="hidden my-4">
+                    <div class="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-primary/10 border border-primary/20">
+                        <span class="text-4xl font-bold text-primary" id="score-percent">0%</span>
+                        <div class="text-left">
+                            <p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Score</p>
+                            <p class="text-sm font-semibold text-gray-700 dark:text-gray-300" id="score-fraction">0 / 0 correct</p>
+                        </div>
+                    </div>
+                </div>
                 <p class="text-gray-500 dark:text-gray-400" id="result-summary">You've completed all questions in this set.</p>
             </div>
             
@@ -354,28 +360,26 @@
     </div>
 
     <!-- Common Controls -->
-    <div class="w-full max-w-3xl mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4" id="common-controls">
-        <button onclick="prevItem()" id="prev-btn" class="order-2 sm:order-1 flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-white border border-gray-200 text-gray-600 font-bold hover:bg-gray-50 hover:border-gray-300 dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10 transition-all shadow-sm">
+    <div class="w-full max-w-3xl mt-8 grid grid-cols-3 gap-4" id="common-controls">
+        <button onclick="prevItem()" id="prev-btn" class="flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-white border border-gray-200 text-gray-600 font-bold hover:bg-gray-50 hover:border-gray-300 dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10 transition-all shadow-sm">
             <span class="material-symbols-outlined">arrow_back</span>
             <span>Previous</span>
         </button>
-        <div class="order-1 sm:order-2">
-            <button id="main-action-btn" class="w-full h-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 shadow-md shadow-primary/20 transition-all transform active:scale-95" onclick="handleMainAction()">
-                <span id="main-action-icon" class="material-symbols-outlined">visibility</span>
-                <span id="main-action-text">Reveal Answer</span>
-            </button>
-        </div>
-        <button onclick="nextItem()" id="next-btn" class="order-3 sm:order-3 flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-white border border-gray-200 text-gray-600 font-bold hover:bg-gray-50 hover:border-gray-300 dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10 transition-all shadow-sm">
+        <!-- Flashcard mode: Reveal button | Study mode: End Session button -->
+        <button id="main-action-btn" class="flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 shadow-md shadow-primary/20 transition-all transform active:scale-95" onclick="handleMainAction()">
+            <span id="main-action-icon" class="material-symbols-outlined">visibility</span>
+            <span id="main-action-text">Reveal Answer</span>
+        </button>
+        <button id="end-session-btn" class="hidden flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-red-500 text-white font-bold hover:bg-red-600 shadow-md shadow-red-500/20 transition-all transform active:scale-95" onclick="showResults()">
+            <span class="material-symbols-outlined">stop_circle</span>
+            <span>End Session</span>
+        </button>
+        <button onclick="nextItem()" id="next-btn" class="flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-white border border-gray-200 text-gray-600 font-bold hover:bg-gray-50 hover:border-gray-300 dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10 transition-all shadow-sm">
             <span id="next-btn-text">Next</span>
             <span id="next-btn-icon" class="material-symbols-outlined">arrow_forward</span>
         </button>
     </div>
-</div>
-<div class="mt-8 text-center hidden md:block">
-<p class="text-xs text-gray-400 dark:text-gray-500 font-mono">
-                        Shortcuts: [Space] Flip • [←] Prev • [→] Next
-                    </p>
-</div>
+
 </div>
 <div class="mt-8 pt-8 border-t border-gray-100 dark:border-white/5">
 <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Related Decks</h3>
@@ -597,11 +601,13 @@
         if (mode === 'study') {
             document.getElementById('flashcard-mode').classList.add('hidden');
             document.getElementById('study-mode').classList.remove('hidden');
-            document.getElementById('main-action-btn').parentElement.classList.add('invisible');
+            document.getElementById('main-action-btn').classList.add('hidden');
+            document.getElementById('end-session-btn').classList.remove('hidden');
         } else {
             document.getElementById('flashcard-mode').classList.remove('hidden');
             document.getElementById('study-mode').classList.add('hidden');
-            document.getElementById('main-action-btn').parentElement.classList.remove('invisible');
+            document.getElementById('main-action-btn').classList.remove('hidden');
+            document.getElementById('end-session-btn').classList.add('hidden');
             document.getElementById('main-action-text').textContent = 'Reveal Answer';
             document.getElementById('main-action-icon').textContent = 'visibility';
         }
@@ -778,8 +784,16 @@
         });
 
         if (mode === 'study') {
-            document.getElementById('result-summary').textContent = `You got ${correctCount} out of ${questions.length} questions correct. Review the details below.`;
+            const pct = Math.round((correctCount / questions.length) * 100);
+            document.getElementById('score-display').classList.remove('hidden');
+            document.getElementById('score-percent').textContent = `${pct}%`;
+            document.getElementById('score-fraction').textContent = `${correctCount} / ${questions.length} correct`;
+            // Color the percentage based on score
+            const scoreEl = document.getElementById('score-percent');
+            scoreEl.className = 'text-4xl font-bold ' + (pct >= 75 ? 'text-green-600' : pct >= 50 ? 'text-amber-500' : 'text-red-500');
+            document.getElementById('result-summary').textContent = `Review your answers below. ${pct >= 75 ? 'Great job!' : pct >= 50 ? 'Keep practicing!' : 'Keep studying — you\'ll get there!'}`;
         } else {
+            document.getElementById('score-display').classList.add('hidden');
             document.getElementById('result-summary').textContent = `You've completed the flashcard set. Review all concepts below.`;
         }
     }
