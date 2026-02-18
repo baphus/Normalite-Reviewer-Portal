@@ -168,11 +168,19 @@
                                 <option>Specialization</option>
                             </select>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Visibility</label>
-                            <select id="deck-visibility" class="w-full rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm focus:border-primary focus:ring-primary">
-                                <option>Private</option>
-                                <option>Share with classmates</option>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Visible To (Programs/Majorships)</label>
+                            <div class="text-xs text-gray-500 mb-2">Select which programs can access this material. Hold Ctrl/Cmd to select multiple.</div>
+                            <select id="deck-visibility-programs" multiple class="w-full rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm focus:border-primary focus:ring-primary" size="6">
+                                <option value="all" selected>All Programs</option>
+                                <option value="BEEd">BEEd - Elementary Education</option>
+                                <option value="BSEd-English">BSEd - English</option>
+                                <option value="BSEd-Mathematics">BSEd - Mathematics</option>
+                                <option value="BSEd-Science">BSEd - Science</option>
+                                <option value="BSEd-Filipino">BSEd - Filipino</option>
+                                <option value="BSEd-Social-Studies">BSEd - Social Studies</option>
+                                <option value="BSEd-MAPEH">BSEd - MAPEH</option>
+                                <option value="BSEd-TLE">BSEd - Technology and Livelihood Education</option>
                             </select>
                         </div>
                         <div class="md:col-span-2">
@@ -396,8 +404,17 @@
         const category = document.getElementById('deck-category').value;
         const description = document.getElementById('deck-desc').value;
         
+        // Get visible programs
+        const programSelect = document.getElementById('deck-visibility-programs');
+        const selectedPrograms = Array.from(programSelect.selectedOptions).map(opt => opt.value);
+        
         if (!title.trim()) {
             alert('Please enter a deck title');
+            return;
+        }
+
+        if (selectedPrograms.length === 0) {
+            alert('Please select at least one program for visibility');
             return;
         }
 
@@ -439,6 +456,7 @@
             cardCount: cards.length,
             cards: cards,
             mastery: 0,
+            visibleTo: selectedPrograms,
             dateCreated: new Date().toISOString()
         };
         

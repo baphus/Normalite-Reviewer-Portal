@@ -278,6 +278,28 @@
                                         <span>180 min</span>
                                     </div>
                                 </div>
+                                <div class="mb-4 space-y-2 pb-4 border-b border-gray-100 dark:border-white/5">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+                                            <span class="material-symbols-outlined text-[14px] text-accent">refresh</span>
+                                            Max Attempts:
+                                        </span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-xs font-bold text-gray-900 dark:text-white exam-max-attempts" data-exam-id="prof-edu-live-1">1</span>
+                                            <button onclick="openAttemptsModal('prof-edu-live-1')" class="text-primary hover:text-primary/80 text-xs underline">Edit</button>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+                                            <span class="material-symbols-outlined text-[14px] text-red-500">event</span>
+                                            Deadline:
+                                        </span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-xs font-bold text-gray-900 dark:text-white exam-deadline" data-exam-id="prof-edu-live-1">March 15, 2026</span>
+                                            <button onclick="openDeadlineModal('prof-edu-live-1')" class="text-primary hover:text-primary/80 text-xs underline">Edit</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mt-auto grid grid-cols-2 gap-2">
                                     <button class="px-3 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-xs font-bold transition-all flex items-center justify-center gap-1 w-full col-span-2" onclick="window.location.href='exam-performance.html'">
                                         <span class="material-symbols-outlined text-[16px]">visibility</span>
@@ -325,6 +347,28 @@
                                     <div class="flex items-center gap-1">
                                         <span class="material-symbols-outlined text-[16px]">schedule</span>
                                         <span>90 min</span>
+                                    </div>
+                                </div>
+                                <div class="mb-4 space-y-2 pb-4 border-b border-gray-100 dark:border-white/5">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+                                            <span class="material-symbols-outlined text-[14px] text-accent">refresh</span>
+                                            Max Attempts:
+                                        </span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-xs font-bold text-gray-900 dark:text-white exam-max-attempts" data-exam-id="spec-bio-draft">3</span>
+                                            <button onclick="openAttemptsModal('spec-bio-draft')" class="text-primary hover:text-primary/80 text-xs underline">Edit</button>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+                                            <span class="material-symbols-outlined text-[14px] text-red-500">event</span>
+                                            Deadline:
+                                        </span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-xs font-bold text-gray-900 dark:text-white exam-deadline" data-exam-id="spec-bio-draft">April 10, 2026</span>
+                                            <button onclick="openDeadlineModal('spec-bio-draft')" class="text-primary hover:text-primary/80 text-xs underline">Edit</button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mt-auto grid grid-cols-2 gap-2">
@@ -531,6 +575,130 @@
                     });
                 }
             });
+        });
+    </script>
+
+    <!-- Modal for Editing Attempts -->
+    <div id="attemptsModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-[#1a0a0a] rounded-2xl shadow-2xl max-w-md w-full border border-gray-200 dark:border-white/10">
+            <div class="p-6 border-b border-gray-100 dark:border-white/10">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Set Maximum Attempts</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Configure how many times students can attempt this exam</p>
+            </div>
+            <div class="p-6">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Number of Attempts</label>
+                <input type="number" id="attemptsInput" min="1" max="10" value="1" class="w-full px-4 py-2.5 border border-gray-200 dark:border-white/10 dark:bg-white/5 rounded-lg focus:ring-primary focus:border-primary text-gray-900 dark:text-white">
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Students will be allowed to take this exam up to the specified number of times</p>
+            </div>
+            <div class="p-6 border-t border-gray-100 dark:border-white/10 flex gap-3">
+                <button onclick="closeAttemptsModal()" class="flex-1 px-4 py-2.5 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 font-medium transition-colors">
+                    Cancel
+                </button>
+                <button onclick="saveAttempts()" class="flex-1 px-4 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 font-bold transition-colors shadow-sm shadow-primary/20">
+                    Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Editing Deadline -->
+    <div id="deadlineModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-[#1a0a0a] rounded-2xl shadow-2xl max-w-md w-full border border-gray-200 dark:border-white/10">
+            <div class="p-6 border-b border-gray-100 dark:border-white/10">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Set Exam Deadline</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Set the deadline for students to complete this exam</p>
+            </div>
+            <div class="p-6">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Deadline Date</label>
+                <input type="date" id="deadlineInput" class="w-full px-4 py-2.5 border border-gray-200 dark:border-white/10 dark:bg-white/5 rounded-lg focus:ring-primary focus:border-primary text-gray-900 dark:text-white">
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">After this date, students will no longer be able to start the exam</p>
+            </div>
+            <div class="p-6 border-t border-gray-100 dark:border-white/10 flex gap-3">
+                <button onclick="closeDeadlineModal()" class="flex-1 px-4 py-2.5 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 font-medium transition-colors">
+                    Cancel
+                </button>
+                <button onclick="saveDeadline()" class="flex-1 px-4 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 font-bold transition-colors shadow-sm shadow-primary/20">
+                    Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal management for attempts and deadline
+        let currentExamId = null;
+
+        function openAttemptsModal(examId) {
+            currentExamId = examId;
+            const attemptsElement = document.querySelector(`.exam-max-attempts[data-exam-id="${examId}"]`);
+            const currentAttempts = parseInt(attemptsElement.textContent);
+            document.getElementById('attemptsInput').value = currentAttempts;
+            document.getElementById('attemptsModal').classList.remove('hidden');
+        }
+
+        function closeAttemptsModal() {
+            document.getElementById('attemptsModal').classList.add('hidden');
+            currentExamId = null;
+        }
+
+        function saveAttempts() {
+            const newAttempts = document.getElementById('attemptsInput').value;
+            if (currentExamId && newAttempts) {
+                const attemptsElement = document.querySelector(`.exam-max-attempts[data-exam-id="${currentExamId}"]`);
+                attemptsElement.textContent = newAttempts;
+                
+                // In production, save to backend/database
+                console.log(`Updated exam ${currentExamId} max attempts to ${newAttempts}`);
+                
+                closeAttemptsModal();
+            }
+        }
+
+        function openDeadlineModal(examId) {
+            currentExamId = examId;
+            // Set default date to current deadline if available
+            const deadlineElement = document.querySelector(`.exam-deadline[data-exam-id="${examId}"]`);
+            const currentDeadline = deadlineElement.textContent;
+            
+            // Convert display date to input format (YYYY-MM-DD)
+            const date = new Date(currentDeadline);
+            const formattedDate = date.toISOString().split('T')[0];
+            document.getElementById('deadlineInput').value = formattedDate;
+            
+            document.getElementById('deadlineModal').classList.remove('hidden');
+        }
+
+        function closeDeadlineModal() {
+            document.getElementById('deadlineModal').classList.add('hidden');
+            currentExamId = null;
+        }
+
+        function saveDeadline() {
+            const newDeadline = document.getElementById('deadlineInput').value;
+            if (currentExamId && newDeadline) {
+                const deadlineElement = document.querySelector(`.exam-deadline[data-exam-id="${currentExamId}"]`);
+                
+                // Format date for display
+                const date = new Date(newDeadline);
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const formattedDate = date.toLocaleDateString('en-US', options);
+                
+                deadlineElement.textContent = formattedDate;
+                
+                // In production, save to backend/database
+                console.log(`Updated exam ${currentExamId} deadline to ${newDeadline}`);
+                
+                closeDeadlineModal();
+            }
+        }
+
+        // Close modals on background click
+        document.getElementById('attemptsModal').addEventListener('click', function(e) {
+            if (e.target === this) closeAttemptsModal();
+        });
+
+        document.getElementById('deadlineModal').addEventListener('click', function(e) {
+            if (e.target === this) closeDeadlineModal();
         });
     </script>
 </body>

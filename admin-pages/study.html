@@ -126,6 +126,17 @@
 <p class="text-gray-500 dark:text-gray-400 mt-2 text-base">Create and manage interactive quizzes and flashcards for students.</p>
 </div>
 <div class="flex items-center gap-3">
+<select id="admin-program-filter" class="h-10 px-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary transition-all">
+    <option value="all">All Programs</option>
+    <option value="BEEd">BEEd</option>
+    <option value="BSEd-English">BSEd English</option>
+    <option value="BSEd-Mathematics">BSEd Math</option>
+    <option value="BSEd-Science">BSEd Science</option>
+    <option value="BSEd-Filipino">BSEd Filipino</option>
+    <option value="BSEd-Social-Studies">BSEd Social Studies</option>
+    <option value="BSEd-MAPEH">BSEd MAPEH</option>
+    <option value="BSEd-TLE">BSEd TLE</option>
+</select>
 <div class="relative hidden sm:block">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl">search</span>
 <input id="admin-deck-search" class="pl-10 pr-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary w-64 transition-all" placeholder="Search materials..." type="text"/>
@@ -241,6 +252,7 @@
                     category: "Prof Ed",
                     description: "Theories of growth and development from conception to adolescence.",
                     cardCount: 50,
+                    visibleTo: ["all"],
                     cards: [
                         { front: "Who proposed the Theory of Cognitive Development?", options: ["Jean Piaget", "Lev Vygotsky", "Erik Erikson", "B.F. Skinner"], answer: 0, rationalization: "Jean Piaget is famous for his four stages of cognitive development." },
                         { front: "What is the 'Zone of Proximal Development'?", options: ["Internalized speech", "Difference between what a learner can do with or without help", "Physical growth limit", "Emotional intelligence"], answer: 1, rationalization: "Introduced by Vygotsky, ZPD focuses on the role of social interaction in learning." },
@@ -254,6 +266,7 @@
                     category: "Gen Ed",
                     description: "Key philosophical and historical roots of the Philippine Education System.",
                     cardCount: 45,
+                    visibleTo: ["BSEd-Social-Studies", "BEEd"],
                     cards: [
                         { front: "The 'Cry of Pugad Lawin' marked the start of...", options: ["World War II", "Philippine Revolution", "American Colonization", "EDSA Revolution"], answer: 1, rationalization: "The tearing of cedulas signified the open rebellion against Spain." },
                         { front: "Who is known as the Sublime Paralytic?", options: ["Jose Rizal", "Andres Bonifacio", "Apolinario Mabini", "Emilio Aguinaldo"], answer: 2, rationalization: "Mabini was the advisor to Aguinaldo and the brain of the revolution despite his condition." }
@@ -266,6 +279,7 @@
                     category: "Specialization",
                     description: "Linguistics, phonology, morphology, and syntax concepts for English majors.",
                     cardCount: 62,
+                    visibleTo: ["BSEd-English"],
                     cards: [
                         { front: "Who wrote 'The Death of the Author'?", options: ["Jacques Derrida", "Roland Barthes", "Michel Foucault", "T.S. Eliot"], answer: 1, rationalization: "Barthes' essay argues against traditional literary criticism's focus on authorial intent." },
                         { front: "The concept of 'Orientalism' was popularized by...", options: ["Edward Said", "Gayatri Spivak", "Homi Bhabha", "Chinua Achebe"], answer: 0, rationalization: "Edward Said's 1978 book established the field of post-colonial studies." }
@@ -278,6 +292,7 @@
                     category: "Prof Ed",
                     description: "Behaviorism, Cognitivism, and Constructivism in education.",
                     cardCount: 30,
+                    visibleTo: ["all"],
                     cards: [
                         { front: "Which psychologist is associated with Operant Conditioning?", options: ["Ivan Pavlov", "B.F. Skinner", "Albert Bandura", "Abraham Maslow"], answer: 1, rationalization: "B.F. Skinner developed the concept of operant conditioning via reinforcements." }
                     ],
@@ -290,47 +305,93 @@
         // Sort by newest first
         customDecks.sort((a, b) => new Date(b.dateCreated) - new Date(a.dateCreated));
         
-        customDecks.forEach(deck => {
-            const materialCard = document.createElement('div');
-            materialCard.className = 'bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group';
-            materialCard.innerHTML = `
-                <div class="h-32 bg-primary/5 flex items-center justify-center relative overflow-hidden">
-                    <span class="material-symbols-outlined text-6xl text-primary/20 group-hover:scale-110 transition-transform">menu_book</span>
-                    <div class="absolute top-3 right-3 flex gap-2">
-                        <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">${deck.category}</span>
-                    </div>
-                </div>
-                <div class="p-5 flex flex-col gap-4 flex-1">
-                    <div>
-                        <h3 class="font-bold text-lg text-gray-900 dark:text-white line-clamp-1">${deck.title}</h3>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">${deck.description}</p>
-                    </div>
-                    <div class="flex items-center justify-between py-3 border-y border-gray-50 dark:border-white/5">
-                        <div class="flex flex-col">
-                            <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Questions</span>
-                            <span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">${deck.cardCount}</span>
+        // Helper function to format visibility text
+        function getVisibilityText(visibleTo) {
+            if (!visibleTo || visibleTo.length === 0) return 'All Programs';
+            if (visibleTo.includes('all')) return 'All Programs';
+            if (visibleTo.length === 1) {
+                return visibleTo[0].replace(/-/g, ' ');
+            }
+            return `${visibleTo.length} Programs`;
+        }
+        
+        // Function to render materials
+        function renderMaterials(decks) {
+            // Clear existing cards except the "Add New" button
+            const existingCards = container.querySelectorAll('.bg-white');
+            existingCards.forEach(card => card.remove());
+            
+            decks.forEach(deck => {
+                const visibleToText = getVisibilityText(deck.visibleTo);
+                const materialCard = document.createElement('div');
+                materialCard.className = 'bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group';
+                materialCard.setAttribute('data-programs', JSON.stringify(deck.visibleTo || ['all']));
+                materialCard.innerHTML = `
+                    <div class="h-32 bg-primary/5 flex items-center justify-center relative overflow-hidden">
+                        <span class="material-symbols-outlined text-6xl text-primary/20 group-hover:scale-110 transition-transform">menu_book</span>
+                        <div class="absolute top-3 right-3 flex gap-2">
+                            <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">${deck.category}</span>
                         </div>
-                        <div class="flex flex-col text-right">
-                             <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Status</span>
-                             <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded uppercase">Active</span>
+                    </div>
+                    <div class="p-5 flex flex-col gap-4 flex-1">
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white line-clamp-1">${deck.title}</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">${deck.description}</p>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+                            <span class="material-symbols-outlined text-sm">visibility</span>
+                            <span class="font-medium">${visibleToText}</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 border-y border-gray-50 dark:border-white/5">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Questions</span>
+                                <span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">${deck.cardCount}</span>
+                            </div>
+                            <div class="flex flex-col text-right">
+                                 <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Status</span>
+                                 <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded uppercase">Active</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 mt-auto">
+                            <button onclick="deleteMaterial(${deck.id})" class="p-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors" title="Delete">
+                                <span class="material-symbols-outlined text-[20px]">delete</span>
+                            </button>
+                            <button onclick="window.location.href='custom-deck.html?edit=${deck.id}'" class="p-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-400 hover:text-primary hover:bg-primary/5 transition-colors" title="Edit Content">
+                                <span class="material-symbols-outlined text-[20px]">edit</span>
+                            </button>
+                            <button onclick="previewFlashcards(${deck.id})" class="flex-1 text-[10px] font-black uppercase tracking-wider py-2.5 rounded-lg bg-primary/5 text-primary hover:bg-primary/10 transition-colors">Flashcard</button>
+                            <button onclick="previewQuiz(${deck.id})" class="flex-1 text-[10px] font-black uppercase tracking-wider py-2.5 rounded-lg bg-accent/5 text-accent hover:bg-accent/10 transition-colors">Quiz</button>
                         </div>
                     </div>
-                    <div class="flex items-center gap-2 mt-auto">
-                        <button onclick="deleteMaterial(${deck.id})" class="p-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors" title="Delete">
-                            <span class="material-symbols-outlined text-[20px]">delete</span>
-                        </button>
-                        <button onclick="window.location.href='custom-deck.html?edit=${deck.id}'" class="p-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-400 hover:text-primary hover:bg-primary/5 transition-colors" title="Edit Content">
-                            <span class="material-symbols-outlined text-[20px]">edit</span>
-                        </button>
-                        <button onclick="previewFlashcards(${deck.id})" class="flex-1 text-[10px] font-black uppercase tracking-wider py-2.5 rounded-lg bg-primary/5 text-primary hover:bg-primary/10 transition-colors">Flashcard</button>
-                        <button onclick="previewQuiz(${deck.id})" class="flex-1 text-[10px] font-black uppercase tracking-wider py-2.5 rounded-lg bg-accent/5 text-accent hover:bg-accent/10 transition-colors">Quiz</button>
-                    </div>
-                </div>
-            `;
-            // Insert before the "Add New" button
-            container.insertBefore(materialCard, container.lastElementChild);
-        });
+                `;
+                // Insert before the "Add New" button
+                container.insertBefore(materialCard, container.lastElementChild);
+            });
+        }
+        
+        // Initial render
+        renderMaterials(customDecks);
+        
+        // Program filter
+        const programFilter = document.getElementById('admin-program-filter');
+        if (programFilter) {
+            programFilter.addEventListener('change', (e) => {
+                const selectedProgram = e.target.value;
+                filterMaterials(selectedProgram);
+            });
+        }
+        
+        function filterMaterials(program) {
+            const cards = container.querySelectorAll('[data-programs]');
+            cards.forEach(card => {
+                if (card.tagName === 'A') return; // Skip create button
+                const cardPrograms = JSON.parse(card.getAttribute('data-programs') || '["all"]');
+                const shouldShow = program === 'all' || cardPrograms.includes('all') || cardPrograms.includes(program);
+                card.style.display = shouldShow ? 'flex' : 'none';
+            });
+        }
 
+        // Search functionality
         const searchInput = document.getElementById('admin-deck-search');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
@@ -339,7 +400,8 @@
                 cards.forEach(card => {
                     if (card.tagName === 'A') return; // Skip create button
                     const title = card.querySelector('h3').textContent.toLowerCase();
-                    card.style.display = title.includes(query) ? 'flex' : 'none';
+                    const isVisible = card.style.display !== 'none';
+                    card.style.display = (title.includes(query) && isVisible) ? 'flex' : 'none';
                 });
             });
         }
