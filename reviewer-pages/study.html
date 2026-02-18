@@ -103,11 +103,11 @@
                             All Materials
                             <span class="bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full" id="count-all"></span>
                         </button>
-                        <button data-category="Prof Ed" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                        <button data-category="Professional Education" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
                             Prof. Education
                             <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-profedu"></span>
                         </button>
-                        <button data-category="Gen Ed" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                        <button data-category="General Education" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
                             Gen. Education
                             <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-genedu"></span>
                         </button>
@@ -168,11 +168,6 @@
         // ── Sidebar & Mobile Menu ──────────────────────────────────────
         const notificationButton = document.getElementById('notification-button');
         const notificationPanel = document.getElementById('notification-panel');
-        }
-
-        if (mobileMenuButton)
-        if (closeSidebarButton)
-        if (sidebarBackdrop)
 
         // ── Notification Panel ─────────────────────────────────────────
         if (notificationButton && notificationPanel) {
@@ -197,7 +192,7 @@
                 {
                     id: 1,
                     title: "Child & Adolescent Development",
-                    category: "Prof Ed",
+                    category: "Professional Education",
                     description: "Theories of growth and development from conception to adolescence.",
                     cardCount: 50,
                     visibleTo: ["all"],
@@ -211,7 +206,7 @@
                 {
                     id: 2,
                     title: "Historical Foundations",
-                    category: "Gen Ed",
+                    category: "General Education",
                     description: "Key philosophical and historical roots of the Philippine Education System.",
                     cardCount: 45,
                     visibleTo: ["BSEd-Social-Studies", "BEEd"],
@@ -237,7 +232,7 @@
                 {
                     id: 4,
                     title: "Theories of Learning",
-                    category: "Prof Ed",
+                    category: "Professional Education",
                     description: "Behaviorism, Cognitivism, and Constructivism in education.",
                     cardCount: 30,
                     visibleTo: ["all"],
@@ -256,11 +251,11 @@
         // ── Helpers ────────────────────────────────────────────────────
         function getCategoryBadge(category) {
             const badges = {
-                'Prof Ed': 'bg-accent/10 text-accent border border-accent/20',
-                'Gen Ed': 'bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/30',
+                'Professional Education': 'bg-accent/10 text-accent border border-accent/20',
+                'General Education': 'bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/30',
                 'Specialization': 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/30'
             };
-            return badges[category] || badges['Prof Ed'];
+            return badges[category] || badges['Professional Education'];
         }
 
         function getVisibilityText(visibleTo) {
@@ -323,7 +318,7 @@
 
         function updateCounts() {
             const cards = container.querySelectorAll('.deck-card');
-            const counts = { all: 0, 'Prof Ed': 0, 'Gen Ed': 0, 'Specialization': 0 };
+            const counts = { all: 0, 'Professional Education': 0, 'General Education': 0, 'Specialization': 0 };
             cards.forEach(card => {
                 const cat = card.getAttribute('data-category') || 'all';
                 counts.all++;
@@ -331,8 +326,8 @@
             });
             const el = (id) => document.getElementById(id);
             if (el('count-all'))    el('count-all').textContent    = counts.all;
-            if (el('count-profedu')) el('count-profedu').textContent = counts['Prof Ed'];
-            if (el('count-genedu'))  el('count-genedu').textContent  = counts['Gen Ed'];
+            if (el('count-profedu')) el('count-profedu').textContent = counts['Professional Education'];
+            if (el('count-genedu'))  el('count-genedu').textContent  = counts['General Education'];
             if (el('count-spec'))   el('count-spec').textContent   = counts['Specialization'];
         }
 
@@ -379,6 +374,7 @@
         document.getElementById('program-filter')?.addEventListener('change', filterDecks);
         document.getElementById('deck-search')?.addEventListener('input', filterDecks);
 
+        filterDecks();
         updateCounts();
     });
 
