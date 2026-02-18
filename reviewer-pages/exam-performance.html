@@ -31,73 +31,10 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
     <div class="flex h-screen w-full">
-        <aside class="flex w-64 flex-col border-r border-[#e5e7eb] bg-white dark:bg-[#1a0a0a] dark:border-[#3a1a1a] transition-all duration-300 fixed inset-y-0 left-0 z-50 transform -translate-x-full md:relative md:translate-x-0 md:flex shrink-0" id="sidebar">
-            <div class="flex h-full flex-col justify-between p-4">
-                <div class="flex flex-col gap-6">
-                    <div class="flex items-center justify-between md:justify-start gap-3 px-2 py-2">
-                        <div class="flex items-center gap-3">
-                            <div class="bg-center bg-no-repeat bg-cover rounded-lg h-10 w-10 shadow-sm border border-primary/10" style='background-image: url("https://img.icons8.com/color/512/university.png");'></div>
-                            <div class="flex flex-col">
-                                <h1 class="text-primary text-lg font-bold leading-tight tracking-tight">Normalite EDGE</h1>
-                                <p class="text-gray-500 text-xs font-normal">Reviewer Portal</p>
-                            </div>
-                        </div>
-                        <button class="md:hidden text-gray-500" id="close-sidebar">
-                            <span class="material-symbols-outlined">close</span>
-                        </button>
-                    </div>
-                    <nav class="flex flex-col gap-1">
-                        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="dashboard.html">
-                            <span class="material-symbols-outlined text-[20px]">dashboard</span>
-                            <p class="text-sm font-medium">Dashboard</p>
-                        </a>
-                        <a class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors" href="exams.html">
-                            <span class="material-symbols-outlined text-[20px] font-variation-settings-'FILL'1">assignment</span>
-                            <p class="text-sm font-medium">Exams</p>
-                        </a>
-                        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="study.html">
-                            <span class="material-symbols-outlined text-[20px]">style</span>
-                            <p class="text-sm font-medium">Study</p>
-                        </a>
-                        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="video-conferences.html">
-                            <span class="material-symbols-outlined text-[20px]">video_call</span>
-                            <p class="text-sm font-medium">Video Conferences</p>
-                        </a>
-                        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
-                            <span class="material-symbols-outlined text-[20px]">settings</span>
-                            <p class="text-sm font-medium">Settings</p>
-                        </a>
-                    </nav>
-                </div>
-                <div class="flex flex-col gap-4 border-t border-gray-100 pt-4 dark:border-white/10">
-                    <div class="flex items-center justify-between px-2">
-                        <div class="flex items-center gap-3">
-                            <div class="relative">
-                                <div class="h-9 w-9 rounded-full bg-gray-200 bg-cover bg-center ring-2 ring-white dark:ring-[#1a0a0a] shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRPPNAtErCq7KnUYhj2JsmJNhkhexjuGMyftx05EykHw3q1BlzO-71-JUqsyQSFSiag1qAKfi6bcA9G4HUgLH1lLaFzKMl9DKsXWwXV0LdNJ02QNwnvh0WdIdFpy2zVJg73wjkd-PXjqbBElMEF5bOGlukZ5tUK9GGdjXWh5MWEDuPjDjM55USlSs5AGGZgVZmG8pOwiXYtj1yKgNzA-AvvZAO9x3_VXoFCpwqbuUsTJFM7b4mNxI7kjy_2gqMFqaI0pkK4DcIYkVd");'></div>
-                            </div>
-                            <div class="flex flex-col overflow-hidden">
-                                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">Reviewer</p>
-                                <p class="text-xs text-gray-500 truncate">Reviewer</p>
-                            </div>
-                        </div>
-                        <div class="relative">
-                            <button class="flex items-center justify-center h-8 w-8 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors text-gray-500 relative" id="notification-button">
-                                <span class="material-symbols-outlined text-[20px]">notifications</span>
-                                <span class="absolute top-1.5 right-1.5 h-2 w-2 bg-red-500 rounded-full border border-white dark:border-[#1a0a0a]"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10" onclick="window.location.href='../login.html'">
-                        <span class="material-symbols-outlined text-[18px]">logout</span>
-                        <span>Log Out</span>
-                    </button>
-                </div>
-            </div>
-        </aside>
+        <div id="sidebar-container"></div>
+<script src="../components/sidebar.js"></script>
 
         <main class="flex-1 flex flex-col h-screen overflow-hidden bg-background-light dark:bg-background-dark relative">
-            <!-- Sidebar Backdrop -->
-            <div class="fixed inset-0 bg-black/50 z-40 hidden md:hidden" id="sidebar-backdrop"></div>
 
             <!-- Global Notification Panel -->
             <div class="fixed bottom-24 left-4 md:left-64 ml-2 w-80 bg-white dark:bg-[#1a0a0a] rounded-2xl shadow-2xl border border-gray-100 dark:border-white/10 hidden z-[100] overflow-hidden" id="notification-panel">
@@ -189,11 +126,6 @@
                             <p class="text-xs text-gray-500">78.4% overall</p>
                         </div>
                         <div class="bg-white dark:bg-[#1a0a0a] p-5 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow">
-                            <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Passing Rate</p>
-                            <h3 class="text-3xl font-bold mb-1">79<span class="text-lg text-gray-400">/124</span></h3>
-                            <p class="text-xs text-amber-600 dark:text-amber-400">63.7% passed</p>
-                        </div>
-                        <div class="bg-white dark:bg-[#1a0a0a] p-5 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow">
                             <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Avg Time / Question</p>
                             <h3 class="text-3xl font-bold mb-1">42<span class="text-lg text-gray-400">s</span></h3>
                             <div class="w-full bg-gray-100 rounded-full h-1.5 dark:bg-white/10 mt-2">
@@ -214,11 +146,6 @@
                                 <div class="p-4 border-b border-gray-100 dark:border-white/10 flex items-center justify-between">
                                     <h4 class="font-bold">Student Results <span class="text-gray-400 font-normal text-xs">(124 total)</span></h4>
                                     <div class="flex items-center gap-2">
-                                        <select id="filterStatus" class="px-3 py-1.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-xs">
-                                            <option value="all">All Status</option>
-                                            <option value="passed">Passed</option>
-                                            <option value="failed">Below Target</option>
-                                        </select>
                                         <div class="relative">
                                             <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm">search</span>
                                             <input type="text" id="searchStudent" placeholder="Search students..." class="pl-8 pr-3 py-1.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-xs w-48">
@@ -253,7 +180,11 @@
                                                         <span class="material-symbols-outlined text-[14px]">unfold_more</span>
                                                     </div>
                                                 </th>
-                                                <th class="px-4 py-3 text-center">Status</th>
+                                                <th class="px-4 py-3 text-center">Year</th>
+                                                <th class="px-4 py-3 text-center">Section</th>
+                                                <th class="px-4 py-3">Program</th>
+                                                <th class="px-4 py-3">Specialization</th>
+                                                <th class="px-4 py-3 text-center">Date Submitted</th>
                                                 <th class="px-4 py-3 text-right">Action</th>
                                             </tr>
                                         </thead>
@@ -321,13 +252,6 @@
                                         <p class="text-[10px] text-gray-400 mt-1">Easiest - 114 correct answers</p>
                                     </div>
                                 </div>
-                                <div class="mt-6 pt-4 border-t border-gray-100 dark:border-white/10">
-                                    <p class="text-[10px] text-gray-400 leading-relaxed uppercase font-bold tracking-widest mb-3">Common Misconception</p>
-                                    <div class="bg-amber-50 dark:bg-amber-900/10 p-3 rounded-lg border border-amber-100 dark:border-amber-900/30">
-                                        <p class="text-[11px] font-bold text-amber-900 dark:text-amber-300 mb-1.5">Q24: Behaviorist vs Cognitivist Theories</p>
-                                        <p class="text-[10px] text-amber-700 dark:text-amber-400/80 leading-relaxed">65% confused operant conditioning (Choice B) with social learning theory (Choice C - Correct). Recommend reviewing Bandura's work.</p>
-                                    </div>
-                                </div>
                                 <button class="w-full mt-4 px-4 py-2 rounded-lg bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 text-xs font-medium transition-colors flex items-center justify-center gap-2">
                                     <span class="material-symbols-outlined text-[16px]">bar_chart</span>
                                     View Full Analysis
@@ -340,146 +264,210 @@
         </main>
     </div>
 
-    <!-- Student Analysis Modal -->
-    <div id="analysisModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-[#1a0a0a] rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] flex flex-col border border-gray-200 dark:border-white/10">
+    <!-- Student Result Modal (mock-exam-result style) -->
+    <div id="resultModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-background-light dark:bg-background-dark rounded-2xl shadow-2xl max-w-7xl w-full max-h-[95vh] flex flex-col border border-gray-200 dark:border-white/10">
             <!-- Modal Header -->
-            <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-white/10">
+            <div class="bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10 px-6 py-5 flex items-center justify-between rounded-t-2xl shrink-0">
                 <div class="flex items-center gap-4">
-                    <div id="modalAvatar" class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">
-                    </div>
-                    <div>
-                        <h3 id="modalStudentName" class="text-lg font-bold text-gray-900 dark:text-white"></h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                            Score: <span id="modalScore" class="font-bold"></span> | 
-                            Avg Time: <span id="modalAvgTime" class="font-bold"></span> | 
-                            Status: <span id="modalStatus" class="font-bold"></span>
-                        </p>
+                    <button onclick="closeResultModal()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 text-gray-500 transition-colors">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <div class="flex items-center gap-3">
+                        <div id="resultAvatar" class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm"></div>
+                        <div>
+                            <h2 id="resultStudentName" class="text-xl font-bold text-gray-900 dark:text-white leading-tight"></h2>
+                            <p id="resultSubtitle" class="text-sm text-gray-500"></p>
+                        </div>
                     </div>
                 </div>
-                <button onclick="closeAnalysisModal()" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg transition-colors">
-                    <span class="material-symbols-outlined text-gray-500">close</span>
-                </button>
+                <div class="flex items-center gap-2">
+                    <button class="px-4 py-2 rounded-lg bg-white border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 text-sm font-medium transition-colors flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">download</span>
+                        Download PDF
+                    </button>
+                    <button onclick="closeResultModal()" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg transition-colors">
+                        <span class="material-symbols-outlined text-gray-500">close</span>
+                    </button>
+                </div>
             </div>
 
             <!-- Modal Body -->
-            <div class="flex-1 overflow-y-auto p-6">
-                <div class="space-y-4">
-                    <!-- Summary Stats -->
-                    <div class="grid grid-cols-4 gap-4 mb-6">
-                        <div class="bg-gray-50 dark:bg-white/5 p-4 rounded-lg border border-gray-200 dark:border-white/10">
-                            <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Correct</p>
-                            <p id="correctCount" class="text-2xl font-bold text-green-600"></p>
+            <div class="flex-1 overflow-y-auto">
+                <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <!-- Left: Report Card -->
+                        <div class="lg:col-span-8 flex flex-col gap-6">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Report Card</h3>
+                                <div class="flex items-center gap-3">
+                                    <select id="resultSectionFilter" class="px-3 py-1.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-xs">
+                                        <option value="all">All Sections</option>
+                                        <option value="Professional Education">Professional Education</option>
+                                        <option value="General Education">General Education</option>
+                                        <option value="Specialization">Specialization</option>
+                                    </select>
+                                    <select id="resultAnswerFilter" class="px-3 py-1.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-xs">
+                                        <option value="all">All Questions</option>
+                                        <option value="correct">Correct Only</option>
+                                        <option value="incorrect">Incorrect Only</option>
+                                        <option value="skipped">Skipped Only</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="resultSections" class="grid gap-4">
+                                <!-- Dynamically populated -->
+                            </div>
                         </div>
-                        <div class="bg-gray-50 dark:bg-white/5 p-4 rounded-lg border border-gray-200 dark:border-white/10">
-                            <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Incorrect</p>
-                            <p id="incorrectCount" class="text-2xl font-bold text-red-600"></p>
-                        </div>
-                        <div class="bg-gray-50 dark:bg-white/5 p-4 rounded-lg border border-gray-200 dark:border-white/10">
-                            <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Fastest</p>
-                            <p id="fastestTime" class="text-2xl font-bold text-blue-600"></p>
-                        </div>
-                        <div class="bg-gray-50 dark:bg-white/5 p-4 rounded-lg border border-gray-200 dark:border-white/10">
-                            <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Slowest</p>
-                            <p id="slowestTime" class="text-2xl font-bold text-amber-600"></p>
-                        </div>
-                    </div>
 
-                    <!-- Filter and Search -->
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center gap-2">
-                            <select id="sectionFilter" class="px-3 py-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm">
-                                <option value="all">All Sections</option>
-                                <option value="Professional Education">Professional Education (Q1-50)</option>
-                                <option value="General Education">General Education (Q51-100)</option>
-                                <option value="Specialization">Specialization (Q101-150)</option>
-                            </select>
-                            <select id="answerFilter" class="px-3 py-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm">
-                                <option value="all">All Questions</option>
-                                <option value="correct">Correct Only</option>
-                                <option value="incorrect">Incorrect Only</option>
-                            </select>
-                            <button id="sortByTime" class="px-3 py-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[16px]">sort</span>
-                                Sort by Time
-                            </button>
-                        </div>
-                        <p class="text-xs text-gray-500">Showing <span id="questionCount">150</span> questions</p>
-                    </div>
+                        <!-- Right: Performance Overview -->
+                        <div class="lg:col-span-4 flex flex-col gap-6">
+                            <div class="bg-white dark:bg-[#1a0a0a] rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-white/5">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-5">Performance Overview</h3>
 
-                    <!-- Questions List -->
-                    <div id="questionsList" class="space-y-2">
-                        <!-- Dynamically populated -->
+                                <!-- Total Score -->
+                                <div class="flex items-center justify-between p-4 rounded-xl bg-primary/5 border border-primary/10 mb-5">
+                                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Total Score</span>
+                                    <span id="resultTotalScore" class="text-2xl font-black text-primary"></span>
+                                </div>
+
+                                <!-- Pie Chart -->
+                                <div class="flex flex-col items-center mb-5">
+                                    <div class="relative w-36 h-36">
+                                        <canvas id="resultScoreChart" width="144" height="144"></canvas>
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                                            <span id="resultAccuracy" class="text-2xl font-black text-gray-900 dark:text-white"></span>
+                                            <span class="text-[10px] font-bold text-gray-400 uppercase">Accuracy</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-4 mt-3 text-xs">
+                                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span><span class="text-gray-500">Correct</span></div>
+                                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span><span class="text-gray-500">Incorrect</span></div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex items-center justify-between p-3 rounded-xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/20">
+                                        <div class="flex items-center gap-3">
+                                            <div class="h-7 w-7 rounded-full bg-green-500 flex items-center justify-center text-white">
+                                                <span class="material-symbols-outlined text-[16px]">check</span>
+                                            </div>
+                                            <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Correct</span>
+                                        </div>
+                                        <span id="resultCorrectCount" class="text-lg font-black text-green-600"></span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 rounded-xl bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/20">
+                                        <div class="flex items-center gap-3">
+                                            <div class="h-7 w-7 rounded-full bg-red-500 flex items-center justify-center text-white">
+                                                <span class="material-symbols-outlined text-[16px]">close</span>
+                                            </div>
+                                            <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Incorrect</span>
+                                        </div>
+                                        <span id="resultIncorrectCount" class="text-lg font-black text-red-600"></span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/20">
+                                        <div class="flex items-center gap-3">
+                                            <div class="h-7 w-7 rounded-full bg-amber-500 flex items-center justify-center text-white">
+                                                <span class="material-symbols-outlined text-[16px]">remove_done</span>
+                                            </div>
+                                            <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Skipped</span>
+                                        </div>
+                                        <span id="resultSkippedCount" class="text-lg font-black text-amber-600"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-6 pt-5 border-t border-gray-100 dark:border-white/10">
+                                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Time Statistics</h4>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <p class="text-xs text-gray-500 mb-1">Avg. Time/Q</p>
+                                            <p id="resultAvgTime" class="text-base font-bold text-gray-900 dark:text-white"></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-500 mb-1">Fastest</p>
+                                            <p id="resultFastest" class="text-base font-bold text-green-600"></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-500 mb-1">Slowest</p>
+                                            <p id="resultSlowest" class="text-base font-bold text-red-600"></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-500 mb-1">Status</p>
+                                            <p id="resultStatus" class="text-base font-bold"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Modal Footer -->
-            <div class="p-6 border-t border-gray-200 dark:border-white/10 flex items-center justify-between">
-                <button class="px-4 py-2 rounded-lg bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 text-sm font-medium transition-colors flex items-center gap-2">
-                    <span class="material-symbols-outlined text-[18px]">download</span>
-                    Export Report
-                </button>
-                <button onclick="closeAnalysisModal()" class="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-sm font-medium transition-colors">
-                    Close
-                </button>
             </div>
         </div>
     </div>
 
     <script>
         // Realistic student data with varied scores and times
+        const programs = ["BSEd - English", "BSEd - Math", "BSEd - Science", "BSEd - Filipino", "BSEd - Social Studies", "BEEd", "BSEd - Values Ed", "BSEd - MAPEH"];
+        const specializations = ["English", "Mathematics", "General Science", "Filipino", "Social Studies", "General Education", "Values Education", "MAPEH"];
+        const yearLevels = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
+        const sectionsList = ["A", "B", "C", "D"];
+
+        function randomDate(start, end) {
+            const d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+            return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+
         const studentData = [
-            { name: "Juan Dela Cruz", score: 142, time: 38, status: "passed", initials: "JD", color: "primary" },
-            { name: "Maria Santos", score: 85, time: 45, status: "failed", initials: "MS", color: "blue" },
-            { name: "Antonio Luna", score: 118, time: 41, status: "passed", initials: "AL", color: "amber" },
-            { name: "Sofia Reyes", score: 134, time: 35, status: "passed", initials: "SR", color: "purple" },
-            { name: "Miguel Torres", score: 97, time: 52, status: "failed", initials: "MT", color: "green" },
-            { name: "Isabella Garcia", score: 128, time: 39, status: "passed", initials: "IG", color: "pink" },
-            { name: "Diego Ramos", score: 72, time: 58, status: "failed", initials: "DR", color: "indigo" },
-            { name: "Carmen Flores", score: 145, time: 33, status: "passed", initials: "CF", color: "teal" },
-            { name: "Rafael Cruz", score: 104, time: 48, status: "passed", initials: "RC", color: "orange" },
-            { name: "Lucia Mendoza", score: 89, time: 54, status: "failed", initials: "LM", color: "rose" },
-            { name: "Carlos Velasco", score: 121, time: 42, status: "passed", initials: "CV", color: "cyan" },
-            { name: "Ana Bautista", score: 112, time: 44, status: "passed", initials: "AB", color: "lime" },
-            { name: "Fernando Silva", score: 93, time: 50, status: "failed", initials: "FS", color: "violet" },
-            { name: "Elena Morales", score: 138, time: 36, status: "passed", initials: "EM", color: "fuchsia" },
-            { name: "Roberto Castillo", score: 108, time: 46, status: "passed", initials: "RC", color: "sky" },
-            { name: "Patricia Diaz", score: 79, time: 56, status: "failed", initials: "PD", color: "red" },
-            { name: "Jose Martinez", score: 126, time: 40, status: "passed", initials: "JM", color: "emerald" },
-            { name: "Gloria Perez", score: 115, time: 43, status: "passed", initials: "GP", color: "amber" },
-            { name: "Ricardo Gomez", score: 87, time: 53, status: "failed", initials: "RG", color: "slate" },
-            { name: "Teresa Navarro", score: 140, time: 34, status: "passed", initials: "TN", color: "primary" },
-            { name: "Victor Herrera", score: 101, time: 47, status: "passed", initials: "VH", color: "blue" },
-            { name: "Sandra Lopez", score: 76, time: 59, status: "failed", initials: "SL", color: "gray" },
-            { name: "Manuel Rivera", score: 133, time: 37, status: "passed", initials: "MR", color: "purple" },
-            { name: "Adriana Castro", score: 119, time: 41, status: "passed", initials: "AC", color: "green" },
-            { name: "Eduardo Ortiz", score: 95, time: 49, status: "failed", initials: "EO", color: "pink" },
-            { name: "Rosa Jimenez", score: 124, time: 42, status: "passed", initials: "RJ", color: "indigo" },
-            { name: "Luis Romero", score: 110, time: 45, status: "passed", initials: "LR", color: "teal" },
-            { name: "Beatriz Vargas", score: 82, time: 55, status: "failed", initials: "BV", color: "orange" },
-            { name: "Pablo Ruiz", score: 136, time: 38, status: "passed", initials: "PR", color: "rose" },
-            { name: "Cecilia Gutierrez", score: 107, time: 46, status: "passed", initials: "CG", color: "cyan" },
-            { name: "Andres Soto", score: 91, time: 51, status: "failed", initials: "AS", color: "lime" },
-            { name: "Mariana Campos", score: 129, time: 39, status: "passed", initials: "MC", color: "violet" },
-            { name: "Javier Medina", score: 113, time: 44, status: "passed", initials: "JM", color: "fuchsia" },
-            { name: "Valeria Ibarra", score: 78, time: 57, status: "failed", initials: "VI", color: "sky" },
-            { name: "Hector Aguilar", score: 141, time: 35, status: "passed", initials: "HA", color: "red" },
-            { name: "Diana Rojas", score: 116, time: 43, status: "passed", initials: "DR", color: "emerald" },
-            { name: "Sergio Vega", score: 88, time: 52, status: "failed", initials: "SV", color: "amber" },
-            { name: "Monica Fuentes", score: 131, time: 38, status: "passed", initials: "MF", color: "slate" },
-            { name: "Alejandro Pena", score: 105, time: 47, status: "passed", initials: "AP", color: "primary" },
-            { name: "Silvia Nunez", score: 74, time: 60, status: "failed", initials: "SN", color: "blue" },
-            { name: "Gabriel Mora", score: 127, time: 40, status: "passed", initials: "GM", color: "gray" },
-            { name: "Laura Salazar", score: 120, time: 42, status: "passed", initials: "LS", color: "purple" },
-            { name: "Raul Mendez", score: 94, time: 50, status: "failed", initials: "RM", color: "green" },
-            { name: "Susana Carrillo", score: 139, time: 36, status: "passed", initials: "SC", color: "pink" },
-            { name: "Oscar Duran", score: 109, time: 45, status: "passed", initials: "OD", color: "indigo" },
-            { name: "Veronica Escobar", score: 81, time: 56, status: "failed", initials: "VE", color: "teal" },
-            { name: "Felipe Chavez", score: 125, time: 41, status: "passed", initials: "FC", color: "orange" },
-            { name: "Natalia Guerrero", score: 114, time: 44, status: "passed", initials: "NG", color: "rose" },
-            { name: "Marcos Paredes", score: 86, time: 53, status: "failed", initials: "MP", color: "cyan" },
-            { name: "Gabriela Suarez", score: 137, time: 37, status: "passed", initials: "GS", color: "lime" }
+            { name: "Juan Dela Cruz", score: 142, time: 38, status: "passed", initials: "JD", color: "primary", year: "4th Year", section: "A", program: "BSEd - English", specialization: "English", dateSubmitted: "Jan 15, 2024" },
+            { name: "Maria Santos", score: 85, time: 45, status: "failed", initials: "MS", color: "blue", year: "3rd Year", section: "B", program: "BSEd - Math", specialization: "Mathematics", dateSubmitted: "Jan 16, 2024" },
+            { name: "Antonio Luna", score: 118, time: 41, status: "passed", initials: "AL", color: "amber", year: "4th Year", section: "A", program: "BSEd - Science", specialization: "General Science", dateSubmitted: "Jan 14, 2024" },
+            { name: "Sofia Reyes", score: 134, time: 35, status: "passed", initials: "SR", color: "purple", year: "4th Year", section: "C", program: "BSEd - English", specialization: "English", dateSubmitted: "Jan 15, 2024" },
+            { name: "Miguel Torres", score: 97, time: 52, status: "failed", initials: "MT", color: "green", year: "3rd Year", section: "A", program: "BSEd - Filipino", specialization: "Filipino", dateSubmitted: "Jan 17, 2024" },
+            { name: "Isabella Garcia", score: 128, time: 39, status: "passed", initials: "IG", color: "pink", year: "4th Year", section: "B", program: "BEEd", specialization: "General Education", dateSubmitted: "Jan 14, 2024" },
+            { name: "Diego Ramos", score: 72, time: 58, status: "failed", initials: "DR", color: "indigo", year: "2nd Year", section: "D", program: "BSEd - Social Studies", specialization: "Social Studies", dateSubmitted: "Jan 18, 2024" },
+            { name: "Carmen Flores", score: 145, time: 33, status: "passed", initials: "CF", color: "teal", year: "4th Year", section: "A", program: "BSEd - English", specialization: "English", dateSubmitted: "Jan 13, 2024" },
+            { name: "Rafael Cruz", score: 104, time: 48, status: "passed", initials: "RC", color: "orange", year: "3rd Year", section: "C", program: "BSEd - Math", specialization: "Mathematics", dateSubmitted: "Jan 16, 2024" },
+            { name: "Lucia Mendoza", score: 89, time: 54, status: "failed", initials: "LM", color: "rose", year: "2nd Year", section: "B", program: "BSEd - Science", specialization: "General Science", dateSubmitted: "Jan 17, 2024" },
+            { name: "Carlos Velasco", score: 121, time: 42, status: "passed", initials: "CV", color: "cyan", year: "4th Year", section: "A", program: "BSEd - Values Ed", specialization: "Values Education", dateSubmitted: "Jan 15, 2024" },
+            { name: "Ana Bautista", score: 112, time: 44, status: "passed", initials: "AB", color: "lime", year: "3rd Year", section: "D", program: "BSEd - MAPEH", specialization: "MAPEH", dateSubmitted: "Jan 16, 2024" },
+            { name: "Fernando Silva", score: 93, time: 50, status: "failed", initials: "FS", color: "violet", year: "2nd Year", section: "A", program: "BEEd", specialization: "General Education", dateSubmitted: "Jan 18, 2024" },
+            { name: "Elena Morales", score: 138, time: 36, status: "passed", initials: "EM", color: "fuchsia", year: "4th Year", section: "B", program: "BSEd - English", specialization: "English", dateSubmitted: "Jan 14, 2024" },
+            { name: "Roberto Castillo", score: 108, time: 46, status: "passed", initials: "RC", color: "sky", year: "3rd Year", section: "C", program: "BSEd - Filipino", specialization: "Filipino", dateSubmitted: "Jan 15, 2024" },
+            { name: "Patricia Diaz", score: 79, time: 56, status: "failed", initials: "PD", color: "red", year: "2nd Year", section: "A", program: "BSEd - Math", specialization: "Mathematics", dateSubmitted: "Jan 19, 2024" },
+            { name: "Jose Martinez", score: 126, time: 40, status: "passed", initials: "JM", color: "emerald", year: "4th Year", section: "B", program: "BSEd - Science", specialization: "General Science", dateSubmitted: "Jan 14, 2024" },
+            { name: "Gloria Perez", score: 115, time: 43, status: "passed", initials: "GP", color: "amber", year: "3rd Year", section: "A", program: "BSEd - Social Studies", specialization: "Social Studies", dateSubmitted: "Jan 16, 2024" },
+            { name: "Ricardo Gomez", score: 87, time: 53, status: "failed", initials: "RG", color: "slate", year: "2nd Year", section: "D", program: "BEEd", specialization: "General Education", dateSubmitted: "Jan 18, 2024" },
+            { name: "Teresa Navarro", score: 140, time: 34, status: "passed", initials: "TN", color: "primary", year: "4th Year", section: "A", program: "BSEd - English", specialization: "English", dateSubmitted: "Jan 13, 2024" },
+            { name: "Victor Herrera", score: 101, time: 47, status: "passed", initials: "VH", color: "blue", year: "3rd Year", section: "C", program: "BSEd - Math", specialization: "Mathematics", dateSubmitted: "Jan 16, 2024" },
+            { name: "Sandra Lopez", score: 76, time: 59, status: "failed", initials: "SL", color: "gray", year: "1st Year", section: "B", program: "BSEd - Filipino", specialization: "Filipino", dateSubmitted: "Jan 19, 2024" },
+            { name: "Manuel Rivera", score: 133, time: 37, status: "passed", initials: "MR", color: "purple", year: "4th Year", section: "A", program: "BSEd - Science", specialization: "General Science", dateSubmitted: "Jan 14, 2024" },
+            { name: "Adriana Castro", score: 119, time: 41, status: "passed", initials: "AC", color: "green", year: "4th Year", section: "B", program: "BSEd - Values Ed", specialization: "Values Education", dateSubmitted: "Jan 15, 2024" },
+            { name: "Eduardo Ortiz", score: 95, time: 49, status: "failed", initials: "EO", color: "pink", year: "2nd Year", section: "D", program: "BSEd - MAPEH", specialization: "MAPEH", dateSubmitted: "Jan 18, 2024" },
+            { name: "Rosa Jimenez", score: 124, time: 42, status: "passed", initials: "RJ", color: "indigo", year: "4th Year", section: "A", program: "BSEd - English", specialization: "English", dateSubmitted: "Jan 15, 2024" },
+            { name: "Luis Romero", score: 110, time: 45, status: "passed", initials: "LR", color: "teal", year: "3rd Year", section: "C", program: "BEEd", specialization: "General Education", dateSubmitted: "Jan 16, 2024" },
+            { name: "Beatriz Vargas", score: 82, time: 55, status: "failed", initials: "BV", color: "orange", year: "1st Year", section: "A", program: "BSEd - Math", specialization: "Mathematics", dateSubmitted: "Jan 19, 2024" },
+            { name: "Pablo Ruiz", score: 136, time: 38, status: "passed", initials: "PR", color: "rose", year: "4th Year", section: "B", program: "BSEd - Social Studies", specialization: "Social Studies", dateSubmitted: "Jan 14, 2024" },
+            { name: "Cecilia Gutierrez", score: 107, time: 46, status: "passed", initials: "CG", color: "cyan", year: "3rd Year", section: "A", program: "BSEd - Science", specialization: "General Science", dateSubmitted: "Jan 16, 2024" },
+            { name: "Andres Soto", score: 91, time: 51, status: "failed", initials: "AS", color: "lime", year: "2nd Year", section: "C", program: "BSEd - Filipino", specialization: "Filipino", dateSubmitted: "Jan 18, 2024" },
+            { name: "Mariana Campos", score: 129, time: 39, status: "passed", initials: "MC", color: "violet", year: "4th Year", section: "A", program: "BSEd - English", specialization: "English", dateSubmitted: "Jan 15, 2024" },
+            { name: "Javier Medina", score: 113, time: 44, status: "passed", initials: "JM", color: "fuchsia", year: "3rd Year", section: "B", program: "BSEd - Values Ed", specialization: "Values Education", dateSubmitted: "Jan 16, 2024" },
+            { name: "Valeria Ibarra", score: 78, time: 57, status: "failed", initials: "VI", color: "sky", year: "1st Year", section: "D", program: "BEEd", specialization: "General Education", dateSubmitted: "Jan 19, 2024" },
+            { name: "Hector Aguilar", score: 141, time: 35, status: "passed", initials: "HA", color: "red", year: "4th Year", section: "A", program: "BSEd - Math", specialization: "Mathematics", dateSubmitted: "Jan 13, 2024" },
+            { name: "Diana Rojas", score: 116, time: 43, status: "passed", initials: "DR", color: "emerald", year: "4th Year", section: "C", program: "BSEd - Science", specialization: "General Science", dateSubmitted: "Jan 15, 2024" },
+            { name: "Sergio Vega", score: 88, time: 52, status: "failed", initials: "SV", color: "amber", year: "2nd Year", section: "B", program: "BSEd - MAPEH", specialization: "MAPEH", dateSubmitted: "Jan 18, 2024" },
+            { name: "Monica Fuentes", score: 131, time: 38, status: "passed", initials: "MF", color: "slate", year: "4th Year", section: "A", program: "BSEd - Social Studies", specialization: "Social Studies", dateSubmitted: "Jan 14, 2024" },
+            { name: "Alejandro Pena", score: 105, time: 47, status: "passed", initials: "AP", color: "primary", year: "3rd Year", section: "D", program: "BSEd - English", specialization: "English", dateSubmitted: "Jan 16, 2024" },
+            { name: "Silvia Nunez", score: 74, time: 60, status: "failed", initials: "SN", color: "blue", year: "1st Year", section: "A", program: "BSEd - Filipino", specialization: "Filipino", dateSubmitted: "Jan 20, 2024" },
+            { name: "Gabriel Mora", score: 127, time: 40, status: "passed", initials: "GM", color: "gray", year: "4th Year", section: "B", program: "BEEd", specialization: "General Education", dateSubmitted: "Jan 15, 2024" },
+            { name: "Laura Salazar", score: 120, time: 42, status: "passed", initials: "LS", color: "purple", year: "3rd Year", section: "A", program: "BSEd - Math", specialization: "Mathematics", dateSubmitted: "Jan 16, 2024" },
+            { name: "Raul Mendez", score: 94, time: 50, status: "failed", initials: "RM", color: "green", year: "2nd Year", section: "C", program: "BSEd - Science", specialization: "General Science", dateSubmitted: "Jan 18, 2024" },
+            { name: "Susana Carrillo", score: 139, time: 36, status: "passed", initials: "SC", color: "pink", year: "4th Year", section: "A", program: "BSEd - Values Ed", specialization: "Values Education", dateSubmitted: "Jan 13, 2024" },
+            { name: "Oscar Duran", score: 109, time: 45, status: "passed", initials: "OD", color: "indigo", year: "3rd Year", section: "B", program: "BSEd - English", specialization: "English", dateSubmitted: "Jan 16, 2024" },
+            { name: "Veronica Escobar", score: 81, time: 56, status: "failed", initials: "VE", color: "teal", year: "1st Year", section: "D", program: "BSEd - MAPEH", specialization: "MAPEH", dateSubmitted: "Jan 19, 2024" },
+            { name: "Felipe Chavez", score: 125, time: 41, status: "passed", initials: "FC", color: "orange", year: "4th Year", section: "A", program: "BSEd - Social Studies", specialization: "Social Studies", dateSubmitted: "Jan 15, 2024" },
+            { name: "Natalia Guerrero", score: 114, time: 44, status: "passed", initials: "NG", color: "rose", year: "3rd Year", section: "C", program: "BSEd - Filipino", specialization: "Filipino", dateSubmitted: "Jan 16, 2024" },
+            { name: "Marcos Paredes", score: 86, time: 53, status: "failed", initials: "MP", color: "cyan", year: "2nd Year", section: "A", program: "BEEd", specialization: "General Education", dateSubmitted: "Jan 18, 2024" },
+            { name: "Gabriela Suarez", score: 137, time: 37, status: "passed", initials: "GS", color: "lime", year: "4th Year", section: "B", program: "BSEd - Science", specialization: "General Science", dateSubmitted: "Jan 14, 2024" }
         ];
 
         // Exam sections with specific topics
@@ -521,16 +509,25 @@
             const questionsPerSection = 50;
             const sections = Object.keys(examSections);
             
-            // Create array of correct/incorrect flags
-            const results = Array(totalQuestions).fill(false);
-            for (let i = 0; i < correctAnswers; i++) {
-                results[i] = true;
-            }
-            // Shuffle to randomize correct answers
+            // Determine skipped count (2-6 random skipped questions)
+            const skippedCount = Math.floor(Math.random() * 5) + 2;
+            const answeredWrong = totalQuestions - correctAnswers;
+            // Ensure skipped doesn't exceed wrong answers
+            const actualSkipped = Math.min(skippedCount, answeredWrong);
+            const actualWrong = answeredWrong - actualSkipped;
+            
+            // Create array: 0=correct, 1=wrong, 2=skipped
+            const results = [];
+            for (let i = 0; i < correctAnswers; i++) results.push(0);
+            for (let i = 0; i < actualWrong; i++) results.push(1);
+            for (let i = 0; i < actualSkipped; i++) results.push(2);
+            // Shuffle to randomize
             results.sort(() => Math.random() - 0.5);
             
             for (let i = 1; i <= totalQuestions; i++) {
-                const isCorrect = results[i - 1];
+                const resultType = results[i - 1];
+                const isCorrect = resultType === 0;
+                const isSkipped = resultType === 2;
                 const baseTime = student.time;
                 
                 // Determine section based on question number
@@ -538,17 +535,18 @@
                 const section = sections[sectionIndex];
                 const sectionTopics = examSections[section];
                 
-                // Vary time per question (faster for easy, slower for hard)
-                const timeVariation = Math.random() * 30 - 15; // ±15 seconds
-                const questionTime = Math.max(15, Math.floor(baseTime + timeVariation));
+                // Vary time per question
+                const timeVariation = Math.random() * 30 - 15;
+                const questionTime = isSkipped ? 0 : Math.max(15, Math.floor(baseTime + timeVariation));
                 
                 const correctAnswer = ['A', 'B', 'C', 'D'][Math.floor(Math.random() * 4)];
                 let studentAnswer;
                 
-                if (isCorrect) {
+                if (isSkipped) {
+                    studentAnswer = null;
+                } else if (isCorrect) {
                     studentAnswer = correctAnswer;
                 } else {
-                    // Wrong answer (different from correct)
                     const wrongOptions = ['A', 'B', 'C', 'D'].filter(opt => opt !== correctAnswer);
                     studentAnswer = wrongOptions[Math.floor(Math.random() * wrongOptions.length)];
                 }
@@ -560,6 +558,7 @@
                     studentAnswer: studentAnswer,
                     correctAnswer: correctAnswer,
                     isCorrect: isCorrect,
+                    isSkipped: isSkipped,
                     timeSpent: questionTime
                 });
             }
@@ -586,11 +585,14 @@
         for (let i = studentData.length; i < 124; i++) {
             const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
             const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-            const score = Math.floor(Math.random() * 80) + 60; // Score between 60-139
-            const time = Math.floor(Math.random() * 30) + 33; // Time between 33-62s
-            const status = score >= 113 ? "passed" : "failed"; // 113/150 = 75% passing
+            const score = Math.floor(Math.random() * 80) + 60;
+            const time = Math.floor(Math.random() * 30) + 33;
+            const status = score >= 113 ? "passed" : "failed";
             const initials = firstName[0] + lastName[0];
             const color = colors[Math.floor(Math.random() * colors.length)];
+            const pIdx = Math.floor(Math.random() * programs.length);
+            const day = Math.floor(Math.random() * 20) + 1;
+            const dateStr = new Date(2024, 0, day).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
             
             studentData.push({
                 name: `${firstName} ${lastName}`,
@@ -598,7 +600,12 @@
                 time: time,
                 status: status,
                 initials: initials,
-                color: color
+                color: color,
+                year: yearLevels[Math.floor(Math.random() * yearLevels.length)],
+                section: sectionsList[Math.floor(Math.random() * sectionsList.length)],
+                program: programs[pIdx],
+                specialization: specializations[pIdx],
+                dateSubmitted: dateStr
             });
         }
 
@@ -630,14 +637,17 @@
                         <td class="px-4 py-3 text-center font-bold ${scoreColor}">${student.score}/150</td>
                         <td class="px-4 py-3 text-center text-gray-600 dark:text-gray-400 font-medium">${percentage}%</td>
                         <td class="px-4 py-3 text-center text-gray-500 dark:text-gray-400">${student.time}s</td>
-                        <td class="px-4 py-3 text-center">
-                            <span class="inline-flex px-2 py-0.5 rounded-full text-[10px] bg-${statusColor}-100 text-${statusColor}-700 dark:bg-${statusColor}-900/30 dark:text-${statusColor}-400 font-bold uppercase">
-                                ${student.status === 'passed' ? 'Passed' : 'Below Target'}
-                            </span>
-                        </td>
+                        <td class="px-4 py-3 text-center text-gray-600 dark:text-gray-400 text-xs">${student.year}</td>
+                        <td class="px-4 py-3 text-center text-gray-600 dark:text-gray-400 text-xs">${student.section}</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">${student.program}</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">${student.specialization}</td>
+                        <td class="px-4 py-3 text-center text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap">${student.dateSubmitted}</td>
                         <td class="px-4 py-3 text-right">
-                                            <button onclick="openAnalysisModal('${student.name}')" class="text-primary hover:underline font-bold text-xs transition-colors">Analyze</button>
-                                        </td>
+                            <button onclick="openResultModal('${student.name}')" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 font-bold text-xs transition-colors">
+                                <span class="material-symbols-outlined text-[14px]">visibility</span>
+                                View
+                            </button>
+                        </td>
                                     </tr>
                 `;
             }).join('');
@@ -647,205 +657,262 @@
         }
 
         // Modal functions
-        let currentStudentAnswers = [];
-        let currentFilteredAnswers = [];
+        let currentResultStudent = null;
+        let currentResultAnswers = [];
+        let resultChartInstance = null;
 
-        function openAnalysisModal(studentName) {
+        function openResultModal(studentName) {
             const student = studentData.find(s => s.name === studentName);
             if (!student) return;
 
-            const modal = document.getElementById('analysisModal');
+            currentResultStudent = student;
             const answers = getStudentAnswers(studentName);
-            currentStudentAnswers = answers;
-            currentFilteredAnswers = answers;
+            currentResultAnswers = answers;
 
-            // Populate modal header
-            document.getElementById('modalAvatar').textContent = student.initials;
-            document.getElementById('modalAvatar').className = `w-12 h-12 rounded-full bg-${student.color}-100 text-${student.color}-600 dark:bg-${student.color}-900/30 dark:text-${student.color}-400 flex items-center justify-center font-bold`;
-            document.getElementById('modalStudentName').textContent = student.name;
-            document.getElementById('modalScore').textContent = `${student.score}/150 (${((student.score/150)*100).toFixed(1)}%)`;
-            document.getElementById('modalAvgTime').textContent = `${student.time}s`;
-            
+            const modal = document.getElementById('resultModal');
+
+            // Set header info
+            document.getElementById('resultAvatar').textContent = student.initials;
+            document.getElementById('resultAvatar').className = `w-10 h-10 rounded-full bg-${student.color}-100 text-${student.color}-600 dark:bg-${student.color}-900/30 dark:text-${student.color}-400 flex items-center justify-center font-bold text-sm`;
+            document.getElementById('resultStudentName').textContent = `${student.name} — Exam Result`;
+            document.getElementById('resultSubtitle').textContent = `${student.program} | ${student.year} - Section ${student.section} | ${student.specialization} | Submitted: ${student.dateSubmitted}`;
+
+            // Score & stats
+            const correctCount = answers.filter(a => a.isCorrect).length;
+            const skippedCount = answers.filter(a => a.isSkipped).length;
+            const incorrectCount = answers.length - correctCount - skippedCount;
+            const percentage = ((correctCount / 150) * 100).toFixed(1);
+            const answeredQuestions = answers.filter(a => !a.isSkipped);
+            const times = answeredQuestions.map(a => a.timeSpent);
+            const fastestTime = times.length > 0 ? Math.min(...times) : 0;
+            const slowestTime = times.length > 0 ? Math.max(...times) : 0;
+
+            document.getElementById('resultTotalScore').innerHTML = `${student.score}<span class="text-sm font-normal text-gray-400">/150</span>`;
+            document.getElementById('resultAccuracy').textContent = `${percentage}%`;
+            document.getElementById('resultCorrectCount').textContent = correctCount;
+            document.getElementById('resultIncorrectCount').textContent = incorrectCount;
+            document.getElementById('resultSkippedCount').textContent = skippedCount;
+            document.getElementById('resultAvgTime').textContent = `${student.time}s`;
+            document.getElementById('resultFastest').textContent = `${fastestTime}s`;
+            document.getElementById('resultSlowest').textContent = `${slowestTime}s`;
+
             const statusColor = student.status === 'passed' ? 'text-green-600' : 'text-red-600';
             const statusText = student.status === 'passed' ? 'Passed' : 'Below Target';
-            document.getElementById('modalStatus').innerHTML = `<span class="${statusColor}">${statusText}</span>`;
-
-            // Calculate summary stats
-            const correctCount = answers.filter(a => a.isCorrect).length;
-            const incorrectCount = answers.length - correctCount;
-            const times = answers.map(a => a.timeSpent);
-            const fastestTime = Math.min(...times);
-            const slowestTime = Math.max(...times);
-
-            document.getElementById('correctCount').textContent = correctCount;
-            document.getElementById('incorrectCount').textContent = incorrectCount;
-            document.getElementById('fastestTime').textContent = `${fastestTime}s`;
-            document.getElementById('slowestTime').textContent = `${slowestTime}s`;
+            document.getElementById('resultStatus').innerHTML = `<span class="${statusColor}">${statusText}</span>`;
 
             // Reset filters
-            document.getElementById('answerFilter').value = 'all';
-            document.getElementById('sectionFilter').value = 'all';
-            
-            // Render questions
-            renderQuestions(answers);
+            document.getElementById('resultSectionFilter').value = 'all';
+            document.getElementById('resultAnswerFilter').value = 'all';
+
+            // Render sections
+            renderResultSections(answers);
+
+            // Render chart
+            renderResultChart(correctCount, incorrectCount, skippedCount);
 
             // Show modal
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeAnalysisModal() {
-            const modal = document.getElementById('analysisModal');
-            modal.classList.add('hidden');
+        function closeResultModal() {
+            document.getElementById('resultModal').classList.add('hidden');
             document.body.style.overflow = 'auto';
+            if (resultChartInstance) {
+                resultChartInstance.destroy();
+                resultChartInstance = null;
+            }
         }
 
-        function renderQuestions(answers) {
-            const questionsList = document.getElementById('questionsList');
-            currentFilteredAnswers = answers;
-            
-            document.getElementById('questionCount').textContent = answers.length;
+        function renderResultChart(correct, incorrect, skipped) {
+            if (resultChartInstance) {
+                resultChartInstance.destroy();
+            }
+            const loadChart = () => {
+                const ctx = document.getElementById('resultScoreChart').getContext('2d');
+                resultChartInstance = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        datasets: [{
+                            data: [correct, incorrect, skipped],
+                            backgroundColor: ['#16a34a', '#ef4444', '#F59E0B'],
+                            borderWidth: 0,
+                            hoverOffset: 4,
+                        }]
+                    },
+                    options: {
+                        cutout: '72%',
+                        plugins: { legend: { display: false }, tooltip: { enabled: true } },
+                        animation: { animateRotate: true, duration: 800 },
+                    }
+                });
+            };
+            if (typeof Chart !== 'undefined') {
+                loadChart();
+            } else {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js';
+                script.onload = loadChart;
+                document.head.appendChild(script);
+            }
+        }
+
+        function renderResultSections(answers) {
+            const container = document.getElementById('resultSections');
             
             // Group by section
-            const groupedBySection = {};
-            answers.forEach(answer => {
-                if (!groupedBySection[answer.section]) {
-                    groupedBySection[answer.section] = [];
-                }
-                groupedBySection[answer.section].push(answer);
+            const sections = {};
+            answers.forEach(a => {
+                if (!sections[a.section]) sections[a.section] = [];
+                sections[a.section].push(a);
             });
 
-            // Render sections
+            const sectionIcons = {
+                'Professional Education': { icon: 'psychology', color: 'purple' },
+                'General Education': { icon: 'menu_book', color: 'blue' },
+                'Specialization': { icon: 'history_edu', color: 'orange' }
+            };
+
             let html = '';
-            Object.entries(groupedBySection).forEach(([section, sectionAnswers]) => {
-                const correctInSection = sectionAnswers.filter(a => a.isCorrect).length;
-                const totalInSection = sectionAnswers.length;
-                const percentageInSection = ((correctInSection / totalInSection) * 100).toFixed(1);
-                
-                // Determine section color based on performance
-                let sectionColor = 'gray';
-                if (percentageInSection >= 75) sectionColor = 'green';
-                else if (percentageInSection >= 50) sectionColor = 'amber';
-                else sectionColor = 'red';
+            Object.entries(sections).forEach(([section, sectionAnswers]) => {
+                const correct = sectionAnswers.filter(a => a.isCorrect).length;
+                const skipped = sectionAnswers.filter(a => a.isSkipped).length;
+                const incorrect = sectionAnswers.length - correct - skipped;
+                const total = sectionAnswers.length;
+                const pct = ((correct / total) * 100).toFixed(0);
+                const wrongAnswers = sectionAnswers.filter(a => !a.isCorrect && !a.isSkipped);
+                const skippedAnswers = sectionAnswers.filter(a => a.isSkipped);
+                const si = sectionIcons[section] || { icon: 'folder', color: 'gray' };
+                const sectionId = section.replace(/\s+/g, '-').toLowerCase();
+
+                // Build subtitle parts
+                const subtitleParts = [];
+                if (incorrect > 0) subtitleParts.push(`<span class="text-red-500 font-semibold">${incorrect} mistakes</span>`);
+                if (skipped > 0) subtitleParts.push(`<span class="text-amber-500 font-semibold">${skipped} skipped</span>`);
 
                 html += `
-                    <div class="mb-6">
-                        <div class="sticky top-0 bg-white dark:bg-[#1a0a0a] z-10 pb-3 mb-3">
-                            <div class="flex items-center justify-between p-4 bg-${sectionColor}-50 dark:bg-${sectionColor}-900/10 border border-${sectionColor}-200 dark:border-${sectionColor}-900/30 rounded-lg">
-                                <div>
-                                    <h4 class="font-bold text-${sectionColor}-900 dark:text-${sectionColor}-300 flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-[20px]">folder</span>
-                                        ${section}
-                                    </h4>
-                                    <p class="text-xs text-${sectionColor}-700 dark:text-${sectionColor}-400 mt-1">
-                                        Questions ${sectionAnswers[0].questionNumber} - ${sectionAnswers[sectionAnswers.length - 1].questionNumber}
-                                    </p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-2xl font-bold text-${sectionColor}-600 dark:text-${sectionColor}-400">${correctInSection}/${totalInSection}</p>
-                                    <p class="text-xs text-${sectionColor}-700 dark:text-${sectionColor}-400">${percentageInSection}% Correct</p>
-                                </div>
+                <div class="bg-white dark:bg-[#1a0a0a] rounded-2xl shadow-sm border border-gray-200 dark:border-white/5 overflow-hidden">
+                    <button class="result-section-toggle w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 text-left hover:bg-gray-50 dark:hover:bg-white/[0.02] transition-colors" data-target="result-${sectionId}">
+                        <div class="flex items-center gap-4">
+                            <div class="h-12 w-12 rounded-xl bg-${si.color}-50 dark:bg-${si.color}-900/20 flex items-center justify-center text-${si.color}-600 shrink-0">
+                                <span class="material-symbols-outlined">${si.icon}</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">${section}</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">${total} Questions${subtitleParts.length > 0 ? ' &bull; ' + subtitleParts.join(' &bull; ') : ''}</p>
                             </div>
                         </div>
-                        <div class="space-y-2">
-                `;
-                
-                sectionAnswers.forEach(answer => {
-                    const statusColor = answer.isCorrect ? 'green' : 'red';
-                    const statusIcon = answer.isCorrect ? 'check_circle' : 'cancel';
-                    const bgColor = answer.isCorrect ? 'bg-green-50 dark:bg-green-900/10 border-green-200 dark:border-green-900/30' : 'bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-900/30';
-                    
-                    // Time indicator color based on speed
-                    let timeColor = 'text-gray-600';
-                    if (answer.timeSpent < 30) timeColor = 'text-green-600';
-                    else if (answer.timeSpent > 50) timeColor = 'text-red-600';
-                    else if (answer.timeSpent > 40) timeColor = 'text-amber-600';
-                    
-                    html += `
-                        <div class="border ${bgColor} rounded-lg p-4 hover:shadow-sm transition-shadow">
-                            <div class="flex items-start justify-between mb-2">
-                                <div class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-${statusColor}-600 dark:text-${statusColor}-400 font-variation-settings-'FILL'1">${statusIcon}</span>
-                                    <div>
-                                        <p class="font-bold text-gray-900 dark:text-white">Question ${answer.questionNumber}</p>
-                                        <p class="text-xs text-gray-500 dark:text-gray-400">${answer.topic}</p>
+                        <div class="flex items-center gap-4 sm:text-right">
+                            <div class="flex flex-col items-end">
+                                <span class="text-2xl font-bold text-gray-900 dark:text-white">${pct}%</span>
+                                <span class="text-xs text-gray-500 font-medium uppercase">${correct}/${total}</span>
+                            </div>
+                            <div class="w-16 h-2 bg-gray-100 dark:bg-white/10 rounded-full overflow-hidden hidden sm:block">
+                                <div class="${parseInt(pct) >= 75 ? 'bg-green-500' : parseInt(pct) >= 50 ? 'bg-amber-500' : 'bg-red-500'} h-full rounded-full" style="width: ${pct}%"></div>
+                            </div>
+                            <span class="material-symbols-outlined text-gray-400 result-toggle-icon transition-transform duration-300">expand_more</span>
+                        </div>
+                    </button>
+                    <div class="result-section-errors hidden" id="result-${sectionId}">
+                        <div class="px-6 pb-6 flex flex-col gap-2 border-t border-gray-100 dark:border-white/10 pt-5">
+                            <!-- Score summary -->
+                            <div class="grid grid-cols-3 gap-3 mb-4">
+                                <div class="flex flex-col items-center p-2.5 rounded-xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/20">
+                                    <span class="text-lg font-black text-green-600">${correct}</span>
+                                    <span class="text-[10px] font-bold text-gray-400 uppercase">Correct</span>
+                                </div>
+                                <div class="flex flex-col items-center p-2.5 rounded-xl bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/20">
+                                    <span class="text-lg font-black text-red-500">${incorrect}</span>
+                                    <span class="text-[10px] font-bold text-gray-400 uppercase">Wrong</span>
+                                </div>
+                                <div class="flex flex-col items-center p-2.5 rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/20">
+                                    <span class="text-lg font-black text-amber-500">${skipped}</span>
+                                    <span class="text-[10px] font-bold text-gray-400 uppercase">Skipped</span>
+                                </div>
+                            </div>
+                            ${wrongAnswers.length > 0 ? `<p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Incorrect Answers</p>` : ''}
+                            ${wrongAnswers.map(a => `
+                            <div class="wrong-answer-item">
+                                <div class="flex items-start gap-3 p-3 rounded-xl bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/20">
+                                    <span class="text-xs font-bold text-red-500 w-7 shrink-0 pt-0.5">Q${a.questionNumber}</span>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm text-gray-700 dark:text-gray-200 font-medium">${a.topic}</p>
+                                        <div class="mt-2 flex flex-col gap-1">
+                                            <p class="text-xs text-red-500"><span class="font-semibold">Student's answer:</span> ${a.studentAnswer}</p>
+                                            <p class="text-xs text-green-600"><span class="font-semibold">Correct answer:</span> ${a.correctAnswer}</p>
+                                        </div>
+                                        <p class="text-[10px] text-gray-400 mt-1">Time spent: ${a.timeSpent}s</p>
                                     </div>
                                 </div>
-                                <div class="text-right">
-                                    <p class="text-sm font-bold ${timeColor}">${answer.timeSpent}s</p>
-                                    <p class="text-[10px] text-gray-400">Time Spent</p>
+                            </div>
+                            `).join('')}
+                            ${skippedAnswers.length > 0 ? `<p class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-3 mb-2">Skipped Questions</p>` : ''}
+                            ${skippedAnswers.map(a => `
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/20">
+                                <span class="text-xs font-bold text-amber-500 w-7 shrink-0 pt-0.5">Q${a.questionNumber}</span>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm text-gray-700 dark:text-gray-200 font-medium">${a.topic}</p>
+                                    <p class="text-xs text-amber-600 mt-1 font-medium">Skipped</p>
+                                    <p class="text-xs text-green-600 mt-0.5"><span class="font-semibold">Correct answer:</span> ${a.correctAnswer}</p>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-4 mt-3 pt-3 border-t ${answer.isCorrect ? 'border-green-200 dark:border-green-900/30' : 'border-red-200 dark:border-red-900/30'}">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Student:</span>
-                                    <span class="px-2 py-1 rounded text-xs font-bold ${answer.isCorrect ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'}">${answer.studentAnswer}</span>
-                                </div>
-                                ${!answer.isCorrect ? `
-                                <div class="flex items-center gap-2">
-                                    <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Correct:</span>
-                                    <span class="px-2 py-1 rounded text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">${answer.correctAnswer}</span>
-                                </div>
-                                ` : ''}
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                html += `
+                            `).join('')}
+                            ${wrongAnswers.length === 0 && skippedAnswers.length === 0 ? '<p class="text-sm text-green-600 font-semibold py-2">All answers correct in this section!</p>' : ''}
                         </div>
                     </div>
+                </div>
                 `;
             });
-            
-            questionsList.innerHTML = html;
+
+            container.innerHTML = html;
+
+            // Attach toggle listeners
+            container.querySelectorAll('.result-section-toggle').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
+                    const panel = document.getElementById(targetId);
+                    const icon = btn.querySelector('.result-toggle-icon');
+                    const isHidden = panel.classList.contains('hidden');
+                    panel.classList.toggle('hidden', !isHidden);
+                    icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+                });
+            });
         }
 
-        // Filter questions in modal
-        function applyFilters() {
-            const answerFilter = document.getElementById('answerFilter').value;
-            const sectionFilter = document.getElementById('sectionFilter').value;
-            let filtered = currentStudentAnswers;
-            
-            // Apply section filter
+        // Result modal filters
+        function applyResultFilters() {
+            const sectionFilter = document.getElementById('resultSectionFilter').value;
+            const answerFilter = document.getElementById('resultAnswerFilter').value;
+            let filtered = currentResultAnswers;
+
             if (sectionFilter !== 'all') {
                 filtered = filtered.filter(a => a.section === sectionFilter);
             }
-            
-            // Apply answer filter
             if (answerFilter === 'correct') {
                 filtered = filtered.filter(a => a.isCorrect);
             } else if (answerFilter === 'incorrect') {
-                filtered = filtered.filter(a => !a.isCorrect);
+                filtered = filtered.filter(a => !a.isCorrect && !a.isSkipped);
+            } else if (answerFilter === 'skipped') {
+                filtered = filtered.filter(a => a.isSkipped);
             }
-            
-            renderQuestions(filtered);
+
+            renderResultSections(filtered);
         }
 
-        document.getElementById('answerFilter').addEventListener('change', applyFilters);
-        document.getElementById('sectionFilter').addEventListener('change', applyFilters);
-
-        // Sort by time
-        let sortTimeAsc = true;
-        document.getElementById('sortByTime').addEventListener('click', function() {
-            const sorted = [...currentFilteredAnswers].sort((a, b) => {
-                return sortTimeAsc ? a.timeSpent - b.timeSpent : b.timeSpent - a.timeSpent;
-            });
-            sortTimeAsc = !sortTimeAsc;
-            renderQuestions(sorted);
-        });
+        document.getElementById('resultSectionFilter').addEventListener('change', applyResultFilters);
+        document.getElementById('resultAnswerFilter').addEventListener('change', applyResultFilters);
 
         // Close modal on escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                closeAnalysisModal();
+                closeResultModal();
             }
         });
 
         // Close modal on backdrop click
-        document.getElementById('analysisModal').addEventListener('click', function(e) {
+        document.getElementById('resultModal').addEventListener('click', function(e) {
             if (e.target === this) {
-                closeAnalysisModal();
+                closeResultModal();
             }
         });
         document.getElementById('viewAllBtn').addEventListener('click', function() {
@@ -870,29 +937,13 @@
         // Search functionality
         document.getElementById('searchStudent').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
-            const statusFilter = document.getElementById('filterStatus').value;
             
             filteredData = studentData.filter(student => {
-                const matchesSearch = student.name.toLowerCase().includes(searchTerm);
-                const matchesStatus = statusFilter === 'all' || student.status === statusFilter;
-                return matchesSearch && matchesStatus;
-            });
-            
-            isShowingAll = false;
-            document.getElementById('viewAllText').textContent = 'View All Results';
-            document.querySelector('#viewAllBtn .material-symbols-outlined').textContent = 'expand_more';
-            renderTable(10);
-        });
-
-        // Status filter
-        document.getElementById('filterStatus').addEventListener('change', function(e) {
-            const statusFilter = e.target.value;
-            const searchTerm = document.getElementById('searchStudent').value.toLowerCase();
-            
-            filteredData = studentData.filter(student => {
-                const matchesSearch = student.name.toLowerCase().includes(searchTerm);
-                const matchesStatus = statusFilter === 'all' || student.status === statusFilter;
-                return matchesSearch && matchesStatus;
+                return student.name.toLowerCase().includes(searchTerm) ||
+                       student.program.toLowerCase().includes(searchTerm) ||
+                       student.specialization.toLowerCase().includes(searchTerm) ||
+                       student.section.toLowerCase().includes(searchTerm) ||
+                       student.year.toLowerCase().includes(searchTerm);
             });
             
             isShowingAll = false;
@@ -957,21 +1008,8 @@
         });
 
         // Sidebar & Notification Toggle Logic
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeSidebarButton = document.getElementById('close-sidebar');
-        const sidebar = document.getElementById('sidebar');
-        const sidebarBackdrop = document.getElementById('sidebar-backdrop');
         const notificationButton = document.getElementById('notification-button');
         const notificationPanel = document.getElementById('notification-panel');
-
-        function toggleSidebar() {
-            sidebar.classList.toggle('-translate-x-full');
-            sidebarBackdrop.classList.toggle('hidden');
-        }
-
-        function toggleNotifications() {
-            notificationPanel.classList.toggle('hidden');
-        }
 
         mobileMenuButton?.addEventListener('click', toggleSidebar);
         closeSidebarButton?.addEventListener('click', toggleSidebar);

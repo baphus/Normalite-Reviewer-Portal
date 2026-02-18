@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Admin Flashcards - Normalite EDGE Admin</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Study Materials - Normalite EDGE Admin</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -28,168 +29,118 @@
             },
         }
     </script>
-<style>
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+        .status-tab.active {
+            border-bottom-color: #800000 !important;
+            color: #800000 !important;
+            font-weight: 700;
         }
-        ::-webkit-scrollbar-track {
-            background: transparent; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #d1d5db; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #9ca3af; 
-        }        .filter-tab.active {
-            background-color: #800000;
-            color: white;
-            border-color: #800000;
-        }    </style>
+        .preserve-3d { transform-style: preserve-3d; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .backface-hidden { backface-visibility: hidden; }
+    </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
 <div class="flex h-screen w-full">
-<aside class="flex w-64 flex-col border-r border-[#e5e7eb] bg-white dark:bg-[#1a0a0a] dark:border-[#3a1a1a] transition-all duration-300 hidden md:flex shrink-0 z-20">
-<div class="flex h-full flex-col justify-between p-4">
-<div class="flex flex-col gap-6">
-<div class="flex items-center gap-3 px-2 py-2">
-<div class="bg-center bg-no-repeat bg-cover rounded-full h-10 w-10 shadow-sm border border-primary/20" data-alt="University Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRPPNAtErCq7KnUYhj2JsmJNhkhexjuGMyftx05EykHw3q1BlzO-71-JUqsyQSFSiag1qAKfi6bcA9G4HUgLH1lLaFzKMl9DKsXWwXV0LdNJ02QNwnvh0WdIdFpy2zVJg73wjkd-PXjqbBElMEF5bOGlukZ5tUK9GGdjXWh5MWEDuPjDjM55USlSs5AGGZgVZmG8pOwiXYtj1yKgNzA-AvvZAO9x3_VXoFCpwqbuUsTJFM7b4mNxI7kjy_2gqMFqaI0pkK4DcIYkVd");'>
-</div>
-<div class="flex flex-col">
-<h1 class="text-primary text-lg font-bold leading-tight tracking-tight">Normalite EDGE</h1>
-<p class="text-gray-500 text-xs font-normal">Admin Portal</p>
-</div>
-</div>
-<nav class="flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="dashboard.html">
-<span class="material-symbols-outlined text-[20px]">dashboard</span>
-<p class="text-sm font-medium">Dashboard</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="exams.html">
-<span class="material-symbols-outlined text-[20px]">assignment</span>
-<p class="text-sm font-medium">Exams</p>
-</a>
 
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-colors" href="study.html">
-<span class="material-symbols-outlined text-[20px] font-variation-settings-'FILL'1">style</span>
-<p class="text-sm font-medium">Study</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="users.html">
-<span class="material-symbols-outlined text-[20px]">group</span>
-<p class="text-sm font-medium">Users</p>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="video-conferences.html">
-<span class="material-symbols-outlined text-[20px]">video_call</span>
-<p class="text-sm font-medium">Video Conferences</p>
-</a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="logs.html">
-                <span class="material-symbols-outlined text-[20px]">event_note</span>
-                <p class="text-sm font-medium">Logs</p>
-            </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
-<span class="material-symbols-outlined text-[20px]">settings</span>
-<p class="text-sm font-medium">Settings</p>
-</a>
-</nav>
-</div>
-<div class="flex flex-col gap-4 border-t border-gray-100 pt-4 dark:border-white/10">
-<div class="flex items-center gap-3 px-2">
-<div class="h-9 w-9 rounded-full bg-gray-200 bg-cover bg-center border border-gray-300" data-alt="Admin profile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlj7X3FeByZgwcrzsXQJwePv-4yl8HA3bmTcnNF5lOgngG9vpjm_kyYznzAPZgPVIZ-iMHlmeLbCxxpq7CR0YM-1BmepRG_eeyil5lqU2SlUhs9CHW8_FrpUtQdHmoXzl8DTzoy5_otYgexhRADm4-hnUyPM1rjk5okTceIRQral4XdpNixjnPxWisoyjD-rAs9h-1yU_deBaVQXXGAgGafWOKjyID8Bj0sZqv-7JuPA06AKS6bvqdQNAoiXA1T1tArTvVkGymOOhr");'>
-</div>
-            <div class="flex flex-col overflow-hidden">
-                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">System Admin</p>
-                <p class="text-xs text-gray-500 truncate">Administrator</p>
+    <div id="sidebar-container"></div>
+<script src="../components/sidebar.js"></script>
+
+    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-background-light dark:bg-background-dark relative">
+        <!-- Mobile Header -->
+        <div class="md:hidden flex shrink-0 items-center justify-between p-4 bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10">
+            <div class="flex items-center gap-2">
+                <div class="bg-primary/10 p-1.5 rounded-md">
+                    <span class="material-symbols-outlined text-primary">school</span>
+                </div>
+                <span class="font-bold text-lg text-primary">Normalite EDGE</span>
             </div>
+            <button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/10" id="mobile-menu-button">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
         </div>
-        <button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10" onclick="window.location.href='../login.html'">
-            <span class="material-symbols-outlined text-[18px]">logout</span>
-            <span>Log Out</span>
-        </button>
-    </div>
-</div>
-</aside>
-<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark">
-<div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-8">
-<div class="md:hidden flex items-center justify-between pb-4">
-<div class="flex items-center gap-2">
-<div class="bg-primary/10 p-1.5 rounded-md">
-<span class="material-symbols-outlined text-primary">style</span>
-</div>
-<span class="font-bold text-lg text-primary">Normalite EDGE Admin</span>
-</div>
-<button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/10">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-<header class="flex flex-col gap-2">
-<div class="flex flex-wrap items-end justify-between gap-4">
-<div>
-<h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">System Study Materials</h1>
-<p class="text-gray-500 dark:text-gray-400 mt-2 text-base">Create and manage interactive quizzes and flashcards for students.</p>
-</div>
-<div class="flex items-center gap-3">
-<select id="admin-program-filter" class="h-10 px-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary transition-all">
-    <option value="all">All Programs</option>
-    <option value="BEEd">BEEd</option>
-    <option value="BSEd-English">BSEd English</option>
-    <option value="BSEd-Mathematics">BSEd Math</option>
-    <option value="BSEd-Science">BSEd Science</option>
-    <option value="BSEd-Filipino">BSEd Filipino</option>
-    <option value="BSEd-Social-Studies">BSEd Social Studies</option>
-    <option value="BSEd-MAPEH">BSEd MAPEH</option>
-    <option value="BSEd-TLE">BSEd TLE</option>
-</select>
-<select id="admin-category-filter" class="h-10 px-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary transition-all">
-    <option value="all">All Categories</option>
-    <option value="Prof Ed">Prof. Education</option>
-    <option value="Gen Ed">Gen. Education</option>
-    <option value="Specialization">Specialization</option>
-</select>
-<div class="relative hidden sm:block">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl">search</span>
-<input id="admin-deck-search" class="pl-10 pr-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary w-64 transition-all" placeholder="Search materials..." type="text"/>
-</div>
-<a href="custom-deck.html" class="flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-white hover:bg-primary/90 transition-colors shadow-sm">
-<span class="material-symbols-outlined text-[20px]">add</span>
-<span class="text-sm font-bold">New Material</span>
-</a>
-</div>
-</div>
-</header>
 
-                <!-- Filter Bar -->
-                <div class="bg-white dark:bg-[#1a0a0a] rounded-xl border border-gray-200 dark:border-white/10 px-4">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-0">
-                        <nav class="flex gap-0 overflow-x-auto" id="admin-category-tabs">
-                            <button data-category="all" class="filter-tab active border-b-2 border-primary py-3.5 px-3 text-sm font-bold text-primary whitespace-nowrap transition-colors flex items-center gap-1.5">
-                                All Materials
-                                <span class="bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full" id="count-all"></span>
-                            </button>
-                            <button data-category="Prof Ed" class="filter-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
-                                Prof. Education
-                                <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-profedu"></span>
-                            </button>
-                            <button data-category="Gen Ed" class="filter-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
-                                Gen. Education
-                                <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-genedu"></span>
-                            </button>
-                            <button data-category="Specialization" class="filter-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
-                                Specialization
-                                <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-spec"></span>
-                            </button>
-                        </nav>
+        <!-- Desktop Header -->
+        <header class="bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10 px-6 py-6 shrink-0 z-10">
+            <div class="container mx-auto max-w-7xl">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">System Study Materials</h2>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Create and manage interactive study decks and flashcards for all programs.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <select id="program-filter" class="h-10 px-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary transition-all">
+                            <option value="all">All Programs</option>
+                            <option value="BEEd">BEEd</option>
+                            <option value="BSEd-English">BSEd English</option>
+                            <option value="BSEd-Mathematics">BSEd Math</option>
+                            <option value="BSEd-Science">BSEd Science</option>
+                            <option value="BSEd-Filipino">BSEd Filipino</option>
+                            <option value="BSEd-Social-Studies">BSEd Social Studies</option>
+                            <option value="BSEd-MAPEH">BSEd MAPEH</option>
+                            <option value="BSEd-TLE">BSEd TLE</option>
+                        </select>
+                        <div class="relative hidden sm:block">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+                            <input class="w-full pl-10 pr-4 py-2.5 rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary text-sm" id="deck-search" placeholder="Search decks, topics, or subjects..." type="text"/>
+                        </div>
+                        <a href="custom-deck.html" class="flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-white hover:bg-primary/90 transition-colors shadow-sm">
+                            <span class="material-symbols-outlined text-[20px]">add</span>
+                            <span class="text-sm font-bold">New Material</span>
+                        </a>
                     </div>
                 </div>
+            </div>
+        </header>
 
-<div id="admin-materials-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-<a href="custom-deck.html" class="rounded-2xl border-2 border-dashed border-gray-200 dark:border-white/10 flex flex-col items-center justify-center p-8 text-gray-400 hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all group">
-<span class="material-symbols-outlined text-4xl mb-3">add_circle</span>
-<span class="font-bold text-sm">Create New Material</span>
-</a>
-</div>
-</div>
-</main>
+        <!-- Filter Bar -->
+        <div class="bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10 px-6 shrink-0 z-10">
+            <div class="container mx-auto max-w-7xl">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-0">
+                    <nav class="flex gap-0 overflow-x-auto" id="category-tabs">
+                        <button data-category="all" class="status-tab active border-b-2 border-primary py-3.5 px-3 text-sm font-bold text-primary whitespace-nowrap transition-colors flex items-center gap-1.5">
+                            All Materials
+                            <span class="bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full" id="count-all"></span>
+                        </button>
+                        <button data-category="Prof Ed" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                            Prof. Education
+                            <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-profedu"></span>
+                        </button>
+                        <button data-category="Gen Ed" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                            Gen. Education
+                            <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-genedu"></span>
+                        </button>
+                        <button data-category="Specialization" class="status-tab border-b-2 border-transparent py-3.5 px-3 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 whitespace-nowrap transition-colors flex items-center gap-1.5">
+                            Specialization
+                            <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-1.5 py-0.5 rounded-full" id="count-spec"></span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto">
+            <div class="container mx-auto max-w-7xl px-6 py-8">
+                <div id="materials-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamic cards inserted here -->
+
+                    <!-- Create New Placeholder -->
+                    <a href="custom-deck.html" class="group border-2 border-dashed border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-primary/50 hover:bg-white/50 dark:hover:bg-white/5 transition-all cursor-pointer min-h-[280px]">
+                        <div class="bg-gray-100 dark:bg-white/5 p-4 rounded-full mb-4">
+                            <span class="material-symbols-outlined text-gray-400 text-3xl group-hover:text-primary transition-colors">add_circle</span>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-1">Create New Material</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Create a new study deck for all programs.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>
 
 <!-- Flashcard Preview Modal -->
@@ -203,11 +154,6 @@
         </div>
         <div class="p-12 flex-1 overflow-y-auto flex flex-col items-center justify-center min-h-[400px]">
             <div id="preview-card" class="w-full max-w-sm aspect-[4/5] bg-gradient-to-br from-white to-gray-50 dark:from-white/5 dark:to-white/[0.02] border-2 border-primary/20 rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-xl cursor-pointer transition-all duration-500 transform-gpu preserve-3d" onclick="this.classList.toggle('rotate-y-180')">
-                <style>
-                    .preserve-3d { transform-style: preserve-3d; }
-                    .rotate-y-180 { transform: rotateY(180deg); }
-                    .backface-hidden { backface-visibility: hidden; }
-                </style>
                 <div class="backface-hidden absolute inset-0 p-10 flex flex-col items-center justify-center">
                     <span class="text-[10px] font-black text-primary/40 uppercase tracking-[0.3em] mb-6">QUESTION</span>
                     <p id="preview-front" class="text-2xl font-bold text-gray-900 dark:text-white leading-relaxed"></p>
@@ -249,15 +195,12 @@
         </div>
         <div class="p-8 flex-1 overflow-y-auto">
             <div id="quiz-container" class="space-y-8">
-                <!-- Quiz Question -->
                 <div class="space-y-6">
                     <div class="flex items-center justify-between">
                         <span id="quiz-status" class="text-[10px] font-black text-primary uppercase tracking-widest">Question 1 of 10</span>
                     </div>
                     <p id="quiz-question" class="text-xl font-bold text-gray-900 dark:text-white leading-relaxed"></p>
-                    <div id="quiz-options" class="grid grid-cols-1 gap-3">
-                        <!-- Options injected here -->
-                    </div>
+                    <div id="quiz-options" class="grid grid-cols-1 gap-3"></div>
                     <div id="quiz-feedback" class="hidden p-4 rounded-2xl">
                         <p id="quiz-feedback-text" class="text-sm font-bold"></p>
                         <p id="quiz-rationalization" class="text-xs mt-2 italic opacity-80"></p>
@@ -274,9 +217,17 @@
     let currentIndex = 0;
 
     document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('admin-materials-container');
+        // ── Sidebar & Mobile Menu ──────────────────────────────────────
+        }
+
+        if (mobileMenuButton)
+        if (closeSidebarButton)
+        if (sidebarBackdrop)
+
+        // ── Load Materials ─────────────────────────────────────────────
+        const container = document.getElementById('materials-container');
         let customDecks = JSON.parse(localStorage.getItem('customDecks') || '[]');
-        
+
         // Seed initial data if empty
         if (customDecks.length === 0) {
             customDecks = [
@@ -335,86 +286,85 @@
             ];
             localStorage.setItem('customDecks', JSON.stringify(customDecks));
         }
-        
+
         // Sort by newest first
         customDecks.sort((a, b) => new Date(b.dateCreated) - new Date(a.dateCreated));
-        
-        // Helper function to format visibility text
+
+        // ── Helpers ────────────────────────────────────────────────────
+        function getCategoryBadge(category) {
+            const badges = {
+                'Prof Ed': 'bg-accent/10 text-accent border border-accent/20',
+                'Gen Ed': 'bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/30',
+                'Specialization': 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/30'
+            };
+            return badges[category] || badges['Prof Ed'];
+        }
+
         function getVisibilityText(visibleTo) {
             if (!visibleTo || visibleTo.length === 0) return 'All Programs';
             if (visibleTo.includes('all')) return 'All Programs';
-            if (visibleTo.length === 1) {
-                return visibleTo[0].replace(/-/g, ' ');
-            }
+            if (visibleTo.length === 1) return visibleTo[0].replace(/-/g, ' ');
             return `${visibleTo.length} Programs`;
         }
-        
-        // Function to render materials
+
+        // ── Render ─────────────────────────────────────────────────────
         function renderMaterials(decks) {
-            // Clear existing cards except the "Add New" button
-            const existingCards = container.querySelectorAll('.bg-white');
-            existingCards.forEach(card => card.remove());
-            
+            container.querySelectorAll('.deck-card').forEach(c => c.remove());
+
             decks.forEach(deck => {
                 const visibleToText = getVisibilityText(deck.visibleTo);
-                const materialCard = document.createElement('div');
-                materialCard.className = 'bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group';
-                materialCard.setAttribute('data-programs', JSON.stringify(deck.visibleTo || ['all']));
-                materialCard.setAttribute('data-category', deck.category || 'all');
-                materialCard.innerHTML = `
-                    <div class="h-32 bg-primary/5 flex items-center justify-center relative overflow-hidden">
-                        <span class="material-symbols-outlined text-6xl text-primary/20 group-hover:scale-110 transition-transform">menu_book</span>
-                        <div class="absolute top-3 right-3 flex gap-2">
-                            <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">${deck.category}</span>
+                const badgeClass = getCategoryBadge(deck.category);
+                const card = document.createElement('div');
+                card.className = 'deck-card group bg-white dark:bg-[#1f1212] border border-gray-100 dark:border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative flex flex-col h-full';
+                card.setAttribute('data-programs', JSON.stringify(deck.visibleTo || ['all']));
+                card.setAttribute('data-category', deck.category || 'all');
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-3 py-1 rounded-full ${badgeClass} text-[10px] font-bold uppercase tracking-widest">${deck.category}</span>
+                        <div class="flex items-center gap-2">
+                            <button onclick="window.location.href='custom-deck.html?edit=${deck.id}'" class="text-gray-400 hover:text-primary transition-colors" title="Edit">
+                                <span class="material-symbols-outlined text-[18px]">edit</span>
+                            </button>
+                            <button onclick="deleteMaterial(${deck.id})" class="text-gray-400 hover:text-red-500 transition-colors" title="Delete">
+                                <span class="material-symbols-outlined text-[18px]">delete</span>
+                            </button>
                         </div>
                     </div>
-                    <div class="p-5 flex flex-col gap-4 flex-1">
-                        <div>
-                            <h3 class="font-bold text-lg text-gray-900 dark:text-white line-clamp-1">${deck.title}</h3>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">${deck.description}</p>
-                        </div>
-                        <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-                            <span class="material-symbols-outlined text-sm">visibility</span>
-                            <span class="font-medium">${visibleToText}</span>
-                        </div>
-                        <div class="flex items-center justify-between py-3 border-y border-gray-50 dark:border-white/5">
-                            <div class="flex flex-col">
-                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Questions</span>
-                                <span class="font-bold text-gray-900 dark:text-white text-lg leading-tight">${deck.cardCount}</span>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors mb-2">${deck.title}</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2 flex-1 line-clamp-2">${deck.description}</p>
+                    <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4">
+                        <span class="material-symbols-outlined text-sm">visibility</span>
+                        <span class="font-medium">${visibleToText}</span>
+                    </div>
+                    <div class="space-y-3 mt-auto">
+                        <div class="pt-4 flex items-center justify-between border-t border-gray-50 dark:border-white/5">
+                            <span class="text-xs text-gray-500">${deck.cardCount} Cards</span>
+                            <div class="flex gap-2">
+                                <button onclick="previewFlashcards(${deck.id})" class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-lg bg-primary/5 text-primary text-xs font-bold hover:bg-primary/10 transition-colors">
+                                    <span class="material-symbols-outlined text-[16px]">style</span>
+                                    Flashcard
+                                </button>
+                                <button onclick="previewQuiz(${deck.id})" class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-lg bg-primary text-white text-xs font-bold hover:bg-primary/90 shadow-sm transition-colors">
+                                    <span class="material-symbols-outlined text-[16px]">quiz</span>
+                                    Quiz
+                                </button>
                             </div>
-                            <div class="flex flex-col text-right">
-                                 <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Status</span>
-                                 <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded uppercase">Active</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-2 mt-auto">
-                            <button onclick="deleteMaterial(${deck.id})" class="p-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors" title="Delete">
-                                <span class="material-symbols-outlined text-[20px]">delete</span>
-                            </button>
-                            <button onclick="window.location.href='custom-deck.html?edit=${deck.id}'" class="p-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-gray-400 hover:text-primary hover:bg-primary/5 transition-colors" title="Edit Content">
-                                <span class="material-symbols-outlined text-[20px]">edit</span>
-                            </button>
-                            <button onclick="previewFlashcards(${deck.id})" class="flex-1 text-[10px] font-black uppercase tracking-wider py-2.5 rounded-lg bg-primary/5 text-primary hover:bg-primary/10 transition-colors">Flashcard</button>
-                            <button onclick="previewQuiz(${deck.id})" class="flex-1 text-[10px] font-black uppercase tracking-wider py-2.5 rounded-lg bg-accent/5 text-accent hover:bg-accent/10 transition-colors">Quiz</button>
                         </div>
                     </div>
                 `;
-                // Insert before the "Add New" button
-                container.insertBefore(materialCard, container.lastElementChild);
+                container.insertBefore(card, container.lastElementChild);
             });
         }
-        
-        // Initial render
+
         renderMaterials(customDecks);
-        
-        // ── Unified filter ─────────────────────────────────────────────
+
+        // ── Filtering ──────────────────────────────────────────────────
         let activeCategory = 'all';
 
         function updateCounts() {
-            const cards = container.querySelectorAll('[data-category]');
+            const cards = container.querySelectorAll('.deck-card');
             const counts = { all: 0, 'Prof Ed': 0, 'Gen Ed': 0, 'Specialization': 0 };
             cards.forEach(card => {
-                if (card.tagName === 'A') return;
                 const cat = card.getAttribute('data-category') || 'all';
                 counts.all++;
                 if (counts[cat] !== undefined) counts[cat]++;
@@ -427,29 +377,26 @@
         }
 
         function filterDecks() {
-            const program  = document.getElementById('admin-program-filter')?.value  || 'all';
-            const category = document.getElementById('admin-category-filter')?.value || 'all';
-            const query    = (document.getElementById('admin-deck-search')?.value || '').toLowerCase();
+            const program = document.getElementById('program-filter')?.value || 'all';
+            const query   = (document.getElementById('deck-search')?.value || '').toLowerCase();
+            const cards   = container.querySelectorAll('.deck-card');
 
-            const cards = container.querySelectorAll('[data-programs]');
             cards.forEach(card => {
-                if (card.tagName === 'A') return;
                 const cardPrograms = JSON.parse(card.getAttribute('data-programs') || '["all"]');
                 const cardCategory = card.getAttribute('data-category') || '';
                 const title = (card.querySelector('h3')?.textContent || '').toLowerCase();
+                const desc  = (card.querySelector('p')?.textContent || '').toLowerCase();
 
-                const programMatch  = program  === 'all' || cardPrograms.includes('all') || cardPrograms.includes(program);
-                const categoryMatch = category === 'all' || cardCategory === category;
-                const tabMatch      = activeCategory === 'all' || cardCategory === activeCategory;
-                const searchMatch   = !query || title.includes(query);
+                const programMatch = program === 'all' || cardPrograms.includes('all') || cardPrograms.includes(program);
+                const tabMatch     = activeCategory === 'all' || cardCategory === activeCategory;
+                const searchMatch  = !query || title.includes(query) || desc.includes(query);
 
-                card.style.display = (programMatch && categoryMatch && tabMatch && searchMatch) ? 'flex' : 'none';
-                card.style.flexDirection = card.style.display === 'flex' ? 'column' : '';
+                card.style.display = (programMatch && tabMatch && searchMatch) ? 'flex' : 'none';
             });
         }
 
         // Category tabs
-        const categoryTabsNav = document.getElementById('admin-category-tabs');
+        const categoryTabsNav = document.getElementById('category-tabs');
         if (categoryTabsNav) {
             categoryTabsNav.addEventListener('click', (e) => {
                 const btn = e.target.closest('[data-category]');
@@ -469,24 +416,13 @@
             });
         }
 
-        // Program & category select + search
-        document.getElementById('admin-program-filter')?.addEventListener('change', filterDecks);
-        document.getElementById('admin-category-filter')?.addEventListener('change', filterDecks);
-        document.getElementById('admin-deck-search')?.addEventListener('input', filterDecks);
+        document.getElementById('program-filter')?.addEventListener('change', filterDecks);
+        document.getElementById('deck-search')?.addEventListener('input', filterDecks);
 
         updateCounts();
     });
 
-    function deleteMaterial(id) {
-        if (confirm('Are you sure you want to delete this material?')) {
-            const customDecks = JSON.parse(localStorage.getItem('customDecks') || '[]');
-            const filtered = customDecks.filter(d => d.id !== id);
-            localStorage.setItem('customDecks', JSON.stringify(filtered));
-            location.reload();
-        }
-    }
-
-    // Modal Control Logic
+    // ── Modal Controls ─────────────────────────────────────────────
     function closeModals() {
         document.getElementById('flashcard-modal').classList.add('hidden');
         document.getElementById('quiz-modal').classList.add('hidden');
@@ -497,7 +433,6 @@
         const customDecks = JSON.parse(localStorage.getItem('customDecks') || '[]');
         currentDeck = customDecks.find(d => d.id == id);
         if (!currentDeck || !currentDeck.cards.length) return;
-        
         currentIndex = 0;
         updateFlashcardUI();
         document.getElementById('flashcard-modal').classList.remove('hidden');
@@ -507,7 +442,6 @@
         const card = currentDeck.cards[currentIndex];
         document.getElementById('preview-front').innerText = card.front;
         document.getElementById('preview-back').innerText = card.options[card.answer];
-        
         const rat = document.getElementById('preview-rat');
         const ratCont = document.getElementById('preview-rat-container');
         if (card.rationalization) {
@@ -516,29 +450,22 @@
         } else {
             ratCont.classList.add('hidden');
         }
-
         document.getElementById('preview-index').innerText = currentIndex + 1;
         document.getElementById('preview-total').innerText = currentDeck.cards.length;
         document.getElementById('preview-card').classList.remove('rotate-y-180');
     }
 
     function nextCard() {
-        if (currentIndex < currentDeck.cards.length - 1) {
-            currentIndex++; updateFlashcardUI();
-        }
+        if (currentIndex < currentDeck.cards.length - 1) { currentIndex++; updateFlashcardUI(); }
     }
-
     function prevCard() {
-        if (currentIndex > 0) {
-            currentIndex--; updateFlashcardUI();
-        }
+        if (currentIndex > 0) { currentIndex--; updateFlashcardUI(); }
     }
 
     function previewQuiz(id) {
         const customDecks = JSON.parse(localStorage.getItem('customDecks') || '[]');
         currentDeck = customDecks.find(d => d.id == id);
         if (!currentDeck || !currentDeck.cards.length) return;
-
         currentIndex = 0;
         updateQuizUI();
         document.getElementById('quiz-modal').classList.remove('hidden');
@@ -548,10 +475,8 @@
         const card = currentDeck.cards[currentIndex];
         document.getElementById('quiz-status').innerText = `Question ${currentIndex + 1} of ${currentDeck.cards.length}`;
         document.getElementById('quiz-question').innerText = card.front;
-        
         const optionsCont = document.getElementById('quiz-options');
         optionsCont.innerHTML = '';
-        
         card.options.forEach((opt, i) => {
             if (!opt.trim()) return;
             const btn = document.createElement('button');
@@ -560,7 +485,6 @@
             btn.onclick = () => checkQuizAnswer(i);
             optionsCont.appendChild(btn);
         });
-
         document.getElementById('quiz-feedback').classList.add('hidden');
         document.getElementById('quiz-next-btn').classList.add('hidden');
     }
@@ -570,9 +494,7 @@
         const feedback = document.getElementById('quiz-feedback');
         const feedbackText = document.getElementById('quiz-feedback-text');
         const rationalization = document.getElementById('quiz-rationalization');
-        
         const isCorrect = index === card.answer;
-        
         feedback.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'bg-red-50', 'text-red-700');
         if (isCorrect) {
             feedback.classList.add('bg-green-50', 'text-green-700');
@@ -581,11 +503,8 @@
             feedback.classList.add('bg-red-50', 'text-red-700');
             feedbackText.innerText = `Incorrect. The correct answer was: ${card.options[card.answer]}`;
         }
-
         rationalization.innerText = card.rationalization || '';
         document.getElementById('quiz-next-btn').classList.remove('hidden');
-        
-        // Disable option buttons
         document.querySelectorAll('#quiz-options button').forEach(btn => btn.onclick = null);
     }
 
@@ -599,18 +518,14 @@
         }
     }
 
-    function closeModals() {
-        document.getElementById('flashcard-modal').classList.add('hidden');
-        document.getElementById('quiz-modal').classList.add('hidden');
-    }
-
     function deleteMaterial(id) {
         if (confirm('Are you sure you want to delete this material?')) {
             let decks = JSON.parse(localStorage.getItem('customDecks') || '[]');
-            decks = decks.filter(d => d.id != id);
+            decks = decks.filter(d => d.id !== id);
             localStorage.setItem('customDecks', JSON.stringify(decks));
-            window.location.reload();
+            location.reload();
         }
     }
 </script>
-</body></html>
+</body>
+</html>

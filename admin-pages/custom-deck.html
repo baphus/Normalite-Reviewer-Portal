@@ -37,179 +37,166 @@
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
-<div class="flex h-screen w-full relative">
-    <!-- Sidebar Backdrop -->
-    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
+<div class="flex h-screen w-full">
 
-    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col border-r border-[#e5e7eb] bg-white dark:bg-[#1a0a0a] dark:border-[#3a1a1a] transition-transform duration-300 -translate-x-full md:translate-x-0 md:static">
-        <div class="flex h-full flex-col justify-between p-4">
-            <div class="flex flex-col gap-6">
-                <div class="flex items-center justify-between px-2 py-2">
-                    <div class="flex items-center gap-3">
-                        <div class="bg-center bg-no-repeat bg-cover rounded-full h-10 w-10 shadow-sm border border-primary/20" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRPPNAtErCq7KnUYhj2JsmJNhkhexjuGMyftx05EykHw3q1BlzO-71-JUqsyQSFSiag1qAKfi6bcA9G4HUgLH1lLaFzKMl9DKsXWwXV0LdNJ02QNwnvh0WdIdFpy2zVJg73wjkd-PXjqbBElMEF5bOGlukZ5tUK9GGdjXWh5MWEDuPjDjM55USlSs5AGGZgVZmG8pOwiXYtj1yKgNzA-AvvZAO9x3_VXoFCpwqbuUsTJFM7b4mNxI7kjy_2gqMFqaI0pkK4DcIYkVd");'></div>
-                        <div class="flex flex-col">
-                            <h1 class="text-primary text-lg font-bold leading-tight tracking-tight">Normalite EDGE</h1>
-                            <p class="text-gray-500 text-xs font-normal">Admin Portal</p>
-                        </div>
-                    </div>
-                    <button id="close-sidebar" class="p-1 text-gray-400 hover:text-gray-600 md:hidden">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <nav class="flex flex-col gap-1">
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="dashboard.html">
-                        <span class="material-symbols-outlined text-[20px]">dashboard</span>
-                        <p class="text-sm font-medium">Dashboard</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="exams.html">
-                        <span class="material-symbols-outlined text-[20px]">assignment</span>
-                        <p class="text-sm font-medium">Exams</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-colors shadow-sm shadow-primary/10" href="study.html">
-                        <span class="material-symbols-outlined text-[20px] font-variation-settings-'FILL'1">style</span>
-                        <p class="text-sm font-medium">Study</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="users.html">
-                        <span class="material-symbols-outlined text-[20px]">group</span>
-                        <p class="text-sm font-medium">Users</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="video-conferences.html">
-                        <span class="material-symbols-outlined text-[20px]">video_call</span>
-                        <p class="text-sm font-medium">Video Conferences</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="logs.html">
-                        <span class="material-symbols-outlined text-[20px]">event_note</span>
-                        <p class="text-sm font-medium">Logs</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="settings.html">
-                        <span class="material-symbols-outlined text-[20px]">settings</span>
-                        <p class="text-sm font-medium">Settings</p>
-                    </a>
-                </nav>
-            </div>
-            <div class="flex flex-col gap-4 border-t border-gray-100 pt-4 dark:border-white/10">
-                <div class="flex items-center gap-3 px-2">
-                    <div class="h-9 w-9 rounded-full bg-gray-200 bg-cover bg-center border border-gray-300" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlj7X3FeByZgwcrzsXQJwePv-4yl8HA3bmTcnNF5lOgngG9vpjm_kyYznzAPZgPVIZ-iMHlmeLbCxxpq7CR0YM-1BmepRG_eeyil5lqU2SlUhs9CHW8_FrpUtQdHmoXzl8DTzoy5_otYgexhRADm4-hnUyPM1rjk5okTceIRQral4XdpNixjnPxWisoyjD-rAs9h-1yU_deBaVQXXGAgGafWOKjyID8Bj0sZqv-7JuPA06AKS6bvqdQNAoiXA1T1tArTvVkGymOOhr");'></div>
-                    <div class="flex flex-col overflow-hidden">
-                        <p class="text-sm font-medium text-gray-900 dark:text-white truncate">System Admin</p>
-                        <p class="text-xs text-gray-500 truncate">Administrator</p>
-                    </div>
-                </div>
-                <button class="flex w-full items-center gap-2 justify-center rounded-lg h-9 px-4 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10" onclick="window.location.href='../login.html'">
-                    <span class="material-symbols-outlined text-[18px]">logout</span>
-                    <span>Log Out</span>
-                </button>
-            </div>
-        </div>
-    </aside>
+    <div id="sidebar-container"></div>
+<script src="../components/sidebar.js"></script>
 
     <main class="flex-1 flex flex-col h-screen overflow-hidden bg-background-light dark:bg-background-dark relative">
-        <header class="bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10 px-6 py-6 shrink-0 z-10 transition-colors">
+        <!-- Mobile Header -->
+        <div class="md:hidden flex shrink-0 items-center justify-between p-4 bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10">
+            <div class="flex items-center gap-2">
+                <div class="bg-primary/10 p-1.5 rounded-md"><span class="material-symbols-outlined text-primary">school</span></div>
+                <span class="font-bold text-lg text-primary">Normalite EDGE</span>
+            </div>
+            <button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/10" id="mobile-menu-button">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+
+        <!-- Desktop Header -->
+        <header class="bg-white dark:bg-[#1a0a0a] border-b border-gray-200 dark:border-white/10 px-6 py-6 shrink-0 z-10">
             <div class="container mx-auto max-w-6xl">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div class="flex items-center gap-4">
-                        <button id="open-sidebar" class="p-2 -ml-2 text-gray-400 hover:text-gray-600 md:hidden transition-colors">
-                            <span class="material-symbols-outlined">menu</span>
-                        </button>
-                        <div>
-                            <nav class="flex items-center text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
-                                <a class="hover:text-primary transition-colors" href="study.html">Study Support</a>
-                                <span class="mx-2 text-gray-300">/</span>
-                                <span class="text-primary">Material Builder</span>
-                            </nav>
-                            <h2 class="text-2xl font-black text-gray-900 dark:text-white tracking-tight">Create Study Material</h2>
-                        </div>
+                    <div>
+                        <nav class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                            <a class="hover:text-primary transition-colors" href="study.html">Study</a>
+                            <span class="mx-2 text-gray-300">/</span>
+                            <span class="text-gray-900 dark:text-white font-medium" id="breadcrumb-title">Create New Deck</span>
+                        </nav>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white" id="page-title">Create Study Material</h2>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Input your questions and answers; they will automatically convert into both Flashcards and Study Quizzes.</p>
                     </div>
                     <div class="flex items-center gap-3">
-                        <button onclick="window.location.href='study.html'" class="px-5 py-2.5 rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold uppercase tracking-wider transition-all dark:bg-white/5 dark:border-white/10 dark:text-gray-300">Discard</button>
-                        <button id="save-deck-btn" onclick="saveDeck()" class="px-5 py-2.5 rounded-xl bg-primary text-white hover:bg-primary/90 text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-primary/20">Save Material</button>
+                        <button onclick="window.location.href='study.html'" class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-medium transition-colors dark:bg-white/5 dark:border-white/10 dark:text-gray-300">Discard</button>
+                        <button id="save-deck-btn" onclick="saveDeck()" class="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 text-sm font-medium transition-colors shadow-sm shadow-primary/20">Create Deck</button>
                     </div>
                 </div>
             </div>
         </header>
 
-        <div class="flex-1 overflow-y-auto custom-scrollbar">
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto">
             <div class="container mx-auto max-w-6xl px-6 py-8 space-y-6">
-                <!-- Info Section -->
-                <section class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-200 dark:border-white/10 p-8 shadow-sm transition-all overflow-hidden relative group">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-500"></div>
-                    <h3 class="text-sm font-black text-primary uppercase tracking-widest mb-6 flex items-center gap-2">
-                        <span class="w-8 h-[2px] bg-primary"></span>
-                        Basic Information
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+                <!-- Deck Information -->
+                <section class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-200 dark:border-white/10 p-6">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-6">Deck Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="md:col-span-2">
-                            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Material Title</label>
-                            <input id="deck-title" class="w-full h-12 px-4 rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm font-medium focus:border-primary focus:ring-primary transition-all" type="text" placeholder="e.g., LET Review - English Terminology" />
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Deck Title</label>
+                            <input id="deck-title" class="w-full rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm focus:border-primary focus:ring-primary" type="text" placeholder="e.g., LET Review - English Terminology" />
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Subject Category</label>
-                            <select id="deck-category" class="w-full h-12 px-4 rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm font-medium focus:border-primary focus:ring-primary transition-all">
-                                <option>General Education</option>
-                                <option>Professional Education</option>
-                                <option>Specialization</option>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Category</label>
+                            <select id="deck-category" class="w-full rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm focus:border-primary focus:ring-primary">
+                                <option value="Gen Ed">General Education</option>
+                                <option value="Prof Ed">Professional Education</option>
+                                <option value="Specialization">Specialization</option>
                             </select>
                         </div>
                         <div class="md:col-span-2">
-                            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Visible To (Programs)</label>
-                            <div class="text-xs text-gray-500 dark:text-gray-400 mb-2 normal-case">Select target programs for this material. Hold Ctrl/Cmd to select multiple.</div>
-                            <select id="deck-visibility-programs" multiple class="w-full px-4 py-3 rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm font-medium focus:border-primary focus:ring-primary transition-all" size="6">
-                                <option value="all" selected>All Programs</option>
-                                <option value="BEEd">BEEd - Elementary Education</option>
-                                <option value="BSEd-English">BSEd - English</option>
-                                <option value="BSEd-Mathematics">BSEd - Mathematics</option>
-                                <option value="BSEd-Science">BSEd - Science</option>
-                                <option value="BSEd-Filipino">BSEd - Filipino</option>
-                                <option value="BSEd-Social-Studies">BSEd - Social Studies</option>
-                                <option value="BSEd-MAPEH">BSEd - MAPEH</option>
-                                <option value="BSEd-TLE">BSEd - Technology and Livelihood Education</option>
-                            </select>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Visible To (Programs / Majorships)</label>
+                            <div id="deck-visibility-programs" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="all" checked>
+                                    <span>All Programs</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BSEd-Mathematics">
+                                    <span>BSEd - Mathematics</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BSEd-Science">
+                                    <span>BSEd - Science</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BSEd-English">
+                                    <span>BSEd - English</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BSEd-Filipino">
+                                    <span>BSEd - Filipino</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BSEd-Social-Studies">
+                                    <span>BSEd - Social Studies</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BSEd-Values-Education">
+                                    <span>BSEd - Values Education</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BTLEd-Home-Economics">
+                                    <span>BTLEd - Home Economics</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BPE">
+                                    <span>Bachelor of Physical Education</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BCAE">
+                                    <span>Bachelor of Culture &amp; Arts Education</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BEEd">
+                                    <span>Bachelor of Elementary Education</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BECEd">
+                                    <span>Bachelor of Early Childhood Education</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="BSNEd">
+                                    <span>Bachelor of Special Needs Education</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary" value="DPE">
+                                    <span>Diploma in Professional Education</span>
+                                </label>
+                            </div>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Select one or more audiences. Uncheck "All Programs" to target specific programs or majors.</p>
                         </div>
                         <div class="md:col-span-2">
-                            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Brief Description</label>
-                            <textarea id="deck-desc" class="w-full p-4 rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm font-medium focus:border-primary focus:ring-primary transition-all" rows="2" placeholder="Describe what this material covers..."></textarea>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Description</label>
+                            <textarea id="deck-desc" class="w-full rounded-xl border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white text-sm focus:border-primary focus:ring-primary" rows="3" placeholder="Add a short description for your deck..."></textarea>
                         </div>
                     </div>
                 </section>
 
-                <!-- Builder Section -->
-                <section class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-200 dark:border-white/10 p-8 shadow-sm transition-all overflow-hidden">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-gray-100 dark:border-white/5 pb-6">
-                        <div class="flex flex-col gap-2">
-                            <h3 class="text-sm font-black text-primary uppercase tracking-widest flex items-center gap-2">
-                                <span class="w-8 h-[2px] bg-primary"></span>
-                                Question Builder
-                            </h3>
-                            <div class="flex items-center gap-4">
+                <!-- Questions & Answers -->
+                <section class="bg-white dark:bg-[#1a0a0a] rounded-2xl border border-gray-200 dark:border-white/10 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Questions & Answers</h3>
+                            <div class="flex items-center gap-3">
                                 <div class="flex items-center gap-2">
                                     <label for="import-json" class="cursor-pointer px-3 py-1.5 rounded-lg border border-primary/20 bg-primary/5 text-primary hover:bg-primary/10 text-[10px] font-bold uppercase transition-all flex items-center gap-2">
                                         <span class="material-symbols-outlined text-[16px]">upload_file</span>
-                                        Batch Import
+                                        Import JSON/CSV
                                     </label>
                                     <input type="file" id="import-json" accept=".json,.csv" class="hidden" onchange="handleFileImport(event)" />
                                 </div>
                                 <div class="h-4 w-[1px] bg-gray-200 dark:bg-white/10"></div>
                                 <div class="flex items-center gap-2">
-                                    <span class="text-[10px] font-bold text-gray-400 uppercase">Templates:</span>
-                                    <button onclick="downloadTemplate('csv')" class="text-xs font-bold text-primary/60 hover:text-primary transition-colors flex items-center gap-1">
+                                    <span class="text-[10px] font-bold text-gray-400 uppercase">Download Template:</span>
+                                    <button onclick="downloadTemplate('csv')" class="text-xs font-medium text-gray-500 hover:text-primary transition-colors flex items-center gap-1">
                                         <span class="material-symbols-outlined text-[14px]">download</span> CSV
                                     </button>
-                                    <button onclick="downloadTemplate('json')" class="text-xs font-bold text-primary/60 hover:text-primary transition-colors flex items-center gap-1">
+                                    <button onclick="downloadTemplate('json')" class="text-xs font-medium text-gray-500 hover:text-primary transition-colors flex items-center gap-1">
                                         <span class="material-symbols-outlined text-[14px]">download</span> JSON
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <button onclick="addCard()" class="h-10 px-5 rounded-xl border-2 border-primary/20 text-primary hover:bg-primary hover:border-primary hover:text-white text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-2" type="button">
-                            <span class="material-symbols-outlined text-[18px]">add_circle</span>
-                            Add Question
+                        <button onclick="addCard()" class="px-3 py-2 rounded-lg border border-primary/20 bg-white text-primary hover:bg-primary/5 text-xs font-bold transition-all" type="button">
+                            <span class="material-symbols-outlined text-[18px] align-middle">add</span>
+                            Add Card
                         </button>
                     </div>
-
-                    <div id="cards-container" class="space-y-8">
-                        <!-- Advanced Cards will be injected here -->
+                    <div id="cards-container" class="space-y-6">
+                        <!-- Cards will be injected here -->
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </main>
@@ -220,130 +207,105 @@
     let editId = null;
 
     document.addEventListener('DOMContentLoaded', () => {
-        // Sidebar controls
-        const sidebar = document.getElementById('sidebar');
-        const backdrop = document.getElementById('sidebar-backdrop');
-        const openBtn = document.getElementById('open-sidebar');
-        const closeBtn = document.getElementById('close-sidebar');
+        // ── Sidebar & Mobile Menu ──────────────────────────────────────
+        }
 
-        if (openBtn) openBtn.onclick = () => { sidebar.classList.remove('-translate-x-full'); backdrop.classList.remove('hidden'); };
-        if (closeBtn) closeBtn.onclick = () => { sidebar.classList.add('-translate-x-full'); backdrop.classList.add('hidden'); };
-        if (backdrop) backdrop.onclick = () => { sidebar.classList.add('-translate-x-full'); backdrop.classList.add('hidden'); };
+        if (mobileMenuButton)
+        if (closeSidebarButton)
+        if (sidebarBackdrop)
 
-        // Check for edit mode
+        // ── Edit Mode Check ────────────────────────────────────────────
         const urlParams = new URLSearchParams(window.location.search);
         const editParam = urlParams.get('edit');
         if (editParam) {
             loadDeckForEdit(editParam);
         } else {
-            addCard(); // Initial empty card
+            addCard();
         }
     });
 
     function loadDeckForEdit(id) {
         const customDecks = JSON.parse(localStorage.getItem('customDecks') || '[]');
         const deck = customDecks.find(d => d.id == id);
-        
+
         if (deck) {
             editMode = true;
             editId = id;
-            document.querySelector('h2').innerText = 'Edit Study Material';
-            document.getElementById('save-deck-btn').innerText = 'Update Material';
+            document.getElementById('page-title').innerText = 'Edit Study Material';
+            document.getElementById('breadcrumb-title').innerText = 'Edit Deck';
+            document.getElementById('save-deck-btn').innerText = 'Update Deck';
             document.title = 'Edit Study Material - Normalite EDGE Admin';
 
-            document.getElementById('deck-title').value = deck.title;
-            document.getElementById('deck-category').value = deck.category;
-            document.getElementById('deck-desc').value = deck.description;
-            
-            // Load visible programs
-            const programSelect = document.getElementById('deck-visibility-programs');
-            if (deck.visibleTo && programSelect) {
-                Array.from(programSelect.options).forEach(option => {
-                    option.selected = deck.visibleTo.includes(option.value);
+            document.getElementById('deck-title').value = deck.title || '';
+            document.getElementById('deck-category').value = deck.category || 'Gen Ed';
+            document.getElementById('deck-desc').value = deck.description || '';
+
+            const visibilityContainer = document.getElementById('deck-visibility-programs');
+            if (deck.visibleTo && visibilityContainer) {
+                visibilityContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                    cb.checked = deck.visibleTo.includes(cb.value);
                 });
             }
 
             const container = document.getElementById('cards-container');
             container.innerHTML = '';
-            deck.cards.forEach(card => addCard(card));
+            if (deck.cards && deck.cards.length > 0) {
+                deck.cards.forEach(card => addCard(card));
+            } else {
+                addCard();
+            }
         }
     }
 
     function addCard(data = {}) {
         const container = document.getElementById('cards-container');
         const cardId = Date.now() + Math.random();
-        
+
         const questionText = data.front || data.question || '';
         const rationalizationText = data.rationalization || data.explanation || '';
         const options = data.options || (data.back ? [data.back, '', '', ''] : ['', '', '', '']);
-        
+
         let correctAnswerIndex = 0;
         if (data.correct_answer_index !== undefined) correctAnswerIndex = parseInt(data.correct_answer_index);
         else if (data.answer !== undefined) correctAnswerIndex = parseInt(data.answer);
+        else if (data.correctIndex !== undefined) correctAnswerIndex = parseInt(data.correctIndex);
+        else if (data.correct !== undefined) correctAnswerIndex = parseInt(data.correct);
 
         const cardHtml = `
-            <div class="card-item relative p-8 rounded-3xl bg-gray-50/50 dark:bg-white/[0.02] border border-gray-100 dark:border-white/5 hover:border-primary/20 hover:bg-white dark:hover:bg-white/[0.04] transition-all duration-300 group">
-                <div class="absolute -left-3 top-8 w-1 h-12 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                
-                <button onclick="this.closest('.card-item').remove()" class="absolute top-6 right-6 w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-red-500 hover:bg-red-50 transition-all opacity-0 group-hover:opacity-100">
+            <div class="card-item p-6 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 relative group animate-in slide-in-from-top-2 duration-300">
+                <button onclick="this.closest('.card-item').remove()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
                     <span class="material-symbols-outlined text-[20px]">delete</span>
                 </button>
-
-                <div class="space-y-8">
+                <div class="space-y-6">
                     <div>
-                        <label class="block text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-3">Question Content</label>
-                        <textarea class="card-front w-full p-4 rounded-2xl border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm font-medium focus:ring-primary focus:border-primary transition-all" rows="2" placeholder="e.g., Which teaching approach focuses on the learner's active participation?">${questionText}</textarea>
+                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Question / Front</label>
+                        <textarea class="card-front w-full rounded-lg border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm focus:ring-primary focus:border-primary" rows="2" placeholder="e.g., What is Pedagogy?">${questionText}</textarea>
                     </div>
-                    
-                    <div>
-                        <label class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4">Options & Correct Answer</label>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            ${['A', 'B', 'C', 'D'].map((letter, i) => `
-                            <div class="relative group/option">
-                                <div class="flex items-center justify-between mb-2 px-1">
-                                    <span class="text-[10px] font-bold text-gray-400 capitalize">Option ${letter}</span>
-                                    <label class="flex items-center gap-2 cursor-pointer">
-                                        <input type="radio" name="correct-${cardId}" value="${i}" ${i === correctAnswerIndex ? 'checked' : ''} class="card-correct-radio w-3.5 h-3.5 text-primary focus:ring-primary border-gray-300 transition-all">
-                                        <span class="text-[9px] font-black text-gray-500 uppercase tracking-wider group-has-[:checked]/option:text-primary transition-colors">SET CORRECT</span>
-                                    </label>
-                                </div>
-                                <input type="text" class="card-option-${i} w-full h-11 px-4 rounded-xl border-gray-200 dark:border-white/10 bg-white dark:bg-white/[0.03] text-sm font-medium focus:ring-primary focus:border-primary group-has-[:checked]/option:border-primary/40 group-has-[:checked]/option:bg-primary/[0.02] transition-all" 
-                                    placeholder="${i === 0 ? 'Enter option text...' : 'Enter distractor...'}" value="${options[i] || ''}">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        ${['A', 'B', 'C', 'D'].map((letter, i) => `
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wide">Option ${letter}</label>
+                                <label class="flex items-center gap-1.5 cursor-pointer">
+                                    <input type="radio" name="correct-${cardId}" value="${i}" ${i === correctAnswerIndex ? 'checked' : ''} class="card-correct-radio w-3 h-3 text-primary focus:ring-primary border-gray-300">
+                                    <span class="text-[10px] font-bold text-gray-500 uppercase">Correct</span>
+                                </label>
                             </div>
-                            `).join('')}
+                            <input type="text" class="card-option-${i} w-full rounded-lg border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm focus:ring-primary focus:border-primary"
+                                placeholder="${i === 0 ? 'e.g., The method of teaching' : 'Distractor ' + i}" value="${options[i] || ''}">
                         </div>
+                        `).join('')}
                     </div>
 
-                    <div class="pt-4 border-t border-gray-100 dark:border-white/5">
-                        <label class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-3">Rationalization (Visible during review)</label>
-                        <textarea class="card-rationalization w-full p-4 rounded-2xl border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm font-medium italic focus:ring-primary focus:border-primary transition-all" rows="2" placeholder="Explain the logic behind the correct answer...">${rationalizationText}</textarea>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Rationalization (Optional explanation for review)</label>
+                        <textarea class="card-rationalization w-full rounded-lg border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm focus:ring-primary focus:border-primary" rows="2" placeholder="Explain why the answer is correct...">${rationalizationText}</textarea>
                     </div>
                 </div>
             </div>
         `;
         container.insertAdjacentHTML('beforeend', cardHtml);
-    }
-
-    function collectCards() {
-        const cards = [];
-        document.querySelectorAll('.card-item').forEach(item => {
-            const front = item.querySelector('.card-front').value;
-            const options = [
-                item.querySelector('.card-option-0').value,
-                item.querySelector('.card-option-1').value,
-                item.querySelector('.card-option-2').value,
-                item.querySelector('.card-option-3').value
-            ];
-            
-            const radioChecked = item.querySelector('input[type="radio"]:checked');
-            const answer = radioChecked ? parseInt(radioChecked.value) : 0;
-            const rationalization = item.querySelector('.card-rationalization').value;
-            
-            if (front.trim() && options.some(opt => opt.trim() !== '')) {
-                cards.push({ front, options, answer, rationalization });
-            }
-        });
-        return cards;
     }
 
     function handleFileImport(event) {
@@ -363,22 +325,35 @@
                 } else if (fileName.endsWith('.csv')) {
                     const lines = content.split('\n');
                     if (lines.length < 2) return;
+
                     const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/["']/g, ''));
                     for (let i = 1; i < lines.length; i++) {
                         const line = lines[i].trim();
                         if (!line) continue;
+
                         const values = line.split(',').map(v => v.trim().replace(/^"(.*)"$/, '$1'));
                         const cardData = { options: [] };
+
                         headers.forEach((header, index) => {
-                            if (header === 'question' || header === 'front') cardData.front = values[index];
-                            else if (header === 'option1') cardData.options[0] = values[index];
-                            else if (header === 'option2') cardData.options[1] = values[index];
-                            else if (header === 'option3') cardData.options[2] = values[index];
-                            else if (header === 'option4') cardData.options[3] = values[index];
-                            else if (header === 'answer') cardData.answer = parseInt(values[index]) || 0;
-                            else if (header === 'rationalization') cardData.rationalization = values[index];
+                            if (header === 'front' || header === 'question') {
+                                cardData.front = values[index];
+                            } else if (header === 'options') {
+                                cardData.options = values[index] ? values[index].split('|') : [];
+                            } else if (header === 'option1' || header === 'a') {
+                                cardData.options[0] = values[index];
+                            } else if (header === 'option2' || header === 'b') {
+                                cardData.options[1] = values[index];
+                            } else if (header === 'option3' || header === 'c') {
+                                cardData.options[2] = values[index];
+                            } else if (header === 'option4' || header === 'd') {
+                                cardData.options[3] = values[index];
+                            } else if (header === 'answer' || header === 'correct' || header === 'correct_answer_index' || header === 'correctindex') {
+                                cardData.answer = parseInt(values[index]) || 0;
+                            } else if (header === 'rationalization' || header === 'explanation') {
+                                cardData.rationalization = values[index];
+                            }
                         });
-                        if (cardData.front) cards.push(cardData);
+                        cards.push(cardData);
                     }
                 }
 
@@ -388,10 +363,11 @@
                         container.innerHTML = '';
                     }
                     cards.forEach(card => addCard(card));
-                    alert(`Import Success: Added ${cards.length} items.`);
+                    alert(`Successfully imported ${cards.length} questions!`);
                 }
             } catch (err) {
-                alert('Import Failed: Check file structure.');
+                console.error(err);
+                alert('Error importing file. Please check the format.');
             }
         };
         reader.readAsText(file);
@@ -399,38 +375,89 @@
     }
 
     function downloadTemplate(type) {
-        let content = ''; let filename = ''; let mimeType = '';
+        let content = '';
+        let filename = '';
+        let mimeType = '';
+
         if (type === 'json') {
-            content = JSON.stringify([{ "question": "The capital of France?", "options": ["Paris", "London", "Berlin", "Madrid"], "correct_answer_index": 0, "explanation": "Paris is the historical capital." }], null, 2);
-            filename = 'Normalite_Study_Template.json'; mimeType = 'application/json';
+            const template = [
+                {
+                    "question": "What is the capital of France?",
+                    "options": ["London", "Berlin", "Paris", "Madrid"],
+                    "correct_answer_index": 2,
+                    "explanation": "Paris is the capital and most populous city of France."
+                }
+            ];
+            content = JSON.stringify(template, null, 2);
+            filename = 'study_material_template.json';
+            mimeType = 'application/json';
         } else {
-            content = 'question,option1,option2,option3,option4,answer,rationalization\n"Which planet is known as the Red Planet?","Mars","Venus","Jupiter","Saturn",0,"Mars is red due to iron oxide."';
-            filename = 'Normalite_Study_Template.csv'; mimeType = 'text/csv';
+            content = 'question,option1,option2,option3,option4,correct_answer_index,explanation\n' +
+                      '"What is the capital of France?","London","Berlin","Paris","Madrid",2,"Paris is the capital of France."';
+            filename = 'study_material_template.csv';
+            mimeType = 'text/csv';
         }
+
         const blob = new Blob([content], { type: mimeType });
         const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a'); a.href = url; a.download = filename;
-        document.body.appendChild(a); a.click();
-        window.URL.revokeObjectURL(url); document.body.removeChild(a);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
     }
 
     function saveDeck() {
         const title = document.getElementById('deck-title').value;
         const category = document.getElementById('deck-category').value;
         const description = document.getElementById('deck-desc').value;
-        
-        // Get visible programs
-        const programSelect = document.getElementById('deck-visibility-programs');
-        const selectedPrograms = Array.from(programSelect.selectedOptions).map(opt => opt.value);
-        
-        if (!title.trim()) { alert('Title is required.'); return; }
-        if (selectedPrograms.length === 0) { alert('Please select at least one program for visibility.'); return; }
-        
-        const cards = collectCards();
-        if (cards.length === 0) { alert('Add at least one question.'); return; }
+
+        const visibilityContainer = document.getElementById('deck-visibility-programs');
+        const selectedPrograms = Array.from(visibilityContainer.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+
+        if (!title.trim()) {
+            alert('Please enter a deck title');
+            return;
+        }
+
+        if (selectedPrograms.length === 0) {
+            alert('Please select at least one program for visibility');
+            return;
+        }
+
+        const cards = [];
+        document.querySelectorAll('.card-item').forEach(item => {
+            const front = item.querySelector('.card-front').value;
+            const options = [
+                item.querySelector('.card-option-0').value,
+                item.querySelector('.card-option-1').value,
+                item.querySelector('.card-option-2').value,
+                item.querySelector('.card-option-3').value
+            ].filter(opt => opt.trim() !== '');
+
+            const radioChecked = item.querySelector('input[type="radio"]:checked');
+            const answer = radioChecked ? parseInt(radioChecked.value) : 0;
+            const rationalization = item.querySelector('.card-rationalization').value;
+
+            if (front.trim() && options.length > 0) {
+                cards.push({
+                    front,
+                    options: options.length === 0 ? ['No options provided'] : options,
+                    answer: answer >= options.length ? 0 : answer,
+                    rationalization
+                });
+            }
+        });
+
+        if (cards.length === 0) {
+            alert('Please add at least one card with a question and correct answer.');
+            return;
+        }
 
         const customDecks = JSON.parse(localStorage.getItem('customDecks') || '[]');
-        
+
         if (editMode) {
             const index = customDecks.findIndex(d => d.id == editId);
             if (index !== -1) {
@@ -445,17 +472,22 @@
             }
         } else {
             customDecks.push({
-                id: Date.now(), title, category, description,
-                cardCount: cards.length, cards: cards, mastery: 0,
-                dateCreated: new Date().toISOString(),
-                isSystemMaterial: true,
+                id: Date.now(),
+                title,
+                category,
+                description,
+                cardCount: cards.length,
+                cards: cards,
+                mastery: 0,
                 visibleTo: selectedPrograms,
-                status: 'Published'
+                isSystemMaterial: true,
+                status: 'Published',
+                dateCreated: new Date().toISOString()
             });
         }
-        
+
         localStorage.setItem('customDecks', JSON.stringify(customDecks));
-        alert(editMode ? 'Material updated!' : 'Material published!');
+        alert(editMode ? 'Material updated successfully!' : 'Material published successfully!');
         window.location.href = 'study.html';
     }
 </script>

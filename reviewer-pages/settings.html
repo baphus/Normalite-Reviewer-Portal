@@ -52,63 +52,9 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#1d0c0c] dark:text-white font-display overflow-hidden">
 <div class="flex h-screen w-full relative">
-    <!-- Sidebar Backdrop -->
-    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
 
-    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col border-r border-[#e5e7eb] bg-white dark:bg-[#1a0a0a] dark:border-[#3a1a1a] transition-transform duration-300 -translate-x-full md:translate-x-0 md:static">
-        <div class="flex h-full flex-col justify-between p-4">
-            <div class="flex flex-col gap-6">
-                <div class="flex items-center justify-between px-2 py-2">
-                    <div class="flex items-center gap-3">
-                        <div class="bg-center bg-no-repeat bg-cover rounded-full h-10 w-10 shadow-sm border border-primary/20" style='background-image: url("https://img.icons8.com/color/512/university.png");'></div>
-                        <div class="flex flex-col">
-                            <h1 class="text-primary text-lg font-bold leading-tight tracking-tight">Normalite EDGE</h1>
-                            <p class="text-gray-500 text-xs font-normal">Reviewer Portal</p>
-                        </div>
-                    </div>
-                    <button id="close-sidebar" class="p-1 text-gray-400 hover:text-gray-600 md:hidden">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <nav class="flex flex-col gap-1">
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="dashboard.html">
-                        <span class="material-symbols-outlined text-[20px]">dashboard</span>
-                        <p class="text-sm font-medium">Dashboard</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="exams.html">
-                        <span class="material-symbols-outlined text-[20px]">assignment</span>
-                        <p class="text-sm font-medium">Exams</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="study.html">
-                        <span class="material-symbols-outlined text-[20px]">style</span>
-                        <p class="text-sm font-medium">Study</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors" href="video-conferences.html">
-                        <span class="material-symbols-outlined text-[20px]">video_call</span>
-                        <p class="text-sm font-medium">Video Conferences</p>
-                    </a>
-                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-colors shadow-sm shadow-primary/10 font-semibold" href="settings.html">
-                        <span class="material-symbols-outlined text-[20px] font-variation-settings-'FILL'1">settings</span>
-                        <p class="text-sm font-medium">Settings</p>
-                    </a>
-                </nav>
-            </div>
-            <div class="flex flex-col gap-4 border-t border-gray-100 pt-4 dark:border-white/10">
-                <div class="flex items-center gap-3 px-2">
-                    <div class="h-9 w-9 rounded-full bg-gray-200 bg-cover bg-center border border-gray-300"></div>
-                    <div class="flex flex-col overflow-hidden">
-                        <p class="text-sm font-medium text-gray-900 dark:text-white truncate">Reviewer</p>
-                        <p class="text-xs text-gray-500 truncate">Reviewer</p>
-                    </div>
-                </div>
-                <button id="notification-button" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary dark:text-gray-300 dark:hover:bg-white/5 transition-colors w-full">
-                    <span class="material-symbols-outlined text-[20px]">notifications</span>
-                    <p class="text-sm font-medium">Notifications</p>
-                    <span class="ml-auto bg-red-500 text-white text-[10px] h-4 w-4 flex items-center justify-center rounded-full">3</span>
-                </button>
-            </div>
-        </div>
-    </aside>
+    <div id="sidebar-container"></div>
+<script src="../components/sidebar.js"></script>
     <main class="flex-1 flex flex-col min-w-0 overflow-hidden bg-background-light dark:bg-background-dark">
         <!-- Mobile Header -->
         <header class="h-16 flex items-center justify-between px-4 bg-white dark:bg-[#1a0a0a] border-b border-gray-100 dark:border-white/5 md:hidden shrink-0">
@@ -287,21 +233,8 @@
 </div>
     <script>
         // Sidebar & Notification Toggle Logic
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeSidebarButton = document.getElementById('close-sidebar');
-        const sidebar = document.getElementById('sidebar');
-        const sidebarBackdrop = document.getElementById('sidebar-backdrop');
         const notificationButton = document.getElementById('notification-button');
         const notificationPanel = document.getElementById('notification-panel');
-
-        function toggleSidebar() {
-            sidebar.classList.toggle('-translate-x-full');
-            sidebarBackdrop.classList.toggle('hidden');
-        }
-
-        function toggleNotifications() {
-            notificationPanel.classList.toggle('hidden');
-        }
 
         mobileMenuButton?.addEventListener('click', toggleSidebar);
         closeSidebarButton?.addEventListener('click', toggleSidebar);
